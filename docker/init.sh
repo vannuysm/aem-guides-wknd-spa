@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec java $AEM_JVM_OPTS $AEM_RUNMODE -jar $AEM_JARFILE $AEM_START_OPTS

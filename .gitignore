@@ -102,3 +102,7 @@ coverage/
 
 # Visual Studio Code
 .vscode/
+
+# Docker
+docker/downloads
+*.env

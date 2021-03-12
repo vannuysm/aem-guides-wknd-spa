@@ -1,0 +1,46 @@
+
+
+
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptytext="Breadcrumb"></div>
+
+
+<nav class="${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}" aria-label="You are here:" role="navigation" data-sly-use.model="com.wyndham.redesign.core.models.BreadCrumbModel" data-sly-use.template="core/wcm/components/commons/v1/templates.html">
+	<ul class="breadcrumbs" data-sly-list.item="${model.breadCrumbNav}">
+		<li>
+			<sly data-sly-test="${model.breadCrumbNav.count==item.index}">
+				<a href="${item.link}" class="gaChecker" aria-current="page" data-clickUrl="${item.link}"
+				data-eventName="breadCrumb" data-eventCategory="breadCrumb" data-eventAction="click"
+				data-eventLabel="${item.title}"
+				data-eventValue="">${item.title}</a>
+			</sly>
+			<sly data-sly-test="${!(model.breadCrumbNav.count==item.index)}">
+				<a href="${item.link}" data-clickUrl="${item.link}"
+				data-eventName="breadCrumb" data-eventCategory="breadCrumb" data-eventAction="click"
+				data-eventLabel="${item.title}"
+				data-eventValue="">${item.title}</a>
+			</sly>
+		</li>
+	</ul>
+</nav>
+
+
+
+
+
+<!-- <div class="wyn-l-large-wrapper" gtm_component_type="${resource.resourceType}">
+<nav aria-label="Breadcrumb" class="wyn-breadcrumbs"
+ data-sly-use.model="com.wyndham.redesign.core.models.BreadCrumbModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html">
+          <ol data-sly-list.item="${model.breadCrumbNav}" style="margin-top:${contentDesign.topMargin @ context='styleString'}px;margin-bottom:${contentDesign.bottomMargin @ context='styleString'}px;padding-top:${contentDesign.topPadding @ context='styleString'}px;padding-bottom:${contentDesign.bottomPadding @ context='styleString'}px">
+          	    <li>
+			    	<sly data-sly-test="${model.breadCrumbNav.count==item.index}">
+			        	<a href="${item.link}" aria-current="page">${item.title}</a>
+			        </sly>
+			        <sly data-sly-test="${!(model.breadCrumbNav.count==item.index)}">
+			        	<a href="${item.link}">${item.title}</a>
+			        </sly>
+			    </li>
+          </ol>
+ </nav>
+</div> -->

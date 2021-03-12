@@ -1,0 +1,212 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptytext="GeneralAlert"></div>
+
+<div id="${properties.id}" data-permenance="${properties.cookiePerm}"
+	class="scrollMargin bannerAlert  ${properties.stickyLocation} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+	data-closable style="display:none; background-color: ${properties.bgColor @context='unsafe'};"
+	data-loggedOut="${properties.LoggedOut?'true':''}" data-loggedIn="${properties.LoggedIn?'true':''}">
+
+
+	<div class="grid-container">
+		<div class="grid-x align-center-middle alertMinHeight">
+			<div class="cell small-12 text-left iconAlert show-for-small-only ">
+				<img src="${properties.imageSrc @context='unsafe'}">
+			</div>
+			<div class="cell medium-1 text-right iconAlert show-for-medium" style="padding-right:1rem;">
+				<img src="${properties.imageSrc @context='unsafe'}">
+			</div>
+
+			<div class="cell large-9 small-11 ">
+				<!-- <div class="caption-1">${properties.title @ context = 'html'}</div> -->
+
+				<sly data-sly-test="${properties.titleColor != 'custom'}">
+					<div class="caption-1 ${properties.titleColor}">${properties.title @ context = 'html'}</div>
+
+				</sly>
+				<sly data-sly-test="${properties.titleColor == 'custom'}">
+					<div class="caption-1" style="color:${properties.titleCust @context='unsafe'};">${properties.title @
+						context = 'html'}</div>
+
+				</sly>
+
+
+
+				<sly data-sly-test="${properties.bodyColor != 'custom'}">
+					<div class="body-2 ${properties.bodyColor}">${properties.body @ context = 'html'}</div>
+				</sly>
+				<sly data-sly-test="${properties.bodyColor == 'custom'}">
+					<div class="body-2" style="color:${properties.bodyCustColor @context='unsafe'};">${properties.body @
+						context = 'html'}</div>
+				</sly>
+
+			</div>
+			<sly data-sly-test="${properties.cookiePerm == 'perm'}">
+				<sly data-sly-test="${properties.typeAlert == 'close'}">
+					<div class="cell large-2 small-12">
+						<button class="close-button setCookie gaChecker" aria-label="Close alert" type="button"
+							data-close data-cookieName="${properties.cookieName}"
+							data-cookieValue="${properties.cookieValue}" data-cookieTime="${properties.cookieLength}"
+							data-clickUrl="Close With Cookie"
+							data-eventName="${properties.eventName ? properties.eventName : 'Alert'}"
+							data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Alert'}"
+							data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+							data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Closed With Cookie'}"
+							data-eventValue="">
+							<span aria-hidden="true"
+								style="color:${properties.ctaXBG @ context='styleToken'}">&times;</span>
+						</button>
+					</div>
+				</sly>
+				<sly data-sly-test="${properties.typeAlert == 'cta'}">
+					<div class="cell large-2 medium-2 small-12 text-right">
+						<sly data-sly-test="${properties.linkType == 'link'}">
+							<a href="${properties.linkSrc}" data-clickUrl="${properties.linkSrc}"
+								data-eventName="${properties.eventName ? properties.eventName : 'Alert'}"
+								data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Alert'}"
+								data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+								data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.title}${properties.eventLabel ? '' : ' With Cookie'}"
+								data-eventValue=""
+								class="button buttonAlert gaChecker  ${properties.hollow} ${properties.ctaColor} ${properties.ctaType} setCookie"
+								type="button"
+								style="background-color:${properties.ctaBG @context='unsafe'}; color:${properties.fontColor @context='unsafe'}; "
+								data-cookieName="${properties.cookieName}" data-cookieValue="${properties.cookieValue}"
+								data-cookieTime="${properties.cookieLength}">
+								${properties.ctaLabel}
+							</a>
+						</sly>
+						<sly data-sly-test="${properties.linkType == 'dataClose'}">
+							<button
+								class="button buttonAlert  ${properties.hollow} ${properties.ctaColor} ${properties.ctaType} setCookie gaChecker"
+								aria-label="Close alert" type="button" data-close
+								data-cookieName="${properties.cookieName}" data-cookieValue="${properties.cookieValue}"
+								data-cookieTime="${properties.cookieLength}" data-clickUrl="CloseWithCookie"
+								data-eventName="${properties.eventName ? properties.eventName : 'Alert'}"
+								data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Alert'}"
+								data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+								data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.title}"
+								data-eventValue="">
+								${properties.ctaLabel}
+							</button>
+						</sly>
+
+					</div>
+				</sly>
+				<sly data-sly-test="${properties.typeAlert == 'linkClose'}">
+					<div class="cell large-2 medium-2 small-12 text-right">
+						<button class="close-button closeMe" aria-label="Close alert" type="button" data-close>
+							<span aria-hidden="true"
+								style="color:${properties.ctaXBG @ context='styleToken'}">&times;</span>
+						</button>
+						<sly data-sly-test="${properties.linkType == 'link'}">
+							<a href="${properties.linkSrc}"
+								class="button buttonAlert gaChecker ${properties.hollow} ${properties.ctaColor} ${properties.ctaType} "
+								type="button"
+								style="background-color:${properties.ctaBG @context='unsafe'}; color:${properties.fontColor @context='unsafe'}; "
+								data-clickUrl="${properties.linkSrc}"
+								data-eventName="${properties.eventName ? properties.eventName : 'Alert'}"
+								data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Alert'}"
+								data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+								data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.title}"
+								data-eventValue="">
+								${properties.ctaLabel}
+							</a>
+						</sly>
+						<sly data-sly-test="${properties.linkType == 'dataClose'}">
+							<button
+								class="button buttonAlert closeMe ${properties.hollow} ${properties.ctaColor} gaChecker "
+								aria-label="Close alert" type="button"
+								data-eventName="${properties.eventName ? properties.eventName : 'Alert'}"
+								data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Alert'}"
+								data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+								data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.title}">
+								${properties.ctaLabel}
+							</button>
+						</sly>
+
+					</div>
+				</sly>
+
+			</sly>
+
+			<sly data-sly-test="${properties.cookiePerm != 'perm'}">
+				<sly data-sly-test="${properties.typeAlert == 'close'}">
+					<div class="cell large-2 small-12">
+						<button class="close-button closeMe gaChecker" aria-label="Close alert" type="button" data-close
+							data-eventName="${properties.eventName ? properties.eventName : 'Alert'}"
+							data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Alert'}"
+							data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+							data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.title}">
+							<span aria-hidden="true"
+								style="color:${properties.ctaXBG @ context='styleToken'}">&times;</span>
+						</button>
+					</div>
+				</sly>
+				<sly data-sly-test="${properties.typeAlert == 'cta'}">
+					<div class="cell large-2 medium-2 small-12 text-right">
+						<sly data-sly-test="${properties.linkType == 'link'}">
+							<a href="${properties.linkSrc}"
+								class="button buttonAlert ${properties.hollow} ${properties.ctaColor} ${properties.ctaType} gaChecker"
+								type="button"
+								style="background-color:${properties.ctaBG @context='unsafe'}; color:${properties.fontColor @context='unsafe'}; "
+								data-clickUrl="${properties.linkSrc}"
+								data-eventName="${properties.eventName ? properties.eventName : 'Alert'}"
+								data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Alert'}"
+								data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+								data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.title}"
+								data-eventValue="">
+								${properties.ctaLabel}
+							</a>
+						</sly>
+						<sly data-sly-test="${properties.linkType == 'dataClose'}">
+							<button
+								class="button buttonAlert closeMe ${properties.hollow} ${properties.ctaColor} gaChecker "
+								aria-label="Close alert" type="button"
+								data-eventName="${properties.eventName ? properties.eventName : 'Alert'}"
+								data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Alert'}"
+								data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+								data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.title}">
+								${properties.ctaLabel}
+							</button>
+						</sly>
+
+					</div>
+				</sly>
+				<sly data-sly-test="${properties.typeAlert == 'linkClose'}">
+					<div class="cell large-2 medium-2 small-12 text-right">
+						<button class="close-button closeMe" aria-label="Close alert" type="button" data-close>
+							<span aria-hidden="true"
+								style="color:${properties.ctaXBG @ context='styleToken'}">&times;</span>
+						</button>
+						<sly data-sly-test="${properties.linkType == 'link'}">
+							<a href="${properties.linkSrc}"
+								class="button buttonAlert ${properties.hollow} ${properties.ctaColor} ${properties.ctaType} gaChecker"
+								type="button"
+								style="background-color:${properties.ctaBG @context='unsafe'}; color:${properties.fontColor @context='unsafe'}; "
+								data-clickUrl="${properties.linkSrc}"
+								data-eventName="${properties.eventName ? properties.eventName : 'Alert'}"
+								data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Alert'}"
+								data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+								data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.title}"
+								data-eventValue="">
+								${properties.ctaLabel}
+							</a>
+						</sly>
+						<sly data-sly-test="${properties.linkType == 'dataClose'}">
+							<button
+								class="button buttonAlert closeMe ${properties.hollow} ${properties.ctaColor}  gaChecker"
+								aria-label="Close alert" type="button"
+								data-eventName="${properties.eventName ? properties.eventName : 'Alert'}"
+								data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Alert'}"
+								data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+								data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.title}">
+								${properties.ctaLabel}
+							</button>
+						</sly>
+
+					</div>
+				</sly>
+			</sly>
+
+		</div>
+	</div>
+</div>

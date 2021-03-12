@@ -1,0 +1,1644 @@
+<template data-sly-template.success="${ @ title, body}">
+	<div class="grid-x grid-margin-x thanks align-center-middle" style="display:none; height:336px;">
+		<div class="cell small-9 text-center">
+			<div class="grid-x grid-margin-x ">
+				<div class="cell">
+					<div class="title-2">
+						<sly data-sly-test="${!title}">
+							Thank you for reaching out!
+						</sly>
+						<sly data-sly-test="${title}">
+							${title}
+						</sly>
+
+
+					</div>
+					<div class="body-1">
+						<sly data-sly-test="${!body}">
+							A specialist will contact you soon.
+						</sly>
+						<sly data-sly-test="${body}">
+							${body @ context='html'}
+						</sly>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptyhidden="Lead Form"></div>
+
+<div class="grid-x grid-margin-x ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile} ${properties.hideLoggedIn ? 'hideLoggedIn' : ''} ${properties.hideLoggedOut ? 'hideLoggedOut' : ''}"
+	style="background-color:${properties.bgColor @ context = 'unsafe'}">
+	<div class="cell"></div>
+	<div class="cell">
+		<sly data-sly-test="${properties.formType == 'lead'}">
+			<!-- LeadForm -->
+			<form action class="leadForm" id="leadForm" name="leadForm" data-abide novalidate>
+				<div class="title-2 bold text-primary" style="margin:24px 0">
+					${properties.fieldtitle}
+				</div>
+				<fieldset>
+					<sly data-sly-list.hidden="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+						<input type="hidden" name="${hidden.contentModelCF.title }"
+							value="${hidden.contentModelCF.caption }" />
+					</sly>
+					<!--/* <input type="hidden" name="FR_ACCOUNT" value="forms01@WYNDM" />
+				<input type="hidden" name="FR_FORM" value="VERSION 1.0" />
+				<input type="hidden" name="FR_ALERT" value="9223372036854754225" />
+				<input type="hidden" name="SSK" value="000110000000085" />
+				<input type="hidden" name="FR_TABLE" value="CWInterestedOwnership" />
+				 <input type="hidden" name="FR_REDIRECT" value="#" /> 
+				<input type="hidden" name="Campaign" value="CWInterestedOwnership" />
+				<input type="hidden" name="FR_FORMNAME" value="CWInterestedOwnership" />
+				<input type="hidden" name="FR_DATETIME_SubmittedTime" value="Eastern Standard Time" />
+				<input type="hidden" name="FR_RANDOM_ID" value="ID" /> */-->
+
+					<div class="grid-x grid-margin-x ">
+						<div class="cell small-12">
+							<div class="grid-x grid-margin-x ">
+								<div class="cell">
+									<div class="body-1" style="margin:8px 0">
+										${properties.inst}
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class=" medium-auto   cell small-12 margin-bottom-1">
+							<div class="input-group form-field ">
+								<label for="firstName" class="form-field__label">
+									<input type="text" class="form-field__input required" name="firstName"
+										id="firstName" required pattern="userName" style="background-color:white;" />
+									<span style="z-index:5;" class>First Name *</span>
+								</label>
+							</div>
+							<span class="form-error firstNameError">
+								First Name is required and only the following special characters are allowed: .’,&-.
+							</span>
+						</div>
+						<div class="medium-auto   cell small-12 margin-bottom-1">
+							<div class="input-group form-field ">
+								<label for="lastName" class="form-field__label">
+									<input type="text" class="form-field__input required" name="lastName" id="lastName"
+										required pattern="userName" style="background-color:white;" />
+									<span style="z-index:5;" class>Last Name *</span>
+								</label>
+							</div>
+							<span class="form-error lastNameError">
+								Last Name is required and only the following special characters are allowed: .’,&-.
+							</span>
+						</div>
+						<div class="medium-auto   cell small-12 margin-bottom-1">
+							<div class="input-group form-field">
+								<label for="phoneNumber" class="form-field__label">
+									<input type="text" class="form-field__input required" name="phoneNumber"
+										id="phoneNumber" required pattern="phone_number"
+										style="background-color:white;" />
+									<span style="z-index:5;" class>Phone Number *</span>
+								</label>
+							</div>
+							<span class="form-error phoneNumberError">
+								Please provide a valid Phone Number.
+							</span>
+						</div>
+						<div class="medium-auto  cell small-12 margin-bottom-1">
+							<div class="input-group form-field">
+								<label for="email" class="form-field__label">
+									<input type="text" class="form-field__input required" pattern="email" name="email"
+										id="email" required style="background-color:white;" />
+									<span style="z-index:5;" class>Email Address *</span>
+								</label>
+							</div>
+							<span class="form-error emailError">
+								This is a required field.
+							</span>
+						</div>
+						<div class="medium-auto small-12 cell margin-bottom-1">
+							<div class="input-group form-field">
+								<label for="state" class="form-field__label">
+									<select class="form-field__input required" name="state" id="state" size="1"
+										style="padding-right:25px; background-color:white;" required>
+										<option selected value=""></option>
+										<option value="AL">Alabama</option>
+										<option value="AK">Alaska</option>
+										<option value="AZ">Arizona</option>
+										<option value="AR">Arkansas</option>
+										<option value="CA">California</option>
+										<option value="CO">Colorado</option>
+										<option value="CT">Connecticut</option>
+										<option value="DE">Delaware</option>
+										<option value="FL">Florida</option>
+										<option value="GA">Georgia</option>
+										<option value="HI">Hawaii</option>
+										<option value="ID">Idaho</option>
+										<option value="IL">Illinois</option>
+										<option value="IN">Indiana</option>
+										<option value="IA">Iowa</option>
+										<option value="KS">Kansas</option>
+										<option value="KY">Kentucky</option>
+										<option value="LA">Louisiana</option>
+										<option value="ME">Maine</option>
+										<option value="MD">Maryland</option>
+										<option value="MA">Massachusetts</option>
+										<option value="MI">Michigan</option>
+										<option value="MN">Minnesota</option>
+										<option value="MS">Mississippi</option>
+										<option value="MO">Missouri</option>
+										<option value="MT">Montana</option>
+										<option value="NE">Nebraska</option>
+										<option value="NV">Nevada</option>
+										<option value="NH">New Hampshire</option>
+										<option value="NJ">New Jersey</option>
+										<option value="NM">New Mexico</option>
+										<option value="NY">New York</option>
+										<option value="NC">North Carolina</option>
+										<option value="ND">North Dakota</option>
+										<option value="OH">Ohio</option>
+										<option value="OK">Oklahoma</option>
+										<option value="OR">Oregon</option>
+										<option value="PA">Pennsylvania</option>
+										<option value="RI">Rhode Island</option>
+										<option value="SC">South Carolina</option>
+										<option value="SD">South Dakota</option>
+										<option value="TN">Tennessee</option>
+										<option value="TX">Texas</option>
+										<option value="UT">Utah</option>
+										<option value="VT">Vermont</option>
+										<option value="VA">Virginia</option>
+										<option value="WA">Washington</option>
+										<option value="WV">West Virginia</option>
+										<option value="WI">Wisconsin</option>
+										<option value="WY">Wyoming</option>
+									</select>
+									<span style="z-index:5;" class>state *</span>
+								</label>
+							</div>
+						</div>
+						<div class="cell small-12 margin-bottom-1">
+							<div class="grid-x ">
+								<div class="cell">
+									<div style="margin:8px 0">
+										<div class="grid-x ">
+											<div class="cell shrink">
+												<div style="margin:0px 10px 0 0; display:inline-block">
+													<input class="required" type="checkbox" name="agree" value="agree"
+														required />
+												</div>
+											</div>
+											<div class="cell auto">
+												<div class="body-3" style="display:inline-block">
+													*${properties.agree}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="cell small-12 margin-bottom-1">
+								<div class="grid-x ">
+									<div class="cell">
+										<sly data-sly-test="${properties.ctaType != 'hidden'}">
+											<button type="button"
+												class="  ${properties.ctaColor} ${properties.ctaType} ${properties.hollow} button formSubmit disabled"
+												data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}"
+												data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}" data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Lead Gen'}"
+												data-eventValue="">
+												SUBMIT
+											</button>
+
+										</sly>
+									</div>
+								</div>
+							</div>
+						</div>
+				</fieldset>
+			</form>
+			<sly data-sly-call="${success @ title=properties.title, body=properties.text}"></sly>
+		</sly>
+
+		<sly data-sly-test="${properties.formType == 'certExit'}">
+			<!-- certified exit-->
+			<div class="grid-x grid-margin-x certExit">
+				<div class="cell">
+					<form action class="certExit" id="certExit" name="certExit" data-abide novalidate>
+						<fieldset>
+
+							<sly data-sly-list.hidden="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+								<input type="hidden" name="${hidden.contentModelCF.title }"
+									value="${hidden.contentModelCF.caption }" />
+							</sly>
+							<div class="grid-container">
+								<div class="grid-x">
+									<div class="cell" style="padding-bottom: 0;">
+										<div class="subtitle-1">
+											${properties.fieldtitle}
+										</div>
+									</div>
+								</div>
+								<div class="grid-x">
+									<div class="cell" style="padding-top: 0;">
+										<div class="body-1">
+											${properties.inst}
+										</div>
+									</div>
+								</div>
+								<div class="grid-x">
+									<div class="cell small-12 margin-bottom-1">
+										<div class="input-group form-field ">
+											<label for="firstName" class="form-field__label">
+												<input type="text" class="form-field__input required" name="firstName"
+													id="firstName" required pattern="userName" />
+												<span style="z-index:5;" class>First Name *</span>
+											</label>
+										</div>
+										<span class="form-error firstNameError">
+											First Name is required and only the following special characters are
+											allowed: .’,&-.
+										</span>
+									</div>
+									<div class="cell small-12 margin-bottom-1">
+										<div class="input-group form-field ">
+											<label for="lastName" class="form-field__label">
+												<input type="text" class="form-field__input required" name="lastName"
+													id="lastName" required pattern="userName" />
+												<span style="z-index:5;" class>Last Name *</span>
+											</label>
+										</div>
+
+										<span class="form-error lastNameError">
+											Last Name is required and only the following special characters are allowed:
+											.’,&-.
+										</span>
+									</div>
+									<div class="cell small-12 margin-bottom-1">
+										<div class="input-group form-field ">
+											<label for="membershipNumber" class="form-field__label">
+												<input type="text" class="form-field__input"
+													name="membershipNumber" id="membershipNumber" pattern="memberNumber"/>
+												<span style="z-index:5;" class>Member Number</span>
+											</label>
+										</div>
+										<span class="form-error membershipNumberError">
+											Member Number may only contain numerical digits.
+										</span>
+									</div>
+
+									<div class="cell small-12 margin-bottom-1">
+										<label for="Club">
+											<span>Select Your Vacation Club *</span>
+											<select name="Club" class="required" style="height:54px;"
+												placeholder="Select Your Vacation Club *" required>
+												<option selected="selected" value=""></option>
+												<option value="ClubWyndham">Club Wyndham</option>
+												<option value="WorldMark">WorldMark by Wyndham</option>
+												<option value="ShellVacationsClub">Shell Vacations Club</option>
+												<option value="Margaritaville">Margaritaville Vacation Club</option>
+
+											</select>
+											<!-- <span>Best Time to Call</span> -->
+												<div class="form-error">
+													Please Select Your Vacation Club.
+												</div>
+										</label>
+									</div>
+
+									<div class="cell small-12 margin-bottom-1">
+										<div class="input-group form-field ">
+											<label for="email" class="form-field__label">
+												<input type="text" class="form-field__input required" pattern="email"
+													name="email" id="email" required pattern="email"/>
+												<span style="z-index:5;" class>Email Address *</span>
+											</label>
+										</div>
+										<span class="form-error emailError">
+											Please provide a valid Email Address.
+										</span>
+									</div>
+									<div class="medium-6 cell small-12 margin-bottom-1">
+										<div class="input-group form-field ">
+											<label for="phone" class="form-field__label">
+												<input type="number" class="form-field__input required" name="phoneNumber"
+													id="phone" required pattern="phone_number" />
+												<span style="z-index:5;" class>Phone Number *</span>
+											</label>
+										</div>
+										<span class="form-error phoneError">
+											this is a required field
+										</span>
+									</div>
+									<div class="cell medium-6 small-12 margin-bottom-1">
+										<label for="bestTimeToCall">
+											<span>Best Time to Call (optional)</span>
+											<select name="bestTimeToCall" class="" style="height:54px;"
+												placeholder="Best Time to Call *">
+												<option selected="" value=""></option>
+												<option selected="selected" value="Morning">Morning</option>
+												<option value="Afternoon">Afternoon</option>
+												<option value="Evening">Evening</option>
+												<option value="noPref">No Preference</option>
+
+											</select>
+											<!-- <span>Best Time to Call</span> -->
+											<div class="form-error">
+												error
+											</div>
+										</label>
+
+									</div>
+
+									<div class="cell small-12 margin-bottom-1">
+										<div class="input-group form-field ">
+											<label for="help" class="form-field__label">
+												<textarea class="required" required id="help" name="help" style=""
+													placeholder="Comments *" rows="4" cols="50"></textarea>
+												<span class="aasdf"></span>
+											</label>
+										</div>
+										<span class="form-error helpError">
+											Please provide a comment.
+										</span>
+									</div>
+
+									<div class="cell small-12 margin-bottom-1">
+										<div class="grid-x">
+											<div class="inlineField cell small-12 margin-bottom-1">
+												<div style="display:inline-block; margin-right:10px;"><input class="required" id="legal1" type="checkbox" name="legal1" required></div>
+												
+												<div style="display:inline-block; width:90%;"><label for="legal1">
+													${properties.agree}
+												</label></div>
+											</div>
+											<div class="inlineField cell small-12 margin-bottom-1">
+												<div style="display:inline-block; margin-right:10px;"><input class="" id="legal2" name="legal2" type="checkbox" ></div>
+												
+												<div style="display:inline-block; width:90%">	<label for="legal2">
+													I agree that Wyndham Vacation Resorts may contact me at the above phone number and/or email address (regardless of do-not-call registration) regarding timeshare promotional offers, products, and services.
+												</label></div>
+											</div>
+										</div>
+									</div>
+									<div class="cell small-12 margin-bottom-1">
+										<div class="grid-x">
+											<div class="cell medium-2 small-12">
+												<button type="button"
+													class="  expanded button formSubmit disabled"
+													data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}"
+													data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}" data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.fieldtitle}"
+													data-eventValue="">
+													SUBMIT
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+						</fieldset>
+					</form>
+				</div>
+				<sly data-sly-call="${success @ title=properties.title, body=properties.text}"></sly>
+			</div>
+		</sly>
+
+		<sly data-sly-test="${properties.formType == 'orderDir'}">
+			<!-- OrderDir -->
+			<div class="orderDir">
+				<form action class="orderDir" id="orderDirectory" name="orderDirectory" data-abide novalidate>
+					<div class="grid-x">
+						<div class="cell">
+							<div class="subtitle-1 bold text-black" style="margin:24px 0">
+								${properties.fieldtitle}
+							</div>
+						</div>
+					</div>
+					<div class="grid-x">
+						<div class="cell">
+							<div class="body-1" style="margin:8px 0">
+								${properties.inst}
+							</div>
+						</div>
+					</div>
+					<fieldset>
+						<sly data-sly-list.hidden="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+							<input type="hidden" name="${hidden.contentModelCF.title }"
+								value="${hidden.contentModelCF.caption }" />
+						</sly>
+						<div class="grid-container">
+							<div class="grid-x grid-margin-x ">
+								<div class="cell small-12 margin-bottom-1">
+									<div class="input-group form-field ">
+										<label for="membershipNumber" class="form-field__label">
+											<input type="text" class="form-field__input required" name="membershipNumber"
+												id="membershipNumber " required pattern="memberNumber"/>
+											<span style="z-index:5;" class>Membership Number *</span>
+										</label>
+									</div>
+									<span class="form-error membershipNumberError">
+										Membership Number is required and may only contain numerical digits.
+									</span>
+								</div>
+								<div class="cell small-12 margin-bottom-1">
+									<div class="input-group form-field ">
+										<label for="addressLine1" class="form-field__label">
+											<input type="text" class="form-field__input required" name="addressLine1"
+												id="addressLine1" required />
+											<span style="z-index:5;" class>Address 1 *</span>
+										</label>
+									</div>
+									<span class="form-error addressLine1Error">
+										Please provide a valid Address.
+									</span>
+								</div>
+								<div class="cell small-12 margin-bottom-1">
+									<div class="input-group form-field ">
+										<label for="addressLine2" class="form-field__label">
+											<input type="text" class="form-field__input " name="addressLine2"
+												id="addressLine2" />
+											<span style="z-index:5;" class>Address 2</span>
+										</label>
+									</div>
+									<span class="form-error addressLine2Error">
+										Please provide a valid Address.
+									</span>
+								</div>
+								<div class="cell small-12 margin-bottom-1">
+									<div class="input-group form-field ">
+										<label for="city" class="form-field__label">
+											<input type="text" class="form-field__input required" name="city" id="city"
+												required />
+											<span style="z-index:5;" class>City *</span>
+										</label>
+									</div>
+									<span class="form-error cityError">
+										Please provide a valid City.
+									</span>
+								</div>
+								<div class="small-12 cell margin-bottom-1">
+									<label for="state" class="form-field__label">
+										<select class="form-field__input required" name="stateProvince" id="state"
+											size="1" style="padding-right:25px; background-color:white; margin-bottom:25px;" required>
+											<option selected value=""></option>
+											<option value="AL">Alabama</option>
+											<option value="AK">Alaska</option>
+											<option value="AZ">Arizona</option>
+											<option value="AR">Arkansas</option>
+											<option value="CA">California</option>
+											<option value="CO">Colorado</option>
+											<option value="CT">Connecticut</option>
+											<option value="DE">Delaware</option>
+											<option value="FL">Florida</option>
+											<option value="GA">Georgia</option>
+											<option value="HI">Hawaii</option>
+											<option value="ID">Idaho</option>
+											<option value="IL">Illinois</option>
+											<option value="IN">Indiana</option>
+											<option value="IA">Iowa</option>
+											<option value="KS">Kansas</option>
+											<option value="KY">Kentucky</option>
+											<option value="LA">Louisiana</option>
+											<option value="ME">Maine</option>
+											<option value="MD">Maryland</option>
+											<option value="MA">Massachusetts</option>
+											<option value="MI">Michigan</option>
+											<option value="MN">Minnesota</option>
+											<option value="MS">Mississippi</option>
+											<option value="MO">Missouri</option>
+											<option value="MT">Montana</option>
+											<option value="NE">Nebraska</option>
+											<option value="NV">Nevada</option>
+											<option value="NH">New Hampshire</option>
+											<option value="NJ">New Jersey</option>
+											<option value="NM">New Mexico</option>
+											<option value="NY">New York</option>
+											<option value="NC">North Carolina</option>
+											<option value="ND">North Dakota</option>
+											<option value="OH">Ohio</option>
+											<option value="OK">Oklahoma</option>
+											<option value="OR">Oregon</option>
+											<option value="PA">Pennsylvania</option>
+											<option value="RI">Rhode Island</option>
+											<option value="SC">South Carolina</option>
+											<option value="SD">South Dakota</option>
+											<option value="TN">Tennessee</option>
+											<option value="TX">Texas</option>
+											<option value="UT">Utah</option>
+											<option value="VT">Vermont</option>
+											<option value="VA">Virginia</option>
+											<option value="WA">Washington</option>
+											<option value="WV">West Virginia</option>
+											<option value="WI">Wisconsin</option>
+											<option value="WY">Wyoming</option>
+										</select>
+										<span style="z-index:5;" class>State *</span>
+									</label>
+								</div>
+								<div class="cell small-12 margin-bottom-1">
+									<div class="input-group form-field ">
+										<label for="postalCode" class="form-field__label">
+											<input type="text" class="form-field__input required" name="postalCode"
+												id="zipCode" required pattern="zip" />
+											<span style="z-index:5;" class>Zip Code *</span>
+										</label>
+									</div>
+									<span class="form-error postalCodeError">
+										Please provide a valid Zip Code.
+									</span>
+								</div>
+								<div class="inlineField cell small-12 margin-bottom-1">
+									<input class="required" id="leadAgree" type="checkbox" required><label
+										for="leadAgree">
+										${properties.agree}
+									</label>
+								</div>
+							</div>
+							<div class="grid-x">
+								<div class="cell small-12">
+									<button type="button" class="expanded button formSubmit disabled"
+										data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}"
+										data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}" data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Order Directory'}"
+										data-eventValue="">
+										SUBMIT
+									</button>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+				<sly data-sly-call="${success @ title=properties.title, body=properties.text}"></sly>
+			</div>
+		</sly>
+
+
+		<sly data-sly-test="${properties.formType == 'sweeps'}">
+			<!-- Sweeps -->
+			<div class="sweeps">
+				<form class="SweepsForm" name="sweepsForm" data-abide novalidate id="SweepsForm">
+					<div class="title-2 bold text-primary" style="margin:24px 0">
+						${properties.fieldtitle}
+					</div>
+					<fieldset>
+						<sly data-sly-list.hidden="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+							<input type="hidden" name="${hidden.contentModelCF.title }"
+								value="${hidden.contentModelCF.caption }" />
+						</sly>
+						<div class="grid-x">
+							<div class="cell small-12">
+								<div class="grid-x grid-margin-x ">
+									<div class="cell">
+										<div class="body-1" style="margin:8px 0">
+											${properties.inst}
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="medium-6 small-12 cell">
+								<label for="FirstName">
+									<input class="form-field__input required" type="text" name="firstName" required>
+									<span>First Name*</span>
+									<div class="form-error">
+										First Name is required and only the following special characters are allowed:
+										.’,&-.
+									</div>
+								</label>
+							</div>
+							<div class="medium-6 small-12 cell">
+								<label for="LastName">
+									<input class="form-field__input required" type="text" name="lastName" required>
+									<span>Last Name*</span>
+									<div class="form-error">
+										Last Name is required and only the following special characters are allowed:
+										.’,&-.
+									</div>
+								</label>
+							</div>
+							<div class="medium-12 small-12 cell">
+								<label for="Address">
+									<input class="form-field__input required" type="text" name="address" required>
+									<span>Address*</span>
+									<div class="form-error">
+										error
+									</div>
+								</label>
+							</div>
+							<div class="medium-6 small-12 cell">
+								<label for="City">
+									<input class="form-field__input required" type="text" name="city" required>
+									<span>City*</span>
+									<div class="form-error">
+										error
+									</div>
+								</label>
+							</div>
+							<div class="medium-6 small-12 cell">
+								<label for="state">
+									<select name="state" class="form-field__input required" required>
+										<option selected="" value=""></option>
+										<option value="AL">Alabama</option>
+										<option value="AK">Alaska</option>
+										<option value="AB">Alberta</option>
+										<option value="AS">American Samoa</option>
+										<option value="AZ">Arizona</option>
+										<option value="AR">Arkansas</option>
+										<option value="BC">British Columbia</option>
+										<option value="CA">California</option>
+										<option value="CO">Colorado</option>
+										<option value="CT">Connecticut</option>
+										<option value="DE">Delaware</option>
+										<option value="DC">District Of Columbia</option>
+										<option value="FM">Federated States Of Micronesia</option>
+										<option value="FL">Florida</option>
+										<option value="GA">Georgia</option>
+										<option value="GU">Guam</option>
+										<option value="HI">Hawaii</option>
+										<option value="ID">Idaho</option>
+										<option value="IL">Illinois</option>
+										<option value="IN">Indiana</option>
+										<option value="IA">Iowa</option>
+										<option value="KS">Kansas</option>
+										<option value="KY">Kentucky</option>
+										<option value="LA">Louisiana</option>
+										<option value="ME">Maine</option>
+										<option value="MH">Marshall Islands</option>
+										<option value="MD">Maryland</option>
+										<option value="MA">Massachusetts</option>
+										<option value="MI">Michigan</option>
+										<option value="MN">Minnesota</option>
+										<option value="MS">Mississippi</option>
+										<option value="MO">Missouri</option>
+										<option value="MT">Montana</option>
+										<option value="NE">Nebraska</option>
+										<option value="NV">Nevada</option>
+										<option value="NH">New Hampshire</option>
+										<option value="NJ">New Jersey</option>
+										<option value="NM">New Mexico</option>
+										<option value="NY">New York</option>
+										<option value="NC">North Carolina</option>
+										<option value="ND">North Dakota</option>
+										<option value="MP">Northern Mariana Islands</option>
+										<option value="ON">Ontario</option>
+										<option value="OH">Ohio</option>
+										<option value="OK">Oklahoma</option>
+										<option value="OR">Oregon</option>
+										<option value="PW">Palau</option>
+										<option value="PA">Pennsylvania</option>
+										<option value="PR">Puerto Rico</option>
+										<option value="RI">Rhode Island</option>
+										<option value="SC">South Carolina</option>
+										<option value="SD">South Dakota</option>
+										<option value="TN">Tennessee</option>
+										<option value="TX">Texas</option>
+										<option value="UT">Utah</option>
+										<option value="VT">Vermont</option>
+										<option value="VI">Virgin Islands</option>
+										<option value="VA">Virginia</option>
+										<option value="WA">Washington</option>
+										<option value="WV">West Virginia</option>
+										<option value="WI">Wisconsin</option>
+										<option value="WY">Wyoming</option>
+									</select>
+									<span>state of Residence*</span>
+									<div class="form-error">
+										error
+									</div>
+								</label>
+							</div>
+							<div class="medium-6 small-12 cell">
+								<label for="zipCode">
+									<input class="form-field__input required" type="text" name="zipCode" required
+										pattern="zip">
+									<span>Zip Code*</span>
+									<div class="form-error">
+										error
+									</div>
+								</label>
+							</div>
+							<div class="medium-6 small-12 cell">
+								<label for="email">
+									<input type="text" class="form-field__input" name="email" pattern="email"
+										id="example4Error">
+									<span>Email</span>
+									<div class="form-error">
+										error
+									</div>
+								</label>
+
+
+							</div>
+							<div class="medium-6 small-12 cell">
+								<label for="altphoneNumber">
+									<input type="text" class="form-field__input" name="altPhoneNumber"
+										pattern="phone_number">
+									<span>Mobile Phone</span>
+									<div class="form-error">
+										error
+									</div>
+								</label>
+							</div>
+							<div class="medium-6 small-12 cell">
+								<label for="phoneNumber">
+									<input class="required form-field__input" type="text" name="phoneNumber" required
+										pattern="phone_number">
+									<span>Home Phone*</span>
+									<div class="form-error">
+										error
+									</div>
+								</label>
+							</div>
+							<div class="medium-6 small-12 cell">
+								<label for="maritalStatus">
+									<select name="maritalStatus" class="form-field__input required" required>
+										<option selected="" value=""></option>
+										<option value="1">Married</option>
+										<option value="2">Single</option>
+										<option value="3">Partners</option>
+									</select>
+									<span>Marital Status*</span>
+									<div class="form-error">
+										error
+									</div>
+								</label>
+							</div>
+							<div class="medium-3 small-6 cell">
+								<label for="Age">
+									<select name="age" class="form-field__input required" required>
+										<option selected="" value=""></option>
+										<option value="21">18-24</option>
+										<option value="22">25-27</option>
+										<option value="13">28-39</option>
+										<option value="14">40-54</option>
+										<option value="15">55+</option>
+									</select>
+									<span>Age*</span>
+									<div class="form-error">
+										error
+									</div>
+								</label>
+							</div>
+							<div class="medium-3 small-6 cell">
+								<label for="Income">
+									<select name="income" class="required form-field__input" required>
+										<option selected="" value=""></option>
+										<option value="28">Under $60,000</option>
+										<option value="27">$60,000 - $69,999</option>
+										<option value="26">$70,000 - $99,999</option>
+										<option value="21">$100,000 - $149,999</option>
+										<option value="22">$150+</option>
+									</select>
+									<span>Income*</span>
+									<div class="form-error">
+										error
+									</div>
+								</label>
+							</div>
+							<div class="medium-6 small-12 cell">
+								<label for="accessCode">
+									<input class="lastInput required form-field__input" type="text" name="accessCode"
+										data-validator="captcha" data-captcha-value="captcha" required>
+									<span>Access Code*</span>
+									<div class="form-error">
+										error
+									</div>
+								</label>
+								<div class="body-3">
+									Enter the Access Code to validate your entry.
+								</div>
+								<div class="grid-x">
+									<div class="cell shrink AccessCode caption-1">
+										Access Code:
+									</div>
+									<div class="cell auto AccessCode caption-1" id="captcha">
+										111111
+									</div>
+								</div>
+							</div>
+
+							<div class="medium-6 small-12 cell">
+								<button class="formSubmit button expanded disabled  " type="submit"
+									data-promo="I agree, enter the Sweepstakes" data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}"
+									data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+									data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Sweeps'}" data-eventValue="">
+									I agree, enter the Sweepstakes
+								</button>
+								<div class="text-center" style="width:100%">
+									<button class="formSubmit ctaText text-center body-1-link link-caret  "
+										type="submit" data-promo="I do not agree, enter Sweepstakes"
+										data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+										data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Sweeps'}" data-eventValue="">
+										I do not agree, enter Sweepstakes
+									</button>
+								</div>
+
+							</div>
+
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<sly data-sly-call="${success @ title=properties.title, body=properties.text}"></sly>
+		</sly>
+
+
+
+
+
+		<sly data-sly-test="${properties.formType == 'cares'}">
+			<!-- cares -->
+			<form action class="caresForm" id="caresForm" name="caresForm" data-abide novalidate>
+				<fieldset>
+					<sly data-sly-list.hidden="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+						<input type="hidden" name="${hidden.contentModelCF.title }"
+							value="${hidden.contentModelCF.caption }" />
+					</sly>
+
+					<div class="grid-container">
+						<div class="grid-x">
+							<div class="cell">
+								<div class="title-2 bold text-primary" style="margin:24px 0">
+									${properties.fieldtitle}
+								</div>
+							</div>
+						</div>
+						<div class="grid-x">
+							<div class="cell">
+								<div class="body-1" style="margin:8px 0">
+									${properties.inst}
+								</div>
+							</div>
+						</div>
+						<div class="grid-x grid-margin-x ">
+
+							<div class=" medium-auto cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="firstName" class="form-field__label">
+										<input type="text" class="form-field__input required" name="firstName"
+											id="firstName" required pattern="userName" />
+										<span style="z-index:5;" class>First Name *</span>
+									</label>
+								</div>
+								<span class="form-error firstNameError">
+									First Name is required and only the following special characters are allowed: .’,&-.
+								</span>
+							</div>
+							<div class="medium-auto cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="lastName" class="form-field__label">
+										<input type="text" class="form-field__input required" name="lastName"
+											id="lastName" required pattern="userName" />
+										<span style="z-index:5;" class>Last Name *</span>
+									</label>
+								</div>
+
+								<span class="form-error lastNameError">
+									Last Name is required and only the following special characters are allowed: .’,&-.
+								</span>
+							</div>
+							<div class="medium-auto cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="phoneNumber" class="form-field__label">
+										<input type="text" class="form-field__input required" name="phoneNumber"
+											id="phoneNumber" required pattern="phone_number" />
+										<span style="z-index:5;" class>Phone Number *</span>
+									</label>
+								</div>
+								<span class="form-error phoneNumberError">
+									Please provide a valid Phone Number.
+								</span>
+							</div>
+							<div class="medium-auto  cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="email" class="form-field__label">
+										<input type="text" class="form-field__input required" pattern="email"
+											name="email" id="email" />
+										<span style="z-index:5;" class>Email Address *</span>
+									</label>
+								</div>
+								<span class="form-error emailError">
+									This is a required field.
+								</span>
+							</div>
+							<div class="medium-auto cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="membershipNumber" class="form-field__label">
+										<input type="text" class="form-field__input" name="membershipNumber"
+											id="membershipNumber" />
+										<span style="z-index:5;" class>Member Number</span>
+									</label>
+								</div>
+								<span class="form-error membershipNumberError">
+									Member Number may only contain numerical digits.
+								</span>
+							</div>
+						</div>
+						<div class="grid-x">
+							<div class="inlineField cell small-12 margin-bottom-1">
+								<input class="required" id="legal1" type="checkbox" required><label for="legal1">
+									* I agree that Wyndham Vacation Resorts may contact me at the above phone
+									number
+									and/or email address (regardless of do-not-call registration) regarding my inquiry.
+								</label>
+							</div>
+						</div>
+						<div class="grid-x">
+							<div class="inlineField cell small-12 margin-bottom-1">
+								<input class="" id="legal2" type="checkbox"><label for="legal2">
+									I agree that Wyndham Vacation Resorts may contact me at the above phone number
+									and/or email address (regardless of do-not-call registration) regarding timeshare
+									promotional offers, products, and services.
+								</label>
+							</div>
+						</div>
+						<div class="grid-x">
+							<div class="inlineField information body-3 cell small-12 margin-bottom-1">
+								* Indicates a required field.
+							</div>
+						</div>
+						<div class="grid-x">
+							<div class="cell medium-2 small-12">
+								<button type="button" class="  expanded button formSubmit disabled"
+									data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+									data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'WyndhamCaresShort'}" data-eventValue="">
+									SUBMIT
+								</button>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+			<sly data-sly-call="${success @ title=properties.title, body=properties.text}"></sly>
+		</sly>
+
+		<sly
+			data-sly-test="${properties.formType == 'plus' || properties.formType == 'financial' || properties.formType == 'ownerChange' || properties.formType == 'ownerRef' || properties.formType == 'webInq'}">
+
+			<sly data-sly-test="${properties.formType == 'plus'}">
+				<form action class="plusProgramForm" id="plusProgramForm" name="plusProgram" data-abide novalidate>
+			</sly>
+			<sly data-sly-test="${properties.formType == 'financial'}">
+				<form action class="financialForm" id="financialForm" name="Financial" data-abide novalidate>
+			</sly>
+			<sly data-sly-test="${properties.formType == 'ownerChange'}">
+				<form action class="ownerChangeForm" id="ownerChangeForm" name="ownerChange" data-abide novalidate>
+			</sly>
+			<sly data-sly-test="${properties.formType == 'ownerRef'}">
+				<form action class="ownerRefForm" id="ownerRefForm" name="ownerRef" data-abide novalidate>
+			</sly>
+			<sly data-sly-test="${properties.formType == 'webInq'}">
+				<form action class="webInqForm" id="webInqForm" name="webInq" data-abide novalidate>
+			</sly>
+
+			<fieldset>
+				<sly data-sly-list.hidden="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+					<input type="hidden" name="${hidden.contentModelCF.title }"
+						value="${hidden.contentModelCF.caption }" />
+				</sly>
+
+				<div class="grid-container">
+					<div class="grid-x">
+						<div class="cell">
+							<div class="subtitle-1 bold text-black" style="margin:24px 0">
+								${properties.fieldtitle}
+							</div>
+						</div>
+					</div>
+					<div class="grid-x">
+						<div class="cell">
+							<div class="body-1" style="margin:8px 0">
+								${properties.inst}
+							</div>
+						</div>
+					</div>
+					<div class="grid-x grid-margin-x ">
+
+						<div class=" cell small-12 margin-bottom-1">
+							<div class="input-group form-field ">
+								<label for="firstName" class="form-field__label">
+									<input type="text" class="form-field__input required" name="firstName"
+										id="firstName" required pattern="userName" />
+									<span style="z-index:5;" class>First Name *</span>
+								</label>
+							</div>
+							<span class="form-error firstNameError">
+								First Name is required and only the following special characters are allowed: .’,&-.
+							</span>
+						</div>
+						<div class="cell small-12 margin-bottom-1">
+							<div class="input-group form-field ">
+								<label for="lastName" class="form-field__label">
+									<input type="text" class="form-field__input required" name="lastName" id="lastName"
+										required pattern="userName" />
+									<span style="z-index:5;" class>Last Name *</span>
+								</label>
+							</div>
+
+							<span class="form-error lastNameError">
+								Last Name is required and only the following special characters are allowed: .’,&-.
+							</span>
+						</div>
+						<div class="cell small-12 margin-bottom-1">
+							<div class="input-group form-field ">
+								<label for="email" class="form-field__label">
+									<input type="text" class="form-field__input " pattern="email" name="email"
+										id="email" />
+									<span style="z-index:5;" class>Email Address</span>
+								</label>
+							</div>
+							<span class="form-error emailError">
+								Please provide a valid Email Address.
+							</span>
+						</div>
+						<div class="cell small-12 margin-bottom-1 phoneWithFlags">
+
+							<div class="grid-x align-middle">
+								<div class="cell small-12">
+									<div class="selectedFlagBox"><span
+											class="flag-icon -current flag-icons-united-states"></span></div>
+									<div class="country-phone__entry phonePrifix" style="">+1</div>
+									<div class="input-group form-field phoneInput">
+										<label for="phoneNumber" class="form-field__label">
+
+											<input type="text" class="form-field__input required" name="phoneNumber"
+												id="phoneNumber" required pattern="phone_number" />
+
+											<span style="z-index:5;" class>Phone Number *</span>
+										</label>
+									</div>
+								</div>
+								<div class="countrySelectDrop"></div>
+
+							</div>
+
+							<span class="form-error phoneNumberError" style="margin:0">
+								Please provide a valid Phone Number.
+							</span>
+						</div>
+
+						<div class="cell small-12 margin-bottom-1">
+							<div class="input-group form-field ">
+								<label for="membershipNumber" class="form-field__label">
+									<input type="text" class="form-field__input" name="membershipNumber" id="membershipNumber"
+										pattern="memberNumber" />
+									<span style="z-index:5;" class>Member Number</span>
+								</label>
+							</div>
+							<span class="form-error membershipNumberError">
+								Member Number may only contain numerical digits.
+							</span>
+						</div>
+						<div class="cell small-12 margin-bottom-1">
+							<div class="input-group form-field ">
+								<label for="comments" class="form-field__label">
+									<textarea class="required" required id="comments" name="comments" style=""
+										placeholder="Comments *" rows="4" cols="50"></textarea>
+									<span class="aasdf"></span>
+								</label>
+							</div>
+							<span class="form-error commentsError">
+								Please provide a comment.
+							</span>
+						</div>
+						<div class="cell">
+							<i>Any information provided in the form above will only be used to contact you and will
+								not impact your current account information. </i><br /><br />
+
+							<b><i>Discussing your complaint with you over the phone allows us to better understand your
+									issues and most efficiently resolve them.</i></b><br /><br />
+
+							<i>Pursuant to the <a
+									href="https://clubwyndham.wyndhamdestinations.com/us/en/terms-of-use">Terms of
+									Use</a>, you are specifically prohibited from any use of the Web
+								Services, and you agree not to disclose to, or share with, any unauthorized third
+								parties, your Login Information for any unauthorized or prohibited purpose, or otherwise
+								allow or facilitate others to gain access to our information technology systems,
+								environments, networks, files, data or accounts through the use of your Login
+								Information.</i>
+						</div>
+					</div>
+					<div class="grid-x">
+						<div class="cell medium-2 small-12">
+							<sly data-sly-test="${properties.formType == 'plus'}">
+								<button type="button" class="  expanded button formSubmit disabled"
+									data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}"
+									data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}" data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Club Wyndham Plus Inquiry'}"
+									data-eventValue="">
+									SUBMIT
+								</button>
+							</sly>
+							<sly data-sly-test="${properties.formType == 'financial'}">
+								<button type="button" class="  expanded button formSubmit disabled"
+									data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}"
+									data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}" data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Financial Services'}"
+									data-eventValue="">
+									SUBMIT
+								</button>
+							</sly>
+							<sly data-sly-test="${properties.formType == 'ownerChange'}">
+								<button type="button" class="  expanded button formSubmit disabled"
+									data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}"
+									data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}" data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Title and Ownership Change'}"
+									data-eventValue="">
+									SUBMIT
+								</button>
+							</sly>
+							<sly data-sly-test="${properties.formType == 'ownerRef'}">
+								<button type="button" class="  expanded button formSubmit disabled"
+									data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+									data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Owner Referal'}" data-eventValue="">
+									SUBMIT
+								</button>
+							</sly>
+							<sly data-sly-test="${properties.formType == 'ownerInq'}">
+								<button type="button" class="  expanded button formSubmit disabled"
+									data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="ownerInqForm" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+									data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.fieldtitle}" data-eventValue="">
+									SUBMIT
+								</button>
+							</sly>
+							<sly data-sly-test="${properties.formType == 'webInq'}">
+								<button type="button" class="  expanded button formSubmit disabled"
+									data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+									data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Website Inquiry'}" data-eventValue="">
+									SUBMIT
+								</button>
+							</sly>
+
+
+
+						</div>
+					</div>
+
+				</div>
+			</fieldset>
+			</form>
+			<sly data-sly-call="${success @ title=properties.title, body=properties.text}"></sly>
+		</sly>
+
+		<sly data-sly-test="${properties.formType == 'wyndhamCares'}">
+			<!-- Wyndham Cares -->
+			<form action class="wynCaresForm" id="wynCaresForm" name="wynCaresForm" data-abide novalidate>
+				<fieldset>
+					<sly data-sly-list.hidden="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+						<input type="hidden" name="${hidden.contentModelCF.title }"
+							value="${hidden.contentModelCF.caption }" />
+					</sly>
+
+
+
+					<div class="grid-container">
+						<div class="grid-x">
+							<div class="cell">
+								<div class="subtitle-1 bold text-black" style="margin:24px 0">
+									${properties.fieldtitle}
+								</div>
+							</div>
+						</div>
+						<div class="grid-x">
+							<div class="cell">
+								<div class="body-1" style="margin:8px 0">
+									${properties.inst}
+								</div>
+							</div>
+						</div>
+						<div class="grid-x grid-margin-x ">
+							<div class=" cell small-12 margin-bottom-1">
+								<div>Do you have an open case with a Wyndham Specialist? *</div>
+								<input class="openCase" type="radio" id="yes" name="haveCase" value="yes"
+									style="display:inline-block">
+								<label for="yes" style="display:inline-block">Yes</label>
+								<input type="radio" class="openCase" id="no" name="haveCase" value="no" checked
+									style="display:inline-block">
+								<label for="no" style="display:inline-block">No</label>
+							</div>
+							<div class=" cell small-12 margin-bottom-1 caseNumber" style="display:none">
+								<div class="input-group form-field ">
+									<label for="caseNumber" class="form-field__label">
+										<input type="text" class="form-field__input " name="caseNumber" id="caseNumber"
+											required />
+										<span style="z-index:5;" class>Case Number *</span>
+									</label>
+								</div>
+								<span class="form-error caseNumberError">
+									This is a required field.
+								</span>
+							</div>
+							<div class="cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="genInq" class="form-field__label">
+										<textarea id="genInq" name="genInq" style=""
+											placeholder="What is your general inquiry or request? *" rows="4" cols="50"
+											class="required" required></textarea>
+										<span class="aasdf"></span>
+									</label>
+								</div>
+								<span class="form-error genInqError">
+									Please provide a comment.
+								</span>
+							</div>
+							<div class="cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="desOutcome" class="form-field__label">
+										<textarea id="desOutcome" name="desOutcome" style=""
+											placeholder="What is your desired outcome?" rows="4" cols="50"></textarea>
+										<span class="aasdf"></span>
+									</label>
+								</div>
+								<span class="form-error desOutcomeError">
+									This is a required field.
+								</span>
+							</div>
+							<div class=" cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="firstName" class="form-field__label">
+										<input type="text" class="form-field__input required" name="firstName"
+											id="firstName" required pattern="userName" />
+										<span style="z-index:5;" class>First Name *</span>
+									</label>
+								</div>
+								<span class="form-error firstNameError">
+									First Name is required and only the following special characters are allowed: .’,&-.
+								</span>
+							</div>
+							<div class="cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="lastName" class="form-field__label">
+										<input type="text" class="form-field__input required" name="lastName"
+											id="lastName" required pattern="userName" />
+										<span style="z-index:5;" class>Last Name *</span>
+									</label>
+								</div>
+
+								<span class="form-error lastNameError">
+									Last Name is required and only the following special characters are allowed: .’,&-.
+								</span>
+							</div>
+							
+							<div class="cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="membershipNumber" class="form-field__label">
+										<input type="text" class="form-field__input" name="membershipNumber"
+											id="membershipNumber" pattern="memberNumber" />
+										<span style="z-index:5;" class>Member Number</span>
+									</label>
+								</div>
+								<span class="form-error membershipNumberError">
+									Member Number can only contain up to 11 numerical digits.
+								</span>
+							</div>
+							<div class="cell small-12 margin-bottom-1 phoneWithFlags">
+
+								<div class="grid-x align-middle">
+									<div class="cell small-12">
+										<div class="selectedFlagBox"><span
+												class="flag-icon -current flag-icons-united-states"></span></div>
+										<div class="country-phone__entry phonePrifix" style="">+1</div>
+										<div class="input-group form-field phoneInput">
+											<label for="phoneNumber" class="form-field__label">
+
+												<input type="text" class="form-field__input required" name="phoneNumber"
+													id="phoneNumber" required pattern="phone_number" />
+
+												<span style="z-index:5;" class>Phone Number *</span>
+											</label>
+										</div>
+									</div>
+									<div class="countrySelectDrop"></div>
+
+								</div>
+
+								<span class="form-error phoneNumberError" style="margin:0">
+									Please provide a valid Phone Number.
+								</span>
+							</div>
+							<div class="cell small-12 margin-bottom-1">
+								<label for="bestTimeToCall">
+									<span>Best Time to Call *</span>
+									<select name="bestTimeToCall" class="" style="height:54px;"
+										placeholder="Best Time to Call *">
+										<!-- <option selected="" value=""></option> -->
+										<option selected="selected" value="Morning">Morning</option>
+										<option value="Afternoon">Afternoon</option>
+										<option value="Evening">Evening</option>
+										<option value="noPref">No Preference</option>
+
+									</select>
+									<!-- <span>Best Time to Call</span> -->
+									<div class="form-error">
+										error
+									</div>
+								</label>
+
+							</div>
+							<div class="cell">
+
+								<b><i>Discussing your complaint with you over the phone allows us to better
+										understand your
+										issues and most efficiently resolve them.</i></b><br /><br />
+
+								<i>Pursuant to the <a
+										href="https://clubwyndham.wyndhamdestinations.com/us/en/terms-of-use">Terms
+										of Use</a>, you are specifically prohibited from any use of the Web
+									Services, and you agree not to disclose to, or share with, any unauthorized
+									third
+									parties, your Login Information for any unauthorized or prohibited purpose, or
+									otherwise
+									allow or facilitate others to gain access to our information technology systems,
+									environments, networks, files, data or accounts through the use of your Login
+									Information.</i>
+							</div>
+						</div>
+						<div class="grid-x">
+							<div class="cell medium-2 small-12">
+								<button type="button" class="  expanded button formSubmit disabled"
+									data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+									data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Wyndham Cares Long'}" data-eventValue="">
+									SUBMIT
+								</button>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+			<sly data-sly-call="${success @ title=properties.title, body=properties.text}"></sly>
+		</sly>
+
+
+		<sly data-sly-test="${properties.formType == 'ownerCares'}">
+			<!-- Owner Cares -->
+			<form action class="ownerCaresForm" id="ownerCaresForm" name="ownerCaresForm" data-abide novalidate>
+				<fieldset>
+					<sly data-sly-list.hidden="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+						<input type="hidden" name="${hidden.contentModelCF.title }"
+							value="${hidden.contentModelCF.caption }" />
+					</sly>
+
+
+
+					<div class="grid-container">
+						<div class="grid-x">
+							<div class="cell">
+								<div class="subtitle-1 bold text-black" style="margin:24px 0">
+									${properties.fieldtitle}
+								</div>
+							</div>
+						</div>
+						<div class="grid-x">
+							<div class="cell">
+								<div class="body-1" style="margin:8px 0">
+									${properties.inst}
+								</div>
+							</div>
+						</div>
+						<div class="grid-x grid-margin-x ">
+							<div class=" cell small-12 margin-bottom-1">
+								<div>Do you have an open case with a Wyndham Specialist? *</div>
+								<input class="openCase" type="radio" id="yes" name="haveCase" value="yes"
+									style="display:inline-block">
+								<label for="yes" style="display:inline-block">Yes</label>
+								<input type="radio" class="openCase" id="no" name="haveCase" checked value="no"
+									style="display:inline-block">
+								<label for="no" style="display:inline-block">No</label>
+							</div>
+							<div class=" cell small-12 margin-bottom-1 caseNumber" style="display:none">
+								<div class="input-group form-field ">
+									<label for="caseNumber" class="form-field__label">
+										<input type="text" class="form-field__input " name="caseNumber" id="caseNumber"
+											required />
+										<span style="z-index:5;" class>Case Number *</span>
+									</label>
+								</div>
+								<span class="form-error caseNumberError">
+									This is a required field.
+								</span>
+							</div>
+							<div class="cell small-12 margin-bottom-1">
+								<label for="reportingIssue">
+									<span>Is this your first time you are reporting this complaint? *</span>
+									<select name="reportingIssue" class="" style="height:54px;">
+										<!-- <option selected="" value=""></option> -->
+										<option selected="selected" value="yes">Yes</option>
+										<option value="noSurvey">No - Communicated on a survey</option>
+										<option value="noContactCenterEmployee">No - Communicated to a Club Wyndham
+											contact center employee</option>
+										<option value="noResortEmployeef">No - Communicated to a Club Wyndham resort
+											employee</option>
+										<option value="noSalesEmployee">No - Communicated to a Club Wyndham sales
+											employee</option>
+										<option value="noThirdParty">No - Communicated to a Club Wyndham third party
+										</option>
+										<option value="noOther">No - Other</option>
+
+									</select>
+									<!-- <span>Best Time to Call</span> -->
+									<div class="form-error">
+										This field is required.
+									</div>
+								</label>
+
+							</div>
+							<div class="cell small-12 margin-bottom-1">
+								<label for="generalAreaofComplaint">
+									<span>What is the general area of your complaint?</span>
+									<select name="generalAreaofComplaint" class="" style="height:54px;"
+										placeholder="Best Time to Call">
+										<!-- <option selected="" value=""></option> -->
+										<option selected="selected" value="sales">Sales</option>
+										<option value="marketing">Marketing</option>
+										<option value="clubProgram">Club/Program</option>
+										<option value="resort">Resort</option>
+
+									</select>
+									<!-- <span>Best Time to Call</span> -->
+									<div class="form-error">
+										This field is required
+									</div>
+								</label>
+
+							</div>
+							<div class="cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="genInq" class="form-field__label">
+										<textarea id="genInq" name="genInq" style=""
+											placeholder="Please describe your complaint in detail. *" rows="4" cols="50"
+											class="required" required></textarea>
+										<span class="aasdf"></span>
+									</label>
+								</div>
+								<span class="form-error genInqError">
+									Please provide a comment.
+								</span>
+							</div>
+
+							<div class="cell small-12 margin-bottom-1">
+								<label for="haveDocumentation">
+									<span>Do you have documentation to support your complaint?</span>
+									<select name="haveDocumentation" class="" style="height:54px;">
+										<!-- <option selected="" value=""></option> -->
+										<option value="yes">Yes</option>
+										<option selected="selected" value="no">No</option>
+
+									</select>
+									<!-- <span>Best Time to Call</span> -->
+									<div class="form-error">
+										This is a required field.
+									</div>
+								</label>
+
+							</div>
+							<div class="cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="desOutcome" class="form-field__label">
+										<textarea id="desOutcome" name="desOutcome" style=""
+											placeholder="What is your desired outcome?" rows="4" cols="50"></textarea>
+										<span class="aasdf"></span>
+									</label>
+								</div>
+								<span class="form-error desOutcomeError">
+									This is a required field.
+								</span>
+							</div>
+							<div class=" cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="firstName" class="form-field__label">
+										<input type="text" class="form-field__input required" name="firstName"
+											id="firstName" required pattern="userName" />
+										<span style="z-index:5;" class>First Name *</span>
+									</label>
+								</div>
+								<span class="form-error firstNameError">
+									Last Name is required and only the following special characters are allowed: .’,&-.
+								</span>
+							</div>
+							<div class="cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="lastName" class="form-field__label">
+										<input type="text" class="form-field__input required" name="lastName"
+											id="lastName" required pattern="userName" />
+										<span style="z-index:5;" class>Last Name *</span>
+									</label>
+								</div>
+
+								<span class="form-error lastNameError">
+									Last Name is required and only the following special characters are allowed: .’,&-.
+								</span>
+							</div>
+						
+							<div class="cell small-12 margin-bottom-1">
+								<div class="input-group form-field ">
+									<label for="membershipNumber" class="form-field__label">
+										<input type="text" class="form-field__input" name="membershipNumber"
+											id="membershipNumber" pattern="memberNumber" />
+										<span style="z-index:5;" class>Member Number</span>
+									</label>
+								</div>
+								<span class="form-error membershipNumberError">
+									Member Number can only contain up to 11 numerical digits.
+								</span>
+							</div>
+							<div class="cell small-12 margin-bottom-1 phoneWithFlags">
+
+								<div class="grid-x align-middle">
+									<div class="cell small-12">
+										<div class="selectedFlagBox"><span
+												class="flag-icon -current flag-icons-united-states"></span></div>
+										<div class="country-phone__entry phonePrifix" style="">+1</div>
+										<div class="input-group form-field phoneInput">
+											<label for="phoneNumber" class="form-field__label">
+
+												<input type="text" class="form-field__input required" name="phoneNumber"
+													id="phoneNumber" required pattern="phone_number" />
+
+												<span style="z-index:5;" class>Phone Number *</span>
+											</label>
+										</div>
+									</div>
+									<div class="countrySelectDrop"></div>
+
+								</div>
+
+								<span class="form-error phoneNumberError" style="margin:0">
+									Please provide a valid Phone Number.
+								</span>
+							</div>
+							<div class="cell small-12 margin-bottom-1">
+								<label for="bestTimeToCall">
+									<span>Best Time to Call *</span>
+									<select name="bestTimeToCall" class="" style="height:54px;"
+										placeholder="Best Time to Call">
+										<!-- <option selected="" value=""></option> -->
+										<option selected="selected" value="Morning">Morning</option>
+										<option value="Afternoon">Afternoon</option>
+										<option value="Evening">Evening</option>
+										<option value="noPref">No Preference</option>
+
+									</select>
+									<!-- <span>Best Time to Call</span> -->
+									<div class="form-error">
+										error
+									</div>
+								</label>
+
+							</div>
+							<div class="cell">
+
+								<b><i>Discussing your complaint with you over the phone allows us to better
+										understand your
+										issues and most efficiently resolve them.</i></b><br /><br />
+
+								<i>Pursuant to the <a
+										href="https://clubwyndham.wyndhamdestinations.com/us/en/terms-of-use">Terms
+										of Use</a>, you are specifically prohibited from any use of the Web
+									Services, and you agree not to disclose to, or share with, any unauthorized
+									third
+									parties, your Login Information for any unauthorized or prohibited purpose, or
+									otherwise
+									allow or facilitate others to gain access to our information technology systems,
+									environments, networks, files, data or accounts through the use of your Login
+									Information.</i>
+							</div>
+						</div>
+						<div class="grid-x">
+							<div class="cell medium-2 small-12">
+								<button type="button" class="  expanded button formSubmit disabled"
+									data-eventName="${properties.eventName ? properties.eventName : 'htmlForm'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'form'}"
+									data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}" data-eventLabel="${properties.eventLabel ? properties.eventLabel : 'Owner Cares Inquiry'}"
+									data-eventValue="">
+									SUBMIT
+								</button>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+			<sly data-sly-call="${success @ title=properties.title, body=properties.text}"></sly>
+		</sly>
+
+		<sly
+			data-sly-test="${properties.formType == 'autoPayFormEnroll' || properties.formType == 'autoPayFormUpdate'}">
+			<form name="autoPayForm" class="autoPayForm" method="post"
+				action="${properties.formType == 'autoPayFormEnroll' ? 
+				(properties.enrollLinkUrl ? properties.enrollLinkUrl : 'https://autopay.wyndhamvacationownership.com/pac/displayGreeting.action?entity=wvr')
+				: (properties.updateLinkUrl ? properties.updateLinkUrl : 'https://autopay.wyndhamvacationownership.com/pac/displayForm.action?entity=wvr')}" target="_blank">
+				<div class="ctaText linkSlice link-caret">
+					<a href="#" class="autoPayFormSubmit  "
+						data-clickUrl="${properties.formType == 'autoPayFormEnroll' ? 
+							(properties.enrollLinkUrl ? properties.enrollLinkUrl : 'https://autopay.wyndhamvacationownership.com/pac/displayGreeting.action?entity=wvr')
+							: (properties.updateLinkUrl ? properties.updateLinkUrl : 'https://autopay.wyndhamvacationownership.com/pac/displayForm.action?entity=wvr')}"
+						data-eventName="${properties.eventName ? properties.eventName : 'ctaLink'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'ctaClick'}" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+						data-eventValue="" data-eventLabel="${properties.eventLabel ? properties.eventLabel : (properties.formType == 'autoPayFormEnroll' ? 
+							(properties.enrollLinkText ? properties.enrollLinkText : 'Enroll')
+							: (properties.updateLinkText ? properties.updateLinkText : 'Add/Update Your Auto-Pay'))}">
+						${properties.formType == 'autoPayFormEnroll' ?
+						(properties.enrollLinkText ? properties.enrollLinkText : 'Enroll')
+						: (properties.updateLinkText ? properties.updateLinkText : 'Add/Update Your Auto-Pay')}
+					</a>
+				</div>
+			</form>
+		</sly>
+
+		<sly
+			data-sly-test="${properties.formType != 'autoPayFormEnroll' && properties.formType != 'autoPayFormUpdate'}">
+
+		</sly>
+	</div>
+	<div class="cell auto"></div>
+</div>

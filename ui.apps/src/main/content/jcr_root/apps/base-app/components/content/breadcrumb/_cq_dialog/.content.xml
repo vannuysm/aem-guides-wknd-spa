@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0" jcr:primaryType="nt:unstructured" jcr:title="Breadcrumb" sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/container">
+        <layout jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" margin="{Boolean}false" />
+        <items jcr:primaryType="nt:unstructured">
+            <columnProperties jcr:primaryType="nt:unstructured" jcr:title="Content" sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns" margin="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <tabs jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/tabs" maximized="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <content jcr:primaryType="nt:unstructured" jcr:title="Content" sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns" margin="{Boolean}true">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <!-- content for component goes here. -->
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </content>
+                                    <config jcr:primaryType="nt:unstructured" jcr:title="Configuration" sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns" margin="{Boolean}true">
+
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <!-- Configuration component changes here. -->
+                                                    <vertheading jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/heading" level="3" text="Vertical Spacing" />
+                                                    <marginBottomDesktop jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginBottomDesktop" jcr:title="Desktop Margin Bottom" name="./marginBottomDesk" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <marginTopDesktop jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginTopDesktop" jcr:title="Desktop Margin Top" name="./marginTopDesk" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingBottomDesktop jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingBottomDesktop" jcr:title="Desktop padding Bottom" name="./paddingBottomDesk" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingTopDesktop jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingTopDesktop" jcr:title="Desktop padding Top" name="./paddingTopDesk" sling:resourceType="granite/ui/components/foundation/include" />
+
+                                                    <marginBottomtablet jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginBottomtablet" jcr:title="tablet Margin Bottom" name="./marginBottomtablet" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <marginToptablet jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginToptablet" jcr:title="tablet Margin Top" name="./marginToptablet" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingBottomtablet jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingBottomtablet" jcr:title="tablet padding Bottom" name="./paddingBottomtablet" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingToptablet jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingToptablet" jcr:title="tablet padding Top" name="./paddingToptablet" sling:resourceType="granite/ui/components/foundation/include" />
+
+                                                    <marginBottommobile jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginBottommobile" jcr:title="mobile Margin Bottom" name="./marginBottommobile" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <marginTopmobile jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginTopmobile" jcr:title="mobile Margin Top" name="./marginTopmobile" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingBottommobile jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingBottommobile" jcr:title="mobile padding Bottom" name="./paddingBottommobile" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingTopmobile jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingTopmobile" jcr:title="mobile padding Top" name="./paddingTopmobile" sling:resourceType="granite/ui/components/foundation/include" />
+
+                                                    <hideheading jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/heading" level="3" text="Hide Options" />
+                                                    <hideLarge jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/hideLarge" jcr:title="Hide on large screens" name="./hideLarge" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <hideMedium jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/hideMedium" jcr:title="Hide on medium screens" name="./hideMedium" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <hideSmall jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/hideSmall" jcr:title="Hide on small screens" name="./hideSmall" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <hideLogin jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/checkbox" name="./LoggedIn" text="Hide When Loggedin" value="hideLoggedIn" />
+                                                    <hideLogOut jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/checkbox" name="./LoggedOut" text="Hide When Loggedout" value="hideLoggedOut" />
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </config>
+                                    <Design jcr:primaryType="nt:unstructured" jcr:title="Design" sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns" margin="{Boolean}true">
+
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <!-- Component Design changes here. -->
+
+                                                    <bgColor jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/bgColor" fieldLabel="Background Color" name="./backgroundColor" sling:resourceType="granite/ui/components/foundation/include" />
+
+
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </Design>
+
+                                </items>
+                            </tabs>
+                        </items>
+                    </column>
+                </items>
+            </columnProperties>
+        </items>
+    </content>
+</jcr:root>

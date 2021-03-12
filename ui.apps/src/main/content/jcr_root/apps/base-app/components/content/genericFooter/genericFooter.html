@@ -1,0 +1,114 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+  data-emptytext="Generic Footer"></div>
+<sly data-sly-use.footerNav="com.wyndham.baseapp.core.models.GenericFooterModel"></sly>
+
+<div class="footer footer-holiday ${footerNav.primaryLinks?'':'padding-top-0'}" style="background-color:${properties.bgColor @context='styleToken'}">
+  <div class="grid-container" data-sly-test = "${footerNav.primaryLinks || footerNav.rightTopPrimaryPath || footerNav.rightTopPrimaryLabel || footerNav.rightTopSecondaryLinks || footerNav.rightBottomSecondaryLinks}">
+    <div class="grid-x grid-margin-x">
+      <div class="cell auto margin-top-1 margin-bottom-1">
+        <ul class="menu expanded ">
+
+        <li data-sly-repeat.primaryLink="${footerNav.primaryLinks}" class="show-for-large">
+          <a class="body-1 gaChecker hoverMustBeWhite" href="${primaryLink.linkPath}" target="${primaryLink.linkTarget}" data-clickurl="${primaryLink.linkPath}" data-eventname="footer" data-eventcategory="footer" data-eventaction="click" data-eventlabel="${primaryLink.linkLabel}" data-eventvalue="">
+          <span style="cursor: pointer;">${primaryLink.linkLabel}</span>
+          </a>
+          <ul class="no-bullet">
+            <li>
+              <ul class="no-bullet">
+                <li data-sly-list.secondaryLink="${primaryLink.primaryLinks}">
+                  <a class="gaChecker   body-2"  style="cursor: pointer;" data-eventname="footer" data-clickurl="${secondaryLink.linkPath}" data-eventcategory="footer" data-eventaction="click" data-eventlabel="${secondaryLink.linkLabel}" data-eventvalue="" href="${secondaryLink.linkPath}"  target="${secondaryLink.linkTarget}">
+                  ${secondaryLink.linkLabel}
+                  </a>
+                </li>
+              </ul> 
+            </li>
+          </ul>
+        </li>
+        
+        <ul class="no-bullet">
+          <li class="show-for-large">
+            <a class="body-1 gaChecker hoverMustBeWhite"  style="cursor: pointer;" href="${footerNav.rightTopPrimaryPath}" target="${footerNav.rightTopPrimaryTarget}" data-clickurl="${footerNav.rightTopPrimaryPath}" data-eventname="footer" data-eventcategory="footer" data-eventaction="click" data-eventlabel="${footerNav.rightTopPrimaryLabel}" data-eventvalue="">
+            <span  style="cursor: pointer;">${footerNav.rightTopPrimaryLabel}</span>
+            </a>
+            <ul class="no-bullet">
+              <li>
+                <ul class="no-bullet">
+                  <li data-sly-repeat.topRightSecondaryLinks="${footerNav.rightTopSecondaryLinks}">
+                    <a class="gaChecker   body-2"  style="cursor: pointer;" data-eventname="footer" data-clickurl="${topRightSecondaryLinks.linkPath}" data-eventcategory="footer" data-eventaction="click" data-eventlabel="${topRightSecondaryLinks.linkLabel}" data-eventvalue="" href="${topRightSecondaryLinks.linkPath}"  target="${topRightSecondaryLinks.linkTarget}">
+                    ${topRightSecondaryLinks.linkLabel}
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <hr data-sly-test="${footerNav.rightBottomSecondaryLinks}"/> 
+            </ul>
+          </li>
+          <ul class="no-bullet">
+            <li data-sly-repeat.bottomRightBottomSecondaryLinks="${footerNav.rightBottomSecondaryLinks}">
+              <a class="gaChecker   body-2"  style="cursor: pointer;" data-eventname="footer" data-clickurl="${bottomRightBottomSecondaryLinks.linkPath}" data-eventcategory="footer" data-eventaction="click" data-eventlabel=" ${bottomRightBottomSecondaryLinks.linkLabel}" data-eventvalue="${bottomRightBottomSecondaryLinks.linkLabel}" href="${bottomRightBottomSecondaryLinks.linkPath}" target="${bottomRightBottomSecondaryLinks.linkTarget}">
+                ${bottomRightBottomSecondaryLinks.linkLabel}
+              </a>
+            </li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+    <hr data-sly-test="${(footerNav.showLegalDisclaimer || footerNav.showSocial) && (footerNav.socialIcons || footerNav.disclaimerText) }">
+  </div>
+  <sly data-sly-test="${footerNav.showLegalDisclaimer || footerNav.showSocial}">
+<div class="grid-x body-1 grid-container" data-sly-test="${footerNav.socialIcons || footerNav.disclaimerText }">
+    <div class="cell">
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x margin-top-1 margin-bottom-2 ${footerNav.disclaimerText == null ? 'align-center' : ''}" >
+          <div class="cell small-12 large-7 disclaimer bold" style="${!footerNav.socialIcons || !footerNav.showSocial  ? 'text-align:center' : 'r' @ context='unsafe'}" data-sly-test="${footerNav.disclaimerText && footerNav.showLegalDisclaimer}"> ${footerNav.disclaimerText}
+          </div>
+          <div class="cell small-12 ${(!footerNav.disclaimerText || !footerNav.showLegalDisclaimer) ? 'large-12' : 'large-5'} " data-sly-test="${footerNav.socialIcons && footerNav.showSocial}">
+            <div class="grid-x grid-margin-x align-middle socialMedia">
+              <div class="cell small-12">
+                <ul class="menu grid-container" style="${(footerNav.disclaimerText == null || !footerNav.showLegalDisclaimer) ? 'justify-content:center':'' @ context='unsafe'}">
+                  <li data-sly-repeat.socialIcon="${footerNav.socialIcons}">
+                    <a href="${socialIcon.linkPath}" data-clickurl="${socialIcon.linkPath}" class="footer-icon gaChecker"  style="cursor: pointer;" data-eventname="footer" data-eventcategory="footer" data-eventaction="click"  data-eventlabel="${socialIcon.linkLabel}" target="_blank">
+                    <img src="${socialIcon.linkLabel}" aria-hidden="true" aria-label="Social Media" style="cursor: pointer;" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  </sly>
+  <div class="grid-x footerFooter" data-sly-test="${footerNav.showFooterSubMenu}" style="background-color:${properties.subFooterBgColor @context='styleToken'}">
+    <div class="cell">
+      <div class="grid-container ">
+        <div class="grid-x grid-margin-x grid-padding-y align-middle  margin-top-2 margin-bottom-2 footer-sub-section">
+          <div class="cell large-2">
+            <a class="display-block" href="${footerNav.logoLinkUrl}" data-clickurl="${footerNav.logoLinkUrl}" class="gaChecker"  style="cursor: pointer;" data-eventname="footer" data-eventcategory="footer" data-eventaction="click" data-eventlabel="FooterLogo" data-eventvalue="">
+            <img class="" src="${footerNav.fileReference}" alt="Wyndham Logo" />
+            </a>
+          </div>
+          <div class="cell large-2 align-self-middle body-2 text-white small-12">${footerNav.copyrightText}</div>
+          <div class="cell large-2 align-self-middle body-2 text-white small-12">${footerNav.rightsText}</div>
+          <div class="cell small-12 large-auto align-self-middle grid-x quickLinks">
+            <ul class="menu">
+              <li data-sly-repeat.linkList="${footerNav.linkList}" class="display-inline">
+                <a class="body-2 gaChecker"  style="cursor: pointer;" href="${linkList.linkPath}" target="${linkList.linkTarget}" data-clickurl="${linkList.linkPath}" data-eventname="footer" data-eventcategory="footer" data-eventaction="click" data-eventlabel="${linkList.linkLabel}" data-eventvalue="">${linkList.linkLabel}</a>
+              </li>
+
+             	<span></span>
+            </ul>
+          </div>
+			<div class="cell small-12">
+           	 <ul class="no-bullet text-white">
+            	<li class="cell small-12 align-right personal-info">
+                	<a class="body-2 gaChecker"  style="cursor: pointer;" href="https://www.wyndhamdestinations.com/us/en/privacy-notice/opt-out-request-form" data-clickurl="https://www.wyndhamdestinations.com/us/en/privacy-notice/opt-out-request-form" data-eventname="footer" data-eventcategory="footer" data-eventaction="click" data-eventlabel="Sitemap" data-eventvalue="">${footerNav.personalInfoText}</a>
+             	 </li>
+			</ul>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

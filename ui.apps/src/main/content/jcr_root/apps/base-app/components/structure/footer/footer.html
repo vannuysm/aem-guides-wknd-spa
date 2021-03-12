@@ -1,0 +1,331 @@
+<sly data-sly-use.footer="com.wyndham.nextgen.core.models.FooterModel" />
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" />
+<sly
+  data-sly-call="${template.placeholder @ isEmpty=header.siteNavigationItems.size == 0}"
+></sly>
+
+<div class="show-for-large ">
+  <div class="footer">
+    <div class="grid-container">
+      <div class="grid-x grid-margin-x">
+        <div class="cell auto">
+          <ui class="menu expanded">
+            <li data-sly-repeat.footerColumn="${footer.footerColumns}">
+              <a
+                class="subtitle-2 gaChecker text-white"
+                href="${footerColumn.headingLink}"
+                data-clickUrl="${footerColumn.headingLink}"
+                data-eventName="footer"
+                data-eventCategory="footer"
+                data-eventAction="click"
+                data-eventLabel="${footerColumn.heading}"
+                data-eventValue=""
+                ><span>${footerColumn.heading}</span></a
+              >
+              <div class="border is-hidden-desktop"></div>
+              <ul class="no-bullet">
+                <li>
+                  <a
+                    class="has-footer-submenu-mobile-symbol"
+                    href="#"
+                    data-attr="close"
+                  ></a>
+                  <div class="border is-hidden-desktop"></div>
+                  <ul class="no-bullet">
+                    <li
+                      data-sly-repeat.footerLink="${footerColumn.footerLinks}"
+                    >
+                      <a
+                        class="gaChecker ${footerLink.link.isLinkExternal ? 'external' : ''} ${footerLink.active || footerLink.hierarchyActive ? 'active' : ''} subtitle-3"
+                        data-eventName="footer"
+                        data-clickUrl="${footerLink.link.linkUrl}"
+                        data-eventCategory="footer"
+                        data-eventAction="click"
+                        data-eventLabel="${footerLink.link.linkText}"
+                        data-eventValue=""
+                        href="${footerLink.link.linkUrl}"
+                        target="${footerLink.link.linkOpenInNewWindow ? '_blank' : ''}"
+                      >
+                        ${footerLink.link.linkText}
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ui>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="grid-container disclaimer">
+      <div class="grid-x grid-margin-x">
+        <div class="cell medium-12">
+          ${footer.timeShareLegalCopy}
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-container">
+      <div class="grid-x grid-margin-x socialMedia">
+        <div class="cell ">
+          <ul class="menu align-right">
+            <li data-sly-repeat.socialMediaLink="${footer.socialMediaLinks}">
+              <a
+                href="${socialMediaLink.linkUrl}"
+                data-clickUrl="${socialMediaLink.linkUrl}"
+                class="footer-icon gaChecker"
+                data-eventName="footer"
+                data-eventCategory="footer"
+                data-eventAction="click"
+                data-eventLabel="${socialMediaLink.linkText}"
+                data-eventValue=""
+                target="_blank"
+              >
+                <img
+                  src="${socialMediaLink.linkIcon}"
+                  aria-hidden="true"
+                  aria-label="${socialMediaLink.linkText}"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-x footerFooter">
+      <div class="cell">
+        <div class="grid-container ">
+          <div class="grid-x grid-margin-x footerFooterSize">
+            <div class="cell medium-3">
+              <a
+                href="${footer.logoLinkUrl @ extension='html'}"
+                data-clickUrl="${footer.logoLinkUrl @ extension='html'}"
+                class="gaChecker"
+                data-eventName="footer"
+                data-eventCategory="footer"
+                data-eventAction="click"
+                data-eventLabel="FooterLogo"
+                data-eventValue=""
+              >
+                <img
+                  class=""
+                  src="${footer.logoSrc}"
+                  alt="${footer.logoAltText}"
+                />
+              </a>
+            </div>
+            <div class="cell medium-5 align-self-middle">
+              <ul class="menu expanded">
+                <li>
+                  ${footer.copyrightText1}
+                </li>
+                <li>
+                  ${footer.copyrightText2}
+                </li>
+              </ul>
+            </div>
+            <div class="cell medium-4 align-self-middle">
+              <ul
+                class="menu float-right"
+                data-sly-list.quickLink="${footer.quickLinks}"
+              >
+                <li>
+                  <a
+                    class="subtitle-3 gaChecker"
+                    href="${quickLink.link.linkUrl}"
+                    data-clickUrl="${quickLink.link.linkUrl}"
+                    target="${quickLink.link.linkOpenInNewWindow ? '_blank' : ''}"
+                    data-eventName="footer"
+                    data-eventCategory="footer"
+                    data-eventAction="click"
+                    data-eventLabel="${quickLink.link.linkText}"
+                    data-eventValue=""
+                  >
+                    ${quickLink.link.linkText}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="grid-container">
+          <div class="grid-x">
+            <div class="cell auto">
+              <div class="align-self-middle cell">
+                <a
+                  class="subtitle-3 float-right legal gaChecker"
+                  data-clickUrl="https://www.wyndhamdestinations.com/us/en/privacy-notice/opt-out-request-form"
+                  data-eventName="footer"
+                  data-eventCategory="footer"
+                  data-eventAction="click"
+                  data-eventLabel="Do Not Sell My Personal Information"
+                  data-eventValue=""
+                  href="https://www.wyndhamdestinations.com/us/en/privacy-notice/opt-out-request-form"
+                >
+                  Do Not Sell My Personal Information
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="show-for-small hide-for-large ">
+  <div class="footer">
+    <div class="grid-container full">
+      <div class="grid-x">
+        <div class="cell small-12">
+          <ul
+            class="accordion"
+            data-accordion
+            data-allow-all-closed="true"
+            data-multi-expand="true"
+          >
+            <li
+              class="accordion-item "
+              data-accordion-item
+              data-sly-repeat.footerColumn="${footer.footerColumns}"
+            >
+              <!-- Accordion tab title -->
+              <a href="#" class="accordion-title gaChecker"  data-clickUrl="#"
+              data-eventName="footer"
+              data-eventCategory="footer"
+              data-eventAction="click"
+              data-eventLabel="${footerColumn.heading}"
+              data-eventValue="">${footerColumn.heading}</a>
+
+              <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+              <div
+                class="accordion-content"
+                data-tab-content
+                data-sly-repeat.footerLink="${footerColumn.footerLinks}"
+              >
+                <a
+                  class="${footerLink.link.isLinkExternal ? 'external' : ''} ${footerLink.active || footerLink.hierarchyActive ? 'active' : ''} subtitle-3 gaChecker"
+                  href="${footerLink.link.linkUrl}"
+                  data-clickUrl="${footerLink.link.linkUrl}"
+                  data-eventName="footer"
+                  data-eventCategory="footer"
+                  data-eventAction="click"
+                  data-eventLabel="${footerLink.link.linkText}"
+                  data-eventValue=""
+                  target="${footerLink.link.linkOpenInNewWindow ? '_blank' : ''}"
+                  >${footerLink.link.linkText}
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid-container disclaimer">
+        <div class="grid-x grid-margin-x">
+          <div class="cell medium-12">
+            ${footer.timeShareLegalCopy}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x socialMedia">
+          <div class="cell auto"></div>
+          <div class="cell medium-4">
+            <ul class="menu align-center">
+              <li data-sly-repeat.socialMediaLink="${footer.socialMediaLinks}">
+                <a
+                  href="${socialMediaLink.linkUrl}"
+                  data-clickUrl="${socialMediaLink.linkUrl}"
+                  class="footer-icon gaChecker"
+                  data-eventName="footer"
+                  data-eventCategory="footer"
+                  data-eventAction="click"
+                  data-eventLabel="${socialMediaLink.linkText}"
+                  data-eventValue=""
+                  target="_blank"
+                >
+                  <img
+                    src="${socialMediaLink.linkIcon}"
+                    aria-hidden="true"
+                    aria-label="${socialMediaLink.linkText}"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="grid-container footerFooter">
+        <div class="grid-x grid-margin-x">
+          <div class="cell">
+            <a class="gaChecker" href="${footer.logoLinkUrl @ extension='html'}"
+            data-eventName="footer"
+                  data-eventCategory="footer"
+                  data-eventAction="click"
+                  data-eventLabel="footerLogo"
+                  data-clickUrl="${footer.logoLinkUrl @ extension='html'}"
+                  data-eventValue="">
+              <img
+                class="float-center footerLogoSmall "
+                src="${footer.logoSrc}"
+                alt="${footer.logoAltText}"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="grid-x align-center text-center footerCopyright">
+          <div class="cell small-6 body-2">
+            ${footer.copyrightText1}
+          </div>
+          <div class="cell small-6 body-2">
+            ${footer.copyrightText2}
+          </div>
+        </div>
+        <div class="grid-x">
+          <div class="cell">
+            <ul
+              class="menu align-center expanded"
+              data-sly-list.quickLink="${footer.quickLinks}"
+            >
+              <li>
+                <a
+                  class="subtitle-3 gaChecker"
+                  data-eventName="footer"
+                  data-eventCategory="footer"
+                  data-eventAction="click"
+                  data-eventLabel="${quickLink.link.linkText}"
+                  data-eventValue=""
+                  data-clickUrl="${quickLink.link.linkUrl}"
+                  href="${quickLink.link.linkUrl}"
+                  target="${quickLink.link.linkOpenInNewWindow ? '_blank' : ''}"
+                >
+                  ${quickLink.link.linkText}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- <div class="grid-x grid-padding-x align-center text-center">
+          <div class="cell">
+            <a
+              class="subtitle-3 legal gaChecker"
+              data-eventName="footer"
+                  data-eventCategory="footer"
+                  data-eventAction="click"
+                  data-eventLabel="legal text"
+                  data-eventValue=""
+                  data-clickUrl="https://www.wyndhamdestinations.com/us/en/privacy-notice/opt-out-request-form"
+              href="https://www.wyndhamdestinations.com/us/en/privacy-notice/opt-out-request-form"
+            >
+              Do Not Sell My Personal Information
+            </a>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

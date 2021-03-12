@@ -1,0 +1,90 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+    data-emptytext="Index Component"></div>
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.IndexCardModel" data-sly-test="${baseModel.cardList}">
+</sly>
+<sly data-sly-test.existing="${properties.typeCard=='square' || properties.typeCard=='brief'}">
+    <div id="${properties.id}"
+        class="scrollMargin grid-x indexCardParent ${properties.LoggedOut} ${properties.LoggedIn} ${properties.flexPosition} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}">
+        <div class="cell">
+            <div class="align-middle grid-x controllerDiv ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} "
+                style="background-color:${properties.bgColor @context='unsafe'}">
+                <div class="cell">
+                    <div class="grid-x grid-margin-x small-up-1 ${properties.displayColumns} " data-equalizer
+                        data-sly-list="${baseModel.cardList}">
+                        <a data-isHidden="${item.isHidden==true ? 'true':'false'}"
+                            class="ctaText text-primary gaChecker" data-eventName="Card" data-eventCategory="Card"
+                            data-eventAction="click" href="${item.cardCTALink}.html">
+                            <div data-isHidden="${item.isHidden==true ? 'true':'false'}"
+                                class="cell ${properties.LoggedOut} ${properties.LoggedIn} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+                                style="display: flex;padding-bottom: 15px !important;background-color: white;background-clip: content-box;">
+                                <div data-equalizer-watch
+                                    class="cardIndex align-center-middle ${properties.anamationOn == 'true' ? 'wow animate-fade-in-bottom' : ''}">
+                                    <sly data-sly-test="${properties.typeCard=='square'}">
+                                        <img src="${item.cardImagePath}" />
+                                    </sly>
+                                    <div class="card-section">
+                                        <span class="label"
+                                            style="background-color:${properties.captionColor @context='unsafe'}">${item.cardTag}
+                                        </span>
+                                        <div class="subtitle-3 bold">${item.cardTitle}</div>
+                                        <div class="body-2 ">${item.cardDescription}</div>
+                                        <a class="ctaText link ${properties.ctaColor} ${properties.ctaType} ${properties.hollow}"
+                                            href="${item.cardCTALink}.html">
+                                            <div class="body-1-link link-caret-dynamic">${item.cardLinkText}</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div data-sly-test="${baseModel.viewMoreCTA && !properties.hideCta}" style=" text-align: center;">
+                        <a class="button showAll secondary  ${properties.ctaColor} ${properties.ctaTypeVM} ${properties.hollowVM}"
+                            style="margin-top:24px;">View More</a>
+                        <a class="button showLess secondary ${properties.ctaColor} ${properties.ctaTypeVM} ${properties.hollowVM}"
+                            style="display:none;margin-top:24px;">View less</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</sly>
+
+<sly data-sly-test="${!existing}">
+    <div class="main-wrapper ${properties.LoggedOut} ${properties.LoggedIn} ${properties.flexPosition} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}">
+        <div class="head-section">
+            <div class="grid-x">
+                <div class="cell large-8 small-12">
+                    <div class="indexTitle">${properties.listTitle}</div>
+                </div>
+            </div>
+        </div>
+        <div class="articles-wrapper">
+            <div class="articles-list" data-sly-list="${baseModel.cardList}">
+                <div class="IndexListType" data-sly-test="${item.cardDate || item.cardTitle || item.cardLinkText || item.cardImagePath !='#'}">
+                    <div class=" grid-x">
+                        <div class="cell large-2 medium-2 small-12 indexImg" data-sly-test="${item.cardImagePath != '#'}">
+                            <img src="${item.cardImagePath}" alt="img">
+                        </div>
+                        <div class="cell large-10 medium-10 small-12" >
+                            <div class="grid-x" data-sly-test="${item.cardDate}">
+                                <div class="cell indexDate shrink">
+                                ${'MMM dd, yyyy' @ format=item.cardDate}
+                                </div>
+                            </div>
+                            <div class="grid-x" data-sly-test="${item.cardTitle}">
+                                <div class="cell indexBody small-12 subtitle-2">
+                                    ${item.cardTitle}
+                                </div>
+                            </div>
+                            <div class="grid-x" data-sly-test="${item.cardLinkText}">
+                                <div class="cell indexCta small-12 link-caret-dynamic linkbutton">
+                                    <a href="${item.cardCTALink}.html">${item.cardLinkText}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</sly>

@@ -1,0 +1,84 @@
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+  data-emptytext="Glossary component"></div>
+
+
+  <div class="glossary  ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}">
+    <div class="topNav">
+        <div id="top"></div>
+        <!-- <div class="glossaryTitle">
+            <div class="grid-container">
+                <div class="grid-x title-2">
+                    <div class="cell">
+                        CLUB WYNDHAM GLOSSARY
+                    </div>
+                </div>
+                <div class="grid-x body-1">
+                    <div class="cell large-6 small-12">
+                        This glossary is your one-stop shop for all terms and definitions ― explaining things like UDI
+                        (Undivided Interest
+                        Ownership) and ARP (Advanced Reservation Priority).
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="glossaryBody">
+            <div class="grid-container">
+                <div class="grid-x">
+                    <div class="cell auto"></div>
+                    <div class="cell large-8 small-12">
+                        <div class="grid-x tabContainer grid-padding-x">
+                            <div class="cell text-center">
+                                <ul class="tabs menu" id="stickyTabs">
+                                    <sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+                                        <li data-sly-test="${itemList.index == 0}" class="tabs-title is-active">
+                                          <a href="#${item.contentModelCF.title @ context='unsafe'}" class="gaChecker" data-eventName="tab" data-eventCategory="tab" data-eventAction="click" data-eventLabel="${item.contentModelCF.title}" data-eventValue="" data-clickUrl="#panel-${itemList.count @ context='unsafe'}">${item.contentModelCF.title}</a>
+                                          <div class="theBar startBar"></div>
+                                        </li>
+                                        <li data-sly-test="${itemList.index > 0}" class="tabs-title">
+                                          <a href="#${item.contentModelCF.title @ context='unsafe'}" class="gaChecker" data-eventName="tab" data-eventCategory="tab" data-eventAction="click" data-eventLabel="${item.contentModelCF.title}" data-eventValue="" data-clickUrl="#panel-${itemList.count @ context='unsafe'}">${item.contentModelCF.title}</a>
+                                          <div class="theBar"></div>
+                                        </li>
+                                
+                                      </sly> 
+                                </ul>
+                                <div class="placeholder"></div>
+                            </div>
+
+                        </div>
+
+                        <sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+                            <sly data-sly-test="${itemList.index == 0}" >
+                            <div class="grid-x ">
+                                <div id="${item.contentModelCF.title @ context='unsafe'}" class="cell align-self-top text-right title-2 lable large-1 small-1">
+                                    ${item.contentModelCF.title}
+                                </div>
+                                <div class="cell align-self-bottom large-11 small-11">
+                                    <div data-sly-resource="${ 'tab{0}' @ format=itemList.count, resourceType='foundation/components/parsys'}">
+                                    </div>
+                                </div>
+                            </div>
+                            </sly>
+
+                            <sly data-sly-test="${itemList.index > 0}" >
+                            <div class="grid-x align-center">
+                                <div id="${item.contentModelCF.title @ context='unsafe'}" class="cell align-self-top text-right title-2 lable large-1 small-1">
+                                    ${item.contentModelCF.title}
+                                </div>
+                                <div class="cell align-self-bottom large-11 small-11">
+                                    <div data-sly-resource="${ 'tab{0}' @ format=itemList.count, resourceType='foundation/components/parsys'}">
+                                    </div>
+                                </div>
+                            </div>
+                            </sly>
+                            <hr>
+                        </sly>
+                    </div>
+                    <div class="cell auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

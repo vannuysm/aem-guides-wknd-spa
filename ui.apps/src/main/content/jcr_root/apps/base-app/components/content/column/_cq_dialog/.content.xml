@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0" jcr:primaryType="nt:unstructured" jcr:title="General-Column" sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/container">
+        <layout jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" margin="{Boolean}false"/>
+        <items jcr:primaryType="nt:unstructured">
+            <columnProperties jcr:primaryType="nt:unstructured" jcr:title="Content" sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns" margin="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/multifield" composite="{Boolean}true" fieldDescription="Click add to add a column." fieldLabel="Add Columns">
+                                <field jcr:primaryType="nt:unstructured" class="coral-Well" sling:resourceType="granite/ui/components/foundation/form/fieldset" acs-commons-nested="JSON_STORE" name="./columns">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <small jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/select" fieldLabel="Small" name="./smallColumn">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <auto jcr:primaryType="nt:unstructured" text="Auto" value="auto"/>
+                                                <def jcr:primaryType="nt:unstructured" text="small-12" value="small-12"/>
+                                                <eleven jcr:primaryType="nt:unstructured" text="small-11" value="small-11"/>
+                                                <ten jcr:primaryType="nt:unstructured" text="small-10" value="small-10"/>
+                                                <nine jcr:primaryType="nt:unstructured" text="small-9" value="small-9"/>
+                                                <eight jcr:primaryType="nt:unstructured" text="small-8" value="small-8"/>
+                                                <seven jcr:primaryType="nt:unstructured" text="small-7" value="small-7"/>
+                                                <six jcr:primaryType="nt:unstructured" text="small-6" value="small-6"/>
+                                                <five jcr:primaryType="nt:unstructured" text="small-5" value="small-5"/>
+                                                <four jcr:primaryType="nt:unstructured" text="small-4" value="small-4"/>
+                                                <three jcr:primaryType="nt:unstructured" text="small-3" value="small-3"/>
+                                                <two jcr:primaryType="nt:unstructured" text="small-2" value="small-2"/>
+                                                <one jcr:primaryType="nt:unstructured" text="small-1" value="small-1"/>
+                                            </items>
+                                        </small>
+                                        <medium jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/select" fieldLabel="Medium" name="./mediumColumn">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <auto jcr:primaryType="nt:unstructured" text="Auto" />
+                                                <def jcr:primaryType="nt:unstructured" text="medium-12" value="medium-12"/>
+                                                <eleven jcr:primaryType="nt:unstructured" text="medium-11" value="medium-11"/>
+                                                <ten jcr:primaryType="nt:unstructured" text="medium-10" value="medium-10"/>
+                                                <nine jcr:primaryType="nt:unstructured" text="medium-9" value="medium-9"/>
+                                                <eight jcr:primaryType="nt:unstructured" text="medium-8" value="medium-8"/>
+                                                <seven jcr:primaryType="nt:unstructured" text="medium-7" value="medium-7"/>
+                                                <six jcr:primaryType="nt:unstructured" text="medium-6" value="medium-6"/>
+                                                <five jcr:primaryType="nt:unstructured" text="medium-5" value="medium-5"/>
+                                                <four jcr:primaryType="nt:unstructured" text="medium-4" value="medium-4"/>
+                                                <three jcr:primaryType="nt:unstructured" text="medium-3" value="medium-3"/>
+                                                <two jcr:primaryType="nt:unstructured" text="medium-2" value="medium-2"/>
+                                                <one jcr:primaryType="nt:unstructured" text="medium-1" value="medium-1"/>
+                                            </items>
+                                        </medium>
+                                        <large jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/select" fieldLabel="Large" name="./largeColumn">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <auto jcr:primaryType="nt:unstructured" text="Auto"/>
+                                                <def jcr:primaryType="nt:unstructured" text="large-12" value="large-12"/>
+                                                <eleven jcr:primaryType="nt:unstructured" text="large-11" value="large-11"/>
+                                                <ten jcr:primaryType="nt:unstructured" text="large-10" value="large-10"/>
+                                                <nine jcr:primaryType="nt:unstructured" text="large-9" value="large-9"/>
+                                                <eight jcr:primaryType="nt:unstructured" text="large-8" value="large-8"/>
+                                                <seven jcr:primaryType="nt:unstructured" text="large-7" value="large-7"/>
+                                                <six jcr:primaryType="nt:unstructured" text="large-6" value="large-6"/>
+                                                <five jcr:primaryType="nt:unstructured" text="large-5" value="large-5"/>
+                                                <four jcr:primaryType="nt:unstructured" text="large-4" value="large-4"/>
+                                                <three jcr:primaryType="nt:unstructured" text="large-3" value="large-3"/>
+                                                <two jcr:primaryType="nt:unstructured" text="large-2" value="large-2"/>
+                                                <one jcr:primaryType="nt:unstructured" text="large-1" value="large-1"/>
+
+                                            </items>
+                                        </large>
+                                    </items>
+                                </field>
+                            </columns>
+                            <gutters jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/select" fieldLabel="Margin, padding, or no gutters" name="./gutterType">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <def jcr:primaryType="nt:unstructured" text="No Gutters" value=""/>
+                                    <margin jcr:primaryType="nt:unstructured" text="Margin" value="grid-margin-x"/>
+                                    <pading jcr:primaryType="nt:unstructured" text="Padding" value="grid-padding-x"/>
+                                </items>
+                            </gutters>
+                            <fullGrid jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/checkbox" fieldDescription="Adds the grid-container class to the parent" name="./fullPage" text="Center the columns" value="grid-container"/>
+                            <backgroundColor jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/bgColor" fieldLabel="Custom Button Color" name="./bgColor" value="transparent" sling:resourceType="granite/ui/components/foundation/include" />
+                            <hideLogin jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/checkbox" name="./LoggedIn" text="Hide When Loggedin" value="hideLoggedIn" />
+                            <hideLogOut jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/checkbox" name="./LoggedOut" text="Hide When Loggedout" value="hideLoggedOut" />
+                        </items>
+                    </column>
+                </items>
+            </columnProperties>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,226 @@
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptytext="Video Component"></div>
+
+
+<template data-sly-template.link="${@ item, cssClasses}">
+	<sly data-sly-test="${properties.ctaType == 'text'}">
+		<div class="body-1-link"><a href="${item.linkContentFragmentModel.linkUrl}"
+				target="${item.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+				class="link-caret-dynamic gaChecker body-1-link"
+				data-clickUrl="${item.linkContentFragmentModel.linkUrl}"
+				data-eventName="${properties.eventName ? properties.eventName : 'Card'}"
+				data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Card'}"
+				data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+				data-eventLabel="${properties.eventLabel ? properties.eventLabel : item.linkContentFragmentModel.linkText}"
+				data-eventValue="">${item.linkContentFragmentModel.linkText}</a>
+		</div>
+	</sly>
+	<sly data-sly-test="${properties.ctaType != 'text'}">
+		<sly data-sly-test="${properties.ctaColor != 'custom'}">
+			<a href="${item.linkContentFragmentModel.linkUrl}"
+				class="button ${properties.ctaColor} ${properties.ctaType} ${properties.hollow} gaChecker"
+				data-eventName="${properties.eventName ? properties.eventName : 'Card'}"
+				data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Card'}"
+				data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+				data-eventLabel="${properties.eventLabel ? properties.eventLabel : item.contentModelCF.title}"
+				data-eventValue="" data-clickUrl="${item.linkContentFragmentModel.linkUrl}"
+				target="${item.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+				style="margin-top:24px;">${item.linkContentFragmentModel.linkText}</a>
+		</sly>
+		<sly data-sly-test="${properties.ctaColor == 'custom'}">
+			<a href="${item.linkContentFragmentModel.linkUrl}" class="button ${properties.ctaType} gaChecker"
+				data-eventName="${properties.eventName ? properties.eventName : 'Card'}"
+				data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'Card'}"
+				data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+				data-eventLabel="${properties.eventLabel ? properties.eventLabel : item.contentModelCF.title}"
+				data-eventValue="" data-clickUrl="${item.linkContentFragmentModel.linkUrl}"
+				target="${item.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+				style="background-color:${properties.ctaBG @context='unsafe'}; color:${item.contentModelCF.fontColor @context='unsafe'}; margin-top:24px;">${item.linkContentFragmentModel.linkText}</a>
+		</sly>
+	</sly>
+</template>
+
+<sly data-sly-test="${properties.typeBanner == 'simple'}">
+	<div id="${properties.id}"
+		class="scrollMargin grid-x videoComponent ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+		style="color: ${item.contentModelCF.fontColor @context='unsafe'};">
+		<sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+			<sly data-sly-test.imageData="${item.contentModelCFImage.imageMetaData}"></sly>
+			<div class="cell small-12">
+				<div class="videoSectionSimple">
+					<div class="hide-for-small show-for-large">
+						<sly data-sly-test="${properties.desktop != 'source'}">
+							<img
+								src="${item.contentModelCF.videoImage}/jcr:content/renditions/cq5dam.thumbnail.${properties.desktop}.${imageData.assetType}" />
+						</sly>
+						<sly data-sly-test="${properties.desktop == 'source'}">
+							<img src="${item.contentModelCF.videoImage}" />
+						</sly>
+					</div>
+					<div class="show-for-medium-only">
+						<sly data-sly-test="${properties.tablet != 'source'}">
+							<img
+								src="${item.contentModelCF.videoImage}/jcr:content/renditions/cq5dam.thumbnail.${properties.tablet}.${imageData.assetType}" />
+						</sly>
+						<sly data-sly-test="${properties.tablet == 'source'}">
+							<img src="${item.contentModelCF.videoImage}" />
+						</sly>
+					</div>
+					<div class="show-for-small-only">
+						<sly data-sly-test="${properties.mobile != 'source'}">
+							<img
+								src="${item.contentModelCF.videoImage}/jcr:content/renditions/cq5dam.thumbnail.${properties.mobile}.${imageData.assetType}" />
+						</sly>
+						<sly data-sly-test="${properties.mobile == 'source'}">
+							<img src="${item.contentModelCF.videoImage}" />
+						</sly>
+					</div>
+					<a href="#" data-open="${item.contentModelCF.videoId}" class="korModalActivate playButton"></a>
+				</div>
+			</div>
+		</sly>
+	</div>
+</sly>
+
+<sly data-sly-test="${properties.typeBanner == 'smallBlock'}">
+	<div id="${properties.id}"
+		class="scrollMargin videoSectionBlock grid-x videoComponent ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+		style="background-color: ${properties.backgroundColor @context='unsafe'}; color: ${item.contentModelCF.fontColor @context='unsafe'};">
+
+		<sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+			<sly data-sly-test="${item.contentModelCF.fileReference}">
+				<img src="${item.contentModelCF.fileReference}" style="position: absolute;" alt="">
+			</sly>
+			<div
+				class="cell large-6 small-order-2 medium-order-1  ${properties.smallBlockImageSide ? 'large-order-2' : ''}">
+				<div class="videoContent">
+					<div data-sly-element="${properties.captionStyle @context='html'}" class="caption-1">
+						${item.contentModelCF.caption}</div data-sly-element="${properties.captionStyle @context='unsafe'}">
+					<div data-sly-element="${properties.titleStyle @context='unsafe'}" class="title-1">
+						${item.contentModelCF.title}
+					</div data-sly-element="${properties.titleStyle @context='unsafe'}">
+					<div data-sly-element="${properties.subTitleStyle @context='html'}" class="subtitle-3">
+						${item.contentModelCF.subtitle}
+					</div data-sly-element="${properties.subTitleStyle @context='html'}">
+					<div class="body-1">${item.contentModelCF.text @ context='html'}</div>
+					<sly data-sly-test="${item.linkContentFragmentModel.linkUrl}">
+						<sly data-sly-call="${link @ item=item, cssClasses='hollow button white'}">
+						</sly>
+					</sly>
+				</div>
+			</div>
+			<div
+				class="cell large-6 small-order-1 medium-order-2 ${properties.smallBlockImageSide ? 'large-order-1' : ''}">
+				<div class="videoSection">
+					<div class="smallBlock">
+						<img src="${item.contentModelCF.videoImage}" alt="" />
+						<a href="#" data-open="${item.contentModelCF.videoId}" class="korModalActivate playButton"></a>
+					</div>
+				</div>
+			</div>
+
+		</sly>
+	</div>
+</sly>
+
+<sly data-sly-test="${properties.typeBanner == 'block'}">
+	<sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+		<div id="${properties.id}"
+			class="scrollMargin ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile} ">
+			<section class="videoComponent" style="color:${item.contentModelCF.fontColor @context='unsafe'}">
+				<div class="blockVideo">
+					<div class="video" style="background-color:${properties.backgroundColor @context='unsafe'}">
+						<div class="image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+							<img src="${item.contentModelCF.videoImage}" alt="" />
+							<a href="#" data-open="${item.contentModelCF.videoId}"
+								class="playButton korModalActivate"></a>
+						</div>
+
+						<div class=" large-bg-transparent ">
+							<div class="grid-container">
+								<div class="grid-x minHeight align-middle">
+									<sly data-sly-test="${bgColor == ''}">
+										<div class="cell videoCard large-5 banner __content ${properties.blockImageSide ? 'large-order-2' : ''} ${properties.anamationOn == 'true' ? 'wow animate-fade-in-bottom' : ''} "
+											style="color:${item.contentModelCF.fontColor @context='unsafe'}">
+
+									</sly>
+									<sly data-sly-test="${bgColor != ''}">
+										<div class="cell videoCard large-5 banner __content ${properties.blockImageSide ? 'large-order-2' : ''} ${properties.anamationOn == 'true' ? 'wow animate-fade-in-bottom' : ''} "
+											style="color:${item.contentModelCF.fontColor @context='unsafe'}; background-color:${properties.backgroundColor @context='unsafe'}">
+
+									</sly>
+
+
+									<div data-sly-element="${properties.captionStyle @context='html'}" class="caption-1"
+										style="margin-top:0px;color:initial">${item.contentModelCF.caption}
+									</div data-sly-element="${properties.captionStyle @context='unsafe'}">
+									<div data-sly-element="${properties.titleStyle @context='unsafe'}" class="title-1"
+										style="margin-top:8px; color:${item.contentModelCF.fontColor @context='unsafe'}">
+										${item.contentModelCF.title @ context="html"}
+									</div data-sly-element="${properties.titleStyle @context='unsafe'}">
+									<div data-sly-element="${properties.subTitleStyle @context='html'}"
+										class="subtitle-3"
+										style="margin-top:8px; color:${item.contentModelCF.fontColor @context='unsafe'}">
+										${item.contentModelCF.subtitle @context='unsafe'}</div
+										data-sly-element="${properties.subTitleStyle @context='html'}">
+									<div class="body-1"
+										style="margin-top:16px; color:${item.contentModelCF.fontColor @context='unsafe'}">
+										${item.contentModelCF.text @ context='html'}</div>
+
+									<sly data-sly-test="${item.linkContentFragmentModel.linkUrl}">
+										<sly data-sly-call="${link @ item=item, cssClasses='hollow button white'}">
+										</sly>
+									</sly>
+								</div>
+								<div class="large-7"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</sly>
+</sly>
+
+<sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+	<div class="korModal" id="${item.contentModelCF.videoId}" style="color: ${properties.fontColor @context='unsafe'};">
+
+		<div class="korTitle subtitle-1">
+			<div class="grid-container">
+				<div class="grid-x">
+					<!-- This is a change that will need to be updated in AEM -->
+					<div class="cell small-11 large-6">
+						${item.contentModelCF.videoTitle}
+					</div>
+					<div class="cell small-1 large-6 text-right">
+						<button class="close-button" aria-label="Close alert" type="button" data-close>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="korContentContainer">
+			<sly data-sly-test="${item.contentModelCF.videoType == 'Vimeo'}">
+				<div class="korContent responsive-embed widescreen">
+					<iframe title="vimeo-player" src="${item.contentModelCF.videoLink}" frameborder="0"
+						allow="autoplay; fullscreen" allowfullscreen></iframe>
+				</div>
+			</sly>
+			<sly data-sly-test="${item.contentModelCF.videoType == 'YouTube'}">
+				<div class="korContent responsive-embed widescreen">
+					<iframe id="ytplayer" src="${item.contentModelCF.videoLink}?rel=0" frameborder="0"
+						allow="autoplay; fullscreen" allowfullscreen></iframe>
+				</div>
+			</sly>
+			<sly data-sly-test="${item.contentModelCF.videoType == 'DAM'}">
+				<div class="korContent responsive-embed widescreen">
+					<iframe src="${item.contentModelCF.videoLink}" frameborder="0" allow="autoplay"
+						allowfullscreen></iframe>
+				</div>
+			</sly>
+		</div>
+
+	</div>
+</sly>

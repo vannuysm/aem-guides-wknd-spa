@@ -1,0 +1,60 @@
+<!--/*  
+<div
+	data-sly-test="${wcmmode.edit || wcmmode.design}"
+	class="cq-placeholder cq-marker-start"
+	data-emptytext="Zurb content"
+></div>
+*/-->
+
+<sly
+	data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+	data-sly-use.contentModel="com.wyndham.baseapp.core.models.BaseModel"
+	data-sly-test.modelsAreDefined="${contentModel.contentFragmentSourceModels}"
+>
+	<sly data-sly-test.arrayLength="${contentModel.contentFragmentSourceModels.size}" />
+
+	<div gtm_component="content" gtm_component_type="content" class="controllerDiv contentComponent ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}" style="background-color:${properties.bgColor @ context='unsafe'}">
+	
+		<div data-sly-test="${wcmmode.edit || wcmmode.design}">
+			<b>ColumnType:</b> ${properties.contentType}
+		</div>
+		
+		<sly
+			data-sly-use.contentTemplate="content-template.html">
+					
+			<!--/* for debugging */-->
+<!--/* 			<table data-sly-test="${wcmmode.edit || wcmmode.design}" style="width: initial">
+				<tr><th>title</th><td>${cfsm.contentModelCF.title}</td></tr>
+				<tr><th>subtitle</th><td>${cfsm.contentModelCF.subtitle @ context="html"}</td></tr>
+				<tr><th>text</th><td>${cfsm.contentModelCF.text @ context='html'}</td></tr>
+			</table> */-->		
+			
+			<sly data-sly-test="${properties.contentType == 'singleColumn'}"
+				 data-sly-list.cfsm="${contentModel.contentFragmentSourceModels}">
+ 				<sly data-sly-call="${contentTemplate.singleColumn @ cfsm=cfsm}"></sly>	
+			</sly>
+			
+			<sly data-sly-test="${properties.contentType == 'twoColumnSplit'}"
+				 data-sly-list.cfsm="${contentModel.contentFragmentSourceModels}">
+ 				<sly data-sly-call="${contentTemplate.twoColumnSplit @ cfsm=cfsm}"></sly>
+			</sly>
+	
+			<sly data-sly-test="${properties.contentType == 'twoColumnMedia'}">
+				<sly data-sly-call="${contentTemplate.twoColumnMedia @ contentModel=contentModel}"></sly>
+			</sly>
+	
+			<sly data-sly-test="${properties.contentType == 'twoColumnContent'}">
+				<sly data-sly-test="${arrayLength == 2 }"
+					 data-sly-call="${contentTemplate.twoColumnContent @ contentModel=contentModel}"></sly>
+ 				<div data-sly-test="${(wcmmode.edit || wcmmode.design) && arrayLength != 2 }">
+ 					<b>Two Column Content must have exactly TWO content fragments defined.</b>
+				</div>
+			</sly>
+	
+		</sly>
+	
+	</div> <!-- This is the parent div closing-->
+
+</sly>
+
+<sly data-sly-call="${template.placeholder @ isEmpty=!modelsAreDefined}"></sly>

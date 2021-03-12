@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:description="Template with focus on content."
+    jcr:primaryType="cq:Template"
+    jcr:title="base Site Content Page"
+    allowedPaths="[/content/wyndham/base-app/us/en(/.*)?,/content/base-app(/.*)?,/content/sandbox(/.*)?]"
+    ranking="{Long}2">
+    <jcr:content
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="base-app/components/structure/page">
+        <contentarea
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="base-app/components/content/contentarea">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/parsys">
+                <errormodal
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="base-app/components/content/errormodal"/>
+            </par>
+        </contentarea>
+    </jcr:content>
+</jcr:root>

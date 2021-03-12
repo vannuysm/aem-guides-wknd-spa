@@ -1,0 +1,329 @@
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<sly data-sly-use.iconListModel="com.wyndham.baseapp.core.models.IconListModel"></sly>
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptytext="Icon List"></div>
+
+<div id="${properties.id}" class='scrollMargin iconList'>
+	<div
+		class="align-middle grid-x overflow-x-hidden overflow-y-hidden ${properties.flexPosition} ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}">
+
+		<div class="cell icon-color">
+			<sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+				<div data-sly-element="${properties.captionStyle @context='html'}"class="caption-1" style="margin-top:25px;">${item.contentModelCF.caption}</div data-sly-element="${properties.captionStyle @context='unsafe'}">
+				<div class="grid-x grid-margin-x align-middle">
+
+					<div class="cell medium-6 small-12  wow animate-fade-in-bottom">
+						<div data-sly-element="${properties.titleStyle @context='html'}"class="title-1 text-primary">${item.contentModelCF.title }</div data-sly-element="${properties.titleStyle @context='unsafe'}">
+						<sly data-sly-test="${item.contentModelCF.subtitle}">
+							<div data-sly-element="${properties.subtitleStyle @context='html'}"class="subtitle-3">${item.contentModelCF.subtitle @ context='html'}</div data-sly-element="${properties.subtitleStyle @context='unsafe'}">
+						</sly>
+						<sly data-sly-test="${item.contentModelCF.text}">
+							<div class="body-1">${item.contentModelCF.text @ context='html'}</div>
+						</sly>
+						<sly data-sly-test="${item.linkContentFragmentModel.linkUrl}">
+							<a class="gaChecker clear button primary float-bold padding-0 margin-top-2"
+								href="${item.linkContentFragmentModel.linkUrl}"
+								target="${item.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+								data-eventName="ctaLink" data-eventCategory="ctaClick" data-eventAction="click"
+								data-eventLabel="${item.linkContentFragmentModel.linkText}">
+								<div class="gaChecker body-1-link" style="margin-top:25px;">
+									${item.linkContentFragmentModel.linkText} <img
+										src="/content/dam/wyndham/wyndham-vacation-clubs/digital-assets/club-wyndham/icons/carat_right.svg"
+										alt="carat_right.svg">
+								</div>
+							</a>
+						</sly>
+					</div>
+			</sly>
+			<div class="cell medium-6 small-12">
+
+				<sly data-sly-test="${properties.iconType != 'bullets'}">
+					<ul class="no-bullet">
+				</sly>
+
+				<sly data-sly-test="${properties.iconType == 'bullets'}">
+					<ul class="">
+				</sly>
+				<sly data-sly-list="${iconListModel.iconList}">
+					<sly data-sly-test="${item['iconTitle']}">
+
+						<li>
+							<div class="grid-x align-top iconBlock wow animate-fade-in-bottom">
+								<sly data-sly-test="${properties.iconType == 'image'}">
+									<div class="shrink">
+										<img class="iconImage" src="${item['icon']}" />
+									</div>
+
+									<div class="text small-9 medium-10">
+										<div class="subtitle-1">${item['iconTitle'] @ context="html"}</div>
+										<p class="body-1">${item['iconSubtitle'] @ context="html"}</p>
+										<sly data-sly-test="${item['iconLinkText']}">
+											<a href="${item['iconLinkUrl']}"
+												class="button clear ${properties.ctaColor}  link-caret-dynamic-dynamic gaChecker"
+												data-eventName="ctaLink" data-eventCategory="ctaClick"
+												data-eventAction="click" data-eventLabel="${item['iconTitle']}"
+												data-clickUrl="${item['iconLinkUrl']}"
+												target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+												style="padding: 0;">${item['iconLinkText']}</a>
+										</sly>
+									</div>
+								</sly>
+								<sly data-sly-test="${properties.iconType != 'image'}">
+									<div class="cell">
+										<div class="subtitle-1">${item['iconTitle'] @ context="html"}</div>
+										<p class="body-1">${item['iconSubtitle'] @ context="html"}</p>
+										<sly data-sly-test="${item['iconLinkText']}">
+											<a href="${item['iconLinkUrl']}"
+												class="button clear ${properties.ctaColor}  link-caret-dynamic-dynamic gaChecker"
+												data-eventName="ctaLink" data-eventCategory="ctaClick"
+												data-eventAction="click" data-eventLabel="${item['iconTitle']}"
+												data-clickUrl="${item['iconLinkUrl']}"
+												target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+												style="padding: 0;">${item['iconLinkText']}</a>
+										</sly>
+									</div>
+								</sly>
+							</div>
+						</li>
+					</sly>
+
+				</sly>
+				<!--<sly data-sly-test="${properties.iconTitle1}">
+
+					<li>
+						<div class="grid-x align-top iconBlock wow animate-fade-in-bottom">
+							<sly data-sly-test="${properties.iconType == 'image'}">
+								<div class="shrink">
+									<img class="iconImage" src="${properties.icon1}" />
+								</div>
+
+								<div class="text small-9 medium-10">
+									<div class="subtitle-1">${properties.iconTitle1 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle1 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText1}">
+										<a href="${iconListModel.iconLinkUrl1}"
+											class="button clear ${properties.ctaColor}  link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl1}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText1}</a>
+									</sly>
+								</div>
+							</sly>
+							<sly data-sly-test="${properties.iconType != 'image'}">
+								<div class="cell">
+									<div class="subtitle-1">${properties.iconTitle1 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle1 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText1}">
+										<a href="${iconListModel.iconLinkUrl1}"
+											class="button clear ${properties.ctaColor}  link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl1}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText1}</a>
+									</sly>
+								</div>
+							</sly>
+						</div>
+					</li>
+				</sly>
+				<sly data-sly-test="${properties.iconTitle2}">
+					<li>
+						<div class="grid-x align-top iconBlock wow animate-fade-in-bottom">
+							<sly data-sly-test="${properties.iconType == 'image'}">
+
+								<div class="shrink">
+									<img class="iconImage" src="${properties.icon2}" />
+								</div>
+
+								<div class="text small-9 medium-10">
+									<div class="subtitle-1">${properties.iconTitle2 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle2 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText2}">
+										<a href="${iconListModel.iconLinkUrl2}"
+											class="button clear ${properties.ctaColor} link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl2}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText2}</a>
+									</sly>
+								</div>
+							</sly>
+							<sly data-sly-test="${properties.iconType != 'image'}">
+								<div class="cell">
+									<div class="subtitle-1">${properties.iconTitle2 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle2 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText2}">
+										<a href="${iconListModel.iconLinkUrl2}"
+											class="button clear ${properties.ctaColor} link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl2}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText2}</a>
+									</sly>
+								</div>
+							</sly>
+						</div>
+					</li>
+				</sly>
+				<sly data-sly-test="${properties.iconTitle3}">
+					<li>
+						<div class="grid-x align-top iconBlock wow animate-fade-in-bottom">
+							<sly data-sly-test="${properties.iconType == 'image'}">
+
+								<div class="shrink">
+									<img class="iconImage" src="${properties.icon3}" />
+								</div>
+
+								<div class="text small-9 medium-10">
+									<div class="subtitle-1">${properties.iconTitle3 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle3 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText3}">
+										<a href="${iconListModel.iconLinkUrl3}"
+											class="button clear ${properties.ctaColor} link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl3}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText3}</a>
+									</sly>
+								</div>
+							</sly>
+							<sly data-sly-test="${properties.iconType != 'image'}">
+								<div class="cell">
+									<div class="subtitle-1">${properties.iconTitle3 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle3 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText3}">
+										<a href="${iconListModel.iconLinkUrl3}"
+											class="button clear ${properties.ctaColor} link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl3}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText3}</a>
+									</sly>
+								</div>
+							</sly>
+						</div>
+					</li>
+				</sly>
+				<sly data-sly-test="${properties.iconTitle4}">
+					<li>
+						<div class="grid-x align-top iconBlock wow animate-fade-in-bottom">
+							<sly data-sly-test="${properties.iconType == 'image'}">
+
+								<div class="shrink">
+									<img class="iconImage" src="${properties.icon4}" />
+								</div>
+
+								<div class="text small-9 medium-10">
+									<div class="subtitle-1">${properties.iconTitle4 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle4 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText4}">
+										<a href="${iconListModel.iconLinkUrl4}"
+											class="button clear ${properties.ctaColor} link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl4}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText4}</a>
+									</sly>
+								</div>
+							</sly>
+							<sly data-sly-test="${properties.iconType != 'image'}">
+								<div class="cell">
+									<div class="subtitle-1">${properties.iconTitle4 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle4 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText4}">
+										<a href="${iconListModel.iconLinkUrl4}"
+											class="button clear ${properties.ctaColor} link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl4}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText4}</a>
+									</sly>
+								</div>
+							</sly>
+						</div>
+					</li>
+				</sly>
+				<sly data-sly-test="${properties.iconTitle5}">
+					<li>
+						<div class="grid-x align-top iconBlock wow animate-fade-in-bottom">
+							<sly data-sly-test="${properties.iconType == 'image'}">
+
+								<div class="shrink">
+									<img class="iconImage" src="${properties.icon5}" />
+								</div>
+
+								<div class="text small-9 medium-10">
+									<div class="subtitle-1">${properties.iconTitle5 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle5 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText5}">
+										<a href="${iconListModel.iconLinkUrl5}"
+											class="button clear ${properties.ctaColor} link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl3}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText3}</a>
+									</sly>
+								</div>
+							</sly>
+							<sly data-sly-test="${properties.iconType != 'image'}">
+								<div class="cell">
+									<div class="subtitle-1">${properties.iconTitle5 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle5 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText5}">
+										<a href="${iconListModel.iconLinkUrl5}"
+											class="button clear ${properties.ctaColor} link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl5}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText5}</a>
+									</sly>
+								</div>
+							</sly>
+						</div>
+					</li>
+				</sly>
+				<sly data-sly-test="${properties.iconTitle6}">
+					<li>
+						<div class="grid-x align-top iconBlock wow animate-fade-in-bottom">
+							<sly data-sly-test="${properties.iconType == 'image'}">
+
+								<div class="shrink">
+									<img class="iconImage" src="${properties.icon6}" />
+								</div>
+
+								<div class="text small-9 medium-10">
+									<div class="subtitle-1">${properties.iconTitle6 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle6 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText6}">
+										<a href="${iconListModel.iconLinkUrl6}"
+											class="button clear ${properties.ctaColor} link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl6}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText6}</a>
+									</sly>
+								</div>
+							</sly>
+							<sly data-sly-test="${properties.iconType != 'image'}">
+								<div class="cell">
+									<div class="subtitle-1">${properties.iconTitle6 @ context="html"}</div>
+									<p class="body-1">${properties.iconSubtitle6 @ context="html"}</p>
+									<sly data-sly-test="${properties.iconLinkText6}">
+										<a href="${iconListModel.iconLinkUrl6}"
+											class="button clear ${properties.ctaColor} link-caret-dynamic gaChecker"
+											data-eventAction="click" data-eventLabel="${properties.title}"
+											data-eventValue="" data-clickUrl="${iconListModel.iconLinkUrl6}"
+											target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+											style="padding: 0;">${properties.iconLinkText6}</a>
+									</sly>
+								</div>
+							</sly>
+						</div>
+					</li>
+				</sly>-->
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

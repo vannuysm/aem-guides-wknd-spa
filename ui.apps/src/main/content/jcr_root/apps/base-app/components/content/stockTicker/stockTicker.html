@@ -1,0 +1,147 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+  data-emptytext="Stock Ticker"></div>
+<sly data-sly-use.stockTicker="com.wyndham.baseapp.core.models.LinkModel"></sly>
+
+<div
+  class="stockTickerContainer ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+  data-ticker="${properties.ticker}" data-time="300" id="${properties.id}">
+  <div class="grid-x">
+    <div class="cell small-12">
+      <div class="align-center-middle grid-x stockMainGrid">
+        <div class="cell">
+          <div class="${properties.clr} grid-x text-center" style="">
+            <sly data-sly-test="${properties.symbol == 'custom'}">
+              <div style="color:${properties.symColor @context='unsafe'}">
+            </sly>
+            <sly data-sly-test="${properties.symbol != 'custom'}">
+              <div class="dateLine-body-${properties.symbol}">
+            </sly>
+
+            <div class="stockTicker">${properties.tickerText}</div>
+            &#183;
+            <div class="stockDate">January 22, 1965</div>
+          </div>
+          <br />
+          <sly data-sly-test="${properties.price == 'custom'}">
+            <div style="color:${properties.priceColor @context='unsafe'}">
+          </sly>
+          <sly data-sly-test="${properties.price != 'custom'}">
+            <div class="stockPrice-${properties.price}">
+          </sly>
+          <div class="pipe">|</div>
+          <br />
+
+          <div class="stockPrice">$00.00</div>
+        </div>
+        <br />
+        <sly data-sly-test="${properties.gain == 'custom'}">
+          <div class="stockGains" style="color:${properties.gainColor @context='unsafe'}">0.00 (+/-0%)</div>
+          
+        </sly>
+        <sly data-sly-test="${properties.gain != 'custom'}">
+          <div class="stockGains stockGains-${properties.gain}">0.00 (+/-0%)</div>
+          
+        </sly>
+       
+        <br />
+
+        <div class="stockCta">
+          <sly data-sly-test="${properties.ctaType == 'text'}">
+            <div class="ctaText link">
+              <a href="${stockTicker.linkUrl}" target="${stockTicker.linkOpenInNewWindow ? '_blank' : ''}"
+                class="gaChecker link-caret-dynamic stockCta-${properties.ctaFont}"
+                data-clickUrl="${stockTicker.linkUrl}"
+                data-eventName="${properties.eventName ? properties.eventName : 'stockTicker'}"
+                data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'stockTicker'}"
+                data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+                data-eventLabel="${properties.eventLabel ? properties.eventLabel : stockTicker.linkText}"
+                data-eventValue="">${stockTicker.linkText}</a>
+            </div>
+          </sly>
+          <sly data-sly-test="${properties.ctaType != 'text'}">
+            <sly data-sly-test="${properties.ctaColor != 'custom' && properties.ctaFont != 'fontCustom'}">
+              <sly data-sly-test="${!properties.hollow}">
+                <a href="${stockTicker.linkUrl}"
+                  class="button stockCta-${properties.ctaFont} stockCta-button-${properties.ctaColor} ${properties.ctaType} gaChecker"
+                  data-eventName="${properties.eventName ? properties.eventName : 'stockTicker'}"
+                  data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'stockTicker'}"
+                  data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+                  data-eventLabel="${properties.eventLabel ? properties.eventLabel : stockTicker.linkUrl}"
+                  data-eventValue="" data-clickUrl="${stockTicker.linkUrl}"
+                  target="${stockTicker.linkOpenInNewWindow ? '_blank' : ''}"
+                  style="margin-top: 17px">${stockTicker.linkText}</a>
+              </sly>
+            </sly>
+
+            <sly data-sly-test="${properties.ctaColor == 'custom' && properties.ctaFont == 'fontCustom'}">
+              <sly data-sly-test="${!properties.hollow}">
+                <a href="${stockTicker.linkUrl}" class="button gaChecker"
+                  data-eventName="${properties.eventName ? properties.eventName : 'stockTicker'}"
+                  data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'stockTicker'}"
+                  data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+                  data-eventLabel="${properties.eventLabel ? properties.eventLabel : stockTicker.linkUrl}"
+                  data-eventValue="" data-clickUrl="${stockTicker.linkUrl}"
+                  target="${stockTicker.linkOpenInNewWindow ? '_blank' : ''}"
+                  style="background-color:${properties.ctaBG @context='unsafe'}; color:${properties.fontColor @context='unsafe'}; margin-top:17px;">${stockTicker.linkText}</a>
+              </sly>
+            </sly>
+
+            <sly data-sly-test="${properties.ctaColor != 'custom' && properties.ctaFont == 'fontCustom'}">
+              <sly data-sly-test="${!properties.hollow}">
+                <a href="${stockTicker.linkUrl}" class="button gaChecker stockCta-button-${properties.ctaColor}"
+                  data-eventName="${properties.eventName ? properties.eventName : 'stockTicker'}"
+                  data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'stockTicker'}"
+                  data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+                  data-eventLabel="${properties.eventLabel ? properties.eventLabel : stockTicker.linkUrl}"
+                  data-eventValue="" data-clickUrl="${stockTicker.linkUrl}"
+                  target="${stockTicker.linkOpenInNewWindow ? '_blank' : ''}"
+                  style="color:${properties.fontColor @context='unsafe'}; margin-top:17px;">${stockTicker.linkText}</a>
+              </sly>
+            </sly>
+
+            <sly data-sly-test="${properties.ctaColor == 'custom' && properties.ctaFont != 'fontCustom'}">
+              <sly data-sly-test="${!properties.hollow}">
+                <a href="${stockTicker.linkUrl}" class="button gaChecker stockCta-${properties.ctaFont}"
+                  data-eventName="${properties.eventName ? properties.eventName : 'stockTicker'}"
+                  data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'stockTicker'}"
+                  data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+                  data-eventLabel="${properties.eventLabel ? properties.eventLabel : stockTicker.linkUrl}"
+                  data-eventValue="" data-clickUrl="${stockTicker.linkUrl}"
+                  target="${stockTicker.linkOpenInNewWindow ? '_blank' : ''}"
+                  style="background-color:${properties.ctaBG @context='unsafe'}; margin-top:17px;">${stockTicker.linkText}</a>
+              </sly>
+            </sly>
+
+            <sly data-sly-test="${properties.hollow}">
+              <a href="${stockTicker.linkUrl}"
+                class="button stockCta-${properties.ctaFont} ${properties.ctaType} ${properties.hollow} gaChecker"
+                data-eventName="${properties.eventName ? properties.eventName : 'stockTicker'}"
+                data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'stockTicker'}"
+                data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+                data-eventLabel="${properties.eventLabel ? properties.eventLabel : stockTicker.linkUrl}"
+                data-eventValue="" data-clickUrl="${stockTicker.linkUrl}"
+                target="${stockTicker.linkOpenInNewWindow ? '_blank' : ''}"
+                style="margin-top: 17px">${stockTicker.linkText}</a>
+            </sly>
+          </sly>
+          </sly>
+          <sly data-sly-test="${properties.ctaType == 'text'}">
+            <sly data-sly-test="${properties.ctaFont == 'fontCustom'}">
+              <a href="${stockTicker.linkUrl}" class="button  gaChecker"
+                data-eventName="${properties.eventName ? properties.eventName : 'stockTicker'}"
+                data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'stockTicker'}"
+                data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+                data-eventLabel="${properties.eventLabel ? properties.eventLabel : stockTicker.linkUrl}"
+                data-eventValue="" data-clickUrl="${stockTicker.linkUrl}"
+                target="${stockTicker.linkOpenInNewWindow ? '_blank' : ''}"
+                style="color:${properties.fontColor @context='unsafe'}; ">${stockTicker.linkText}</a>
+            </sly>
+          </sly>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,47 @@
+<sly aria-label="You are here:" role="navigation" data-sly-use.model="com.wyndham.baseapp.core.models.CheckListModel" 
+data-sly-use.template="core/wcm/components/commons/v1/templates.html">
+<sly data-sly-test="${model.checkListItems}">
+    <!-- This parent class is needed for toolkit to work -->
+    <div style="margin:0px; padding:0px; overflow-x:hidden" id="new-owner-flow-parent">
+      <div class="root responsivegrid new-owner-flow" id="new-owner-flow" data-experience="${model.experiences}" data-final-tip="${model.finalTipExperience}">
+        <div class="padding-1 grid-x">
+          <h3 class="caption-1 margin-0 text-black cell medium-5">${model.newOwnerTipsText}</h3>
+          <div class="new-owner-flow__tracker cell auto small-12 medium-7" id="new-owner-flow__tracker">
+            <p id="new-owner-flow__tracker-p">Get Started!</p>
+          </div>
+          <p class="margin-0 body-2 cell small-12" id="new-owner-flow__tracker-incomplete">${model.getIncompleteMessageHtml @context='html'}</p>
+          <p class="margin-0 body-2 cell small-12 hide" id="new-owner-flow__tracker-complete">${model.completeMessageHtml @context='html'}</p>
+        </div>
+        <div class="grid-x grid-margin-x grid-margin-y padding-1 padding-top-0 parent-grid">
+        <sly data-sly-list="${model.checkListItems}">
+          <button class=" align-middle cell medium-4 small-8 grid-x new-owner-flow__tip padding-1 bg-white" id="tip-${itemList.count}">
+            <span class="checkmark">&#10004;</span>
+            <div class="cell large-3">
+              <img src="${item.blueIconSource}" class="blue-tip" width="72px" height="72px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" />
+              <img src="${item.grayIconSource}" class="gray-tip" width="72px" height="72px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" />
+            </div>
+            <div class="cell large-9 align-middle">
+              <p><span class="link-caret-dynamic subtitle-3 text-secondary text-left">${item.title}</span></p>
+            </div>
+          </button>
+        </sly>
+        </div>
+        <div class="reveal bg-white" id="new-owner-modal" role="dialog" data-reveal aria-labelledby="#new-owner-modal">
+          <div class="reveal__header">
+            <p class="h5 text-uppercase text-black bold margin-0" id="new-owner-modal__title">${model.newOwnerTipsText}</p>
+            <button class="close-button" aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <section class="reveal__footer grid-x" id="modal__footer">
+            <div class="unit-details__footer-buttons cell padding-left-1 padding-right-1 grid-x">
+              <div class="ctaText display-inline-block cell small-6"><a class='link-caret-prev link-caret text-primary'>Previous</a></div>
+              <div class="ctaText display-inline-block cell small-6 text-right"><a class='link-caret-next link-caret text-primary'>Next</a></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+	<sly data-sly-call="${template.placeholder @ isEmpty=model.checkListItems.size == 0}"></sly>
+</sly>
+</sly>

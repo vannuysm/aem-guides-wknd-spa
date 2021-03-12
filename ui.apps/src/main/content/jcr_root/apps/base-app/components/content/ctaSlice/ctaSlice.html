@@ -1,0 +1,54 @@
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<sly data-sly-test.models="${baseModel.contentFragmentSourceModels}"></sly>
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptytext="CTA Slice"></div>
+
+<div id="${properties.id}" class='scrollMargin'>
+<div 
+	class="grid-x ctaSliceParent ${properties.flexPosition} ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}">
+	<div class="cell small-12">
+		<sly data-sly-list.model="${baseModel.contentFragmentSourceModels}">
+
+			<sly data-sly-test="${properties.ctaType == 'text'}">
+				<div class="ctaText linkSlice "><a href="${model.linkContentFragmentModel.linkUrl}"
+						class="gaChecker link-caret-dynamic linkColor-${properties.ctaColor}" data-clickUrl="${model.linkContentFragmentModel.linkUrl}"
+						data-eventName="${properties.eventName ? properties.eventName : 'ctaSlice'}" data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'ctaSlice'}" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+						data-eventLabel="${properties.eventLabel ? properties.eventLabel : model.linkContentFragmentModel.linkText}" data-eventValue=""
+						target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}">${model.linkContentFragmentModel.linkText}</a>
+				</div>
+			</sly>
+			<sly data-sly-test="${properties.ctaType == 'augmented'}">
+				<div class="ctaText linkSlice "><a class="owner-augmented gaChecker link-caret-dynamic linkColor-${properties.ctaColor}"
+						href="${model.linkContentFragmentModel.linkUrl @context = 'unsafe'}"
+						data-clickUrl="${model.linkContentFragmentModel.linkUrl}" data-eventName="${properties.eventName ? properties.eventName : 'ctaSlice'}"
+						data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'ctaSlice'}" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+						data-eventLabel="${properties.eventLabel ? properties.eventLabel : model.linkContentFragmentModel.linkText}" data-eventValue=""
+						target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}">${model.linkContentFragmentModel.linkText}</a>
+				</div>
+			</sly>
+			<sly data-sly-test="${properties.ctaType != 'text' && properties.ctaType != 'augmented'}">
+				<sly data-sly-test="${properties.ctaColor != 'custom'}">
+					<a href="${model.linkContentFragmentModel.linkUrl}"
+						class="button ${properties.ctaColor} ${properties.ctaType} ${properties.hollow} gaChecker"
+						data-clickUrl="${model.linkContentFragmentModel.linkUrl}" data-eventName="${properties.eventName ? properties.eventName : 'ctaSlice'}"
+						data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'ctaSlice'}" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+						data-eventLabel="${properties.eventLabel ? properties.eventLabel : model.linkContentFragmentModel.linkText}" data-eventValue=""
+						target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+						style="margin:0;">${model.linkContentFragmentModel.linkText}</a>
+				</sly>
+
+				<sly data-sly-test="${properties.ctaColor == 'custom'}">
+					<a href="${model.linkContentFragmentModel.linkUrl}" class="button ${properties.ctaType} gaChecker"
+						data-clickUrl="${model.linkContentFragmentModel.linkUrl}" data-eventName="${properties.eventName ? properties.eventName : 'ctaSlice'}"
+						data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'ctaSlice'}" data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+						data-eventLabel="${properties.eventLabel ? properties.eventLabel : model.linkContentFragmentModel.linkText}" data-eventValue=""
+						target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+						style="background-color:${properties.bgColor @context='unsafe'}; color:${properties.fontColor @context='unsafe'}; margin:0;">${model.linkContentFragmentModel.linkText}</a>
+				</sly>
+			</sly>
+
+
+		</sly>
+	</div>
+</div>
+</div>

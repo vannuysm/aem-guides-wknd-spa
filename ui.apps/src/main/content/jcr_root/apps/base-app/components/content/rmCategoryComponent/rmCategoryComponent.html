@@ -1,0 +1,63 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+    data-emptytext="RM Category Component"></div>
+<sly data-sly-use.rmCategory="com.wyndham.baseapp.core.models.RMCategory"></sly>
+<div data-sly-list.source="${rmCategory.rmContentSource}" data-sly-test="${properties.type == 'card' || properties.type == 'content'}" class="grid-x ${properties.type == 'content'?'RMCategoryContent':'categoryComponent'} ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}" id="${properties.id}">
+    <div class="cell small-12 caption-3" data-sly-test="${properties.type == 'card'}">
+       ${source.rmSectionTitle}
+    </div>
+    <div class="cell ${properties.type == 'content'? '':'small-12'}">
+        <div class="grid-x grid-margin-x small-up-1 ${properties.type == 'card'?'medium-up-3':''}" data-sly-list="${source.cfResourceList}">
+            <div class="cell">
+                <div class="card">
+                    <div class="card-section">
+                        <div class="body-2-semibold cardTitleSpacing" data-sly-test="${item.title}">${item.title}</div>
+                        <div class="body-2" data-sly-test="${item.body}">${item.body @ context='html'}</div>
+                        <a class="gaChecker text-${properties.textLinkColor}" data-sly-test="${item.linkLabel}" data-eventName="resortManagement" data-eventCategory="accordionCta" data-eventAction="click" data-eventLabel= "${item.title}" style="color:${properties.textLinkColor == 'custom' ? properties.customTextLinkColor : '' @context='unsafe'}" class="gaChecker ctaText link link-caret-dynamic body-2-link  text-${properties.textLinkColor}" href="${item.linkSource}" target="${item.linkType}">
+                            ${item.linkLabel}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-sly-list.source="${rmCategory.rmContentSource}" data-sly-test="${properties.type == 'calendar'}" class="activityCalendar ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}" id="${properties.id}">
+    <div class="grid-x outerBox">
+        <div class="cell small-12">
+            <div class="caption-3 day ${properties.calendarTitleBgColor}-background" style="background-color:${properties.calendarTitleBgColor == 'custom' ? properties.customCalendarTitleBgColor : '' @ context='unsafe'};">
+                ${source.rmSectionTitle}
+            </div>
+            <div class="grid-x innerBox">
+                <div class="cell medium-6 small-12" data-sly-list="${source.leftCalendarList}">
+                    <div class="grid-x activity">
+                        <div class="cell body-2 small-6 large-4">
+                            ${item.startTime} ${item.startTimeMeridiem} - ${item.endTime} ${item.endTimeMeridiem}
+                        </div>
+                        <div class="cell body-2-semibold small-6 large-7">
+                            ${item.title}
+                        </div>
+                        <div class="cell small-6 large-4"></div>
+                        <div class="cell body-2 small-6 large-7">
+                            ${item.body @ context='html'}
+                        </div>
+                    </div>                    
+                </div>
+                <div class="cell medium-6 small-12 vl" data-sly-list="${source.rightCalendarList}">
+                    <div class="grid-x activity">
+                        <div class="cell body-2 small-6 large-4">
+                            ${item.startTime} ${item.startTimeMeridiem} - ${item.endTime} ${item.endTimeMeridiem}
+                        </div>
+                        <div class="cell body-2-semibold small-6 large-7">
+                            ${item.title}
+                        </div>
+                        <div class="cell small-6 large-4"></div>
+                        <div class="cell body-2 small-6 large-7">
+                            ${item.body @ context='html'}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

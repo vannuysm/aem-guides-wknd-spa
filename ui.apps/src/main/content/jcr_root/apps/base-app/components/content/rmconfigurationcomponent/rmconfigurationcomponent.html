@@ -1,0 +1,42 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+    data-emptytext="RM Configuration Component"></div>
+<sly data-sly-use.rmConfig="com.wyndham.baseapp.core.models.RMConfiguration"></sly>
+
+<div class="resortInformation ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}" id="${properties.id}">
+    <div class="caption-1 padding-2 text-${properties.categoryTitleColor}" style="color:${properties.categoryTitleColor == 'custom' ? properties.customCategoryTitleColor : '' @ context='unsafe'}">${properties.caption}</div>
+    <div class="grid-x information ${properties.additionalInfoBackgroundColor}-background" style="background-color:${properties.additionalInfoBackgroundColor == 'custom' ? properties.customAdditionalInfoBackgroundColor : '' @ context='unsafe'}">
+        <div class="cell medium-6 small-12 textBlock">
+            <div class="caption-3">
+                ${properties.title1}
+            </div>
+            <div class="body-2">
+                ${properties.body1}
+            </div>
+        </div>
+        <div class="cell medium-6 small-12 textBlock">
+            <div class="caption-3">
+                ${properties.title2}
+            </div>
+            <div class="body-2">
+                ${properties.body2}
+            </div>
+        </div>
+    </div>
+    <div class="accordionSlice">
+        <div>
+            <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-sly-list="${rmConfig.categories}">
+                <li class="accordion-item " data-accordion-item >
+                    <!-- Accordion tab title -->
+                    <a href="#" class="accordion-title gaChecker text-${properties.categoryTitleColor}" style="color:${properties.categoryTitleColor == 'custom' ? properties.customCategoryTitleColor : properties.categoryTitleColor @ context='unsafe'};" data-eventName="accordion"
+                        data-eventCategory="accordion" data-eventAction="click"
+                        data-eventLabel="${item.title}" data-eventValue="">${item.title}</a>
+                    <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+                    <div class="${wcmmode.disabled ? 'accordion-content':'dotted'}" data-tab-content>
+                    	<!--<div class="padding-2" data-sly-test="${!wcmmode.disabled}">Accordion Body Section ${itemList.count}</div>-->
+                        <sly data-sly-resource="${ @path=item.uniqueId, resourceType='wcm/foundation/components/responsivegrid'}"></sly>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

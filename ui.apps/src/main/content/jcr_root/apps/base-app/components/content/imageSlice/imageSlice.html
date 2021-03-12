@@ -1,0 +1,58 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptytext="Image Slice"></div>
+
+<sly data-sly-test="${properties.fileReference}">
+<div id="${properties.id}" class='scrollMargin'>
+	<div
+		class="grid-x ${properties.flexPosition} ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}">
+		<div class="cell">
+			<sly data-sly-test="${properties.linkUrl !=''}">
+				<a href="${properties.linkUrl}" target="${properties.newTab ? '_blank' : ''}" class="gaChecker"
+					data-eventName="${properties.eventName ? properties.eventName : 'ctaLink'}"
+					data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'ctaClick'}"
+					data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+					data-eventLabel="${properties.eventLabel ? properties.eventLabel : properties.linkUrl}">
+			</sly>
+			<div class="hide-for-small show-for-large">
+
+				<sly data-sly-test="${properties.desktop != 'source'}">
+					<img
+						src="${properties.fileReference}/jcr:content/renditions/cq5dam.thumbnail.${properties.desktop}.jpeg" />
+				</sly>
+				<sly data-sly-test="${properties.desktop == 'source'}">
+					<img src="${properties.fileReference}" />
+				</sly>
+			</div>
+			<div class="show-for-medium-only">
+				<sly data-sly-test="${properties.tablet != 'source'}">
+					<img
+						src="${properties.fileReference}/jcr:content/renditions/cq5dam.thumbnail.${properties.tablet}.jpeg" />
+				</sly>
+				<sly data-sly-test="${properties.tablet == 'source'}">
+					<img src="${properties.fileReference}" />
+				</sly>
+
+				<!-- <img src="${properties.fileReference}/jcr:content/renditions/cq5dam.thumbnail.${properties.tablet}.jpeg" /> -->
+			</div>
+			<div class="show-for-small-only">
+				<sly data-sly-test="${properties.mobile != 'source'}">
+					<img
+						src="${properties.fileReference}/jcr:content/renditions/cq5dam.thumbnail.${properties.mobile}.jpeg" />
+				</sly>
+				<sly data-sly-test="${properties.mobile == 'source'}">
+					<img src="${properties.fileReference}" />
+				</sly>
+				<!-- <img src="${properties.fileReference}/jcr:content/renditions/cq5dam.thumbnail.${properties.mobile}.jpeg" /> -->
+			</div>
+			<sly data-sly-test="${properties.addParsys == 'true'}">
+				<div class="" style="position: absolute;top: 25%; width:100%; ">
+					<sly data-sly-resource="${'imgPar' @ resourceType='wcm/foundation/components/parsys'}" />
+				</div>
+			</sly>
+			<sly data-sly-test="${properties.linkUrl !=''}">
+				</a>
+			</sly>
+		</div>
+	</div>
+</div>	
+</sly>

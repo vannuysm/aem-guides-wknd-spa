@@ -1,0 +1,356 @@
+<template data-sly-template.link="${@ model, cssClasses}">
+    <!-- <a 
+        data-sly-test="${model.linkContentFragmentModel.linkUrl || properties.navigateTo}" 
+        href="${model.linkContentFragmentModel.linkUrl}" 
+        target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+        class="${cssClasses}">
+        ${model.linkContentFragmentModel.linkText}
+        </a>       -->
+    <sly data-sly-test="${properties.ctaType == 'text'}">
+        <div class="ctaText link"><a href="${model.linkContentFragmentModel.linkUrl}"
+                target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}" class="gaChecker link-caret-dynamic"
+                data-clickUrl="${model.linkContentFragmentModel.linkUrl}" data-eventName="Banner"
+                data-eventCategory="Banner" data-eventAction="click"
+                data-eventLabel="${model.linkContentFragmentModel.linkText}"
+                data-eventValue="">${model.linkContentFragmentModel.linkText}</a>
+        </div>
+    </sly>
+    <sly data-sly-test="${properties.ctaType != 'text'}">
+        <sly data-sly-test="${properties.ctaColor != 'custom'}">
+            <a href="${model.linkContentFragmentModel.linkUrl}"
+                class="button ${properties.ctaColor} ${properties.ctaType} ${properties.hollow} gaChecker"
+                data-eventName="Banner" data-eventCategory="Banner" data-eventAction="click"
+                data-eventLabel="${model.contentModelCF.title}" data-eventValue=""
+                data-clickUrl="${model.linkContentFragmentModel.linkUrl}"
+                target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+                style="margin-top:24px;">${model.linkContentFragmentModel.linkText}</a>
+        </sly>
+        <sly data-sly-test="${properties.ctaColor == 'custom'}">
+            <a href="${model.linkContentFragmentModel.linkUrl}" class="button ${properties.ctaType} gaChecker"
+                data-eventName="Banner" data-eventCategory="Banner" data-eventAction="click"
+                data-eventLabel="${model.contentModelCF.title}" data-eventValue=""
+                data-clickUrl="${model.linkContentFragmentModel.linkUrl}"
+                target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+                style="background-color:${properties.ctaBG @context='unsafe'}; color:${properties.fontColor @context='unsafe'}; margin-top:24px;">${model.linkContentFragmentModel.linkText}</a>
+        </sly>
+    </sly>
+</template>
+<!-- Card Banner -->
+<template data-sly-template.card="${@ model}">
+    <section class="banner animation-wrapper ${properties.parallaxOn?'rellax':''}"
+        data-rellax-speed="${properties.parallaxOn?'-5':''}"
+        style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+        <div class="cardBanner carousel">
+            <div class="image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                <img src="${model.contentModelCF.imageSrc}" alt="">
+            </div>
+            <div class="grid-container text-white" style="background-color:${properties.bgColor @context='unsafe'}">
+                <div class="grid-x minHeight align-middle">
+                    <sly data-sly-test="${!properties.bgColor}">
+                        <div class="cell large-5 bannerCard ${properties.anamationOn == 'true' ? 'wow animate-fade-in-card' : ''} "
+                            style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                    </sly>
+                    <sly data-sly-test="${properties.bgColor}">
+                        <div class="cell large-5 bannerCard ${properties.anamationOn == 'true' ? 'wow animate-fade-in-card' : ''} "
+                            style="color:${model.contentModelCF.fontColor @context='unsafe'}; background-color:${properties.bgColor @context='unsafe'}">
+                    </sly>
+                    <div class="caption-1" style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                        ${model.contentModelCF.caption}</div>
+                    <div class="title-1"
+                        style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                        ${model.contentModelCF.title}</div>
+                    <div class="subtitle-1"
+                        style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}; ">
+                        ${model.contentModelCF.subtitle @context='unsafe'}</div>
+                    <div class="body-1"
+                        style="margin-top:16px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                        ${model.contentModelCF.text @ context='html'}</div>
+                    <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                        <sly data-sly-call="${link @ model=model, cssClasses='hollow button white'}"></sly>
+                    </sly>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+<!-- Title Banner -->
+<template data-sly-template.title="${@ model}">
+    <section class="banner animation-wrapper ${properties.parallaxOn?'rellax':''}"
+        data-rellax-speed="${properties.parallaxOn?'-5':''}"
+        style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+        <div class="cardBanner carousel">
+            <div class="image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                <img src="${model.contentModelCF.imageSrc}" alt="">
+            </div>
+            <div class="grid-container text-white" style="background-color:${properties.bgColor @context='unsafe'}">
+                <div class="grid-x minHeight align-middle">
+                    <sly data-sly-test="${!properties.bgColor}">
+                        <div class="cell large-5 bannerCard ${properties.anamationOn == 'true' ? 'wow animate-fade-in-card' : ''} "
+                            style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                    </sly>
+                    <sly data-sly-test="${properties.bgColor}">
+                        <div class="cell large-5 bannerCard ${properties.anamationOn == 'true' ? 'wow animate-fade-in-card' : ''} "
+                            style="color:${model.contentModelCF.fontColor @context='unsafe'}; background-color:${properties.bgColor @context='unsafe'}">
+                    </sly>
+                    <div class="caption-1" style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                        ${model.contentModelCF.caption}</div>
+                    <div class="title-1"
+                        style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                        ${model.contentModelCF.title}</div>
+                    <div class="subtitle-1"
+                        style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}; ">
+                        ${model.contentModelCF.subtitle @context='unsafe'}</div>
+                    <div class="body-1"
+                        style="margin-top:16px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                        ${model.contentModelCF.text @ context='html'}</div>
+                    <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                        <sly data-sly-call="${link @ model=model, cssClasses='hollow button white'}"></sly>
+                    </sly>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+<!-- video Banner -->
+<template data-sly-template.video="${@ model}">
+    <section class="banner animation-wrapper ${properties.parallaxOn?'rellax':''}"
+        data-rellax-speed="${properties.parallaxOn?'-5':''}"
+        style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+        <div class="videoBanner">
+            <div class="video" style="background-color:${properties.bgColor @context='unsafe'}">
+                <div class="image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                    <img src="${model.contentModelCF.imageSrc}" alt="">
+                    <a href="#" data-open="videoModal" class="korModalActivate playButton"></a>
+                </div>
+            </div>
+            <div class="large-bg-transparent">
+                <div class="grid-container text-white ">
+                    <div class="align-middle grid-x minHeight">
+                        <div class="cell videoCard large-5 banner __content wow animate-fade-in-bottom"
+                            style="color:${model.contentModelCF.fontColor @context='unsafe'}; background-color:${properties.bgColor @context='unsafe'}">
+                            <div class="caption-1" style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                ${model.contentModelCF.caption}</div>
+                            <div class="title-1"
+                                style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                ${model.contentModelCF.title}</div>
+                            <div class="subtitle-1"
+                                style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'} ">
+                                ${model.contentModelCF.subtitle @context='unsafe'}</div>
+                            <div class="body-1"
+                                style="margin-top:16px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                ${model.contentModelCF.text @ context='html'}</div>
+                            <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                                <sly data-sly-call="${link @ model=model, cssClasses='hollow button white'}"></sly>
+                            </sly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+<!-- hero banner -->
+<template data-sly-template.hero="${@ model}">
+    <section class="banner animation-wrapper ${properties.parallaxOn?'rellax':''}"
+        data-rellax-speed="${properties.parallaxOn?'-5':''}"
+        style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+        <div class="heroBanner">
+            <div class="image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                <img src="${model.contentModelCF.imageSrc}" alt="">
+            </div>
+            <div class="minHeight">
+                <div class="grid-container minHeight">
+                    <div class="align-middle grid-x minHeight">
+                        <div class="heroText large-8">
+                            <div class="caption-1" style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                ${model.contentModelCF.caption}</div>
+                            <div class="title-1"
+                                style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                ${model.contentModelCF.title}</div>
+                            <div class="subtitle-1"
+                                style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}; ">
+                                ${model.contentModelCF.subtitle @context='unsafe'}</div>
+                            <div class="body-1"
+                                style="margin-top:16px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                ${model.contentModelCF.text @ context='html'}</div>
+                            <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                                <sly data-sly-call="${link @ model=model, cssClasses='hollow button white'}"></sly>
+                            </sly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+<!-- quote Banner -->
+<sly data-sly-test="${properties.typeCarousel == 'quote'}">
+    <section class="banner animation-wrapper ${properties.parallaxOn?'rellax':''}"
+        data-rellax-speed="${properties.parallaxOn?'-5':''}"
+        style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+        <div class="align-middle align-center grid-x quoteBanner">
+            <div class="cell ">
+                <div class="grid-x grid-padding-x">
+                    <div class="quote cell large-8 medium-12 small-12 float-center text-center">
+                        <div class="caption-1" style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                            ${model.contentModelCF.caption}</div>
+                        <div class="title-1"
+                            style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                            ${model.contentModelCF.title @ context='html'}</div>
+                        <div class="subtitle-1"
+                            style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}; ">
+                            ${model.contentModelCF.subtitle @ context='html'}</div>
+                        <div class="body-1"
+                            style="margin-top:16px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                            ${model.contentModelCF.text @ context='html'}</div>
+                        <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                            <sly data-sly-call="${link @ model=model, cssClasses='hollow button white'}"></sly>
+                        </sly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</sly>
+<!-- block Banner -->
+<template data-sly-template.block="${@ model}">
+
+
+    <div class="blockBanner grid-x align-middle swiper-slide">
+        <div class="cell large-6 large-order-2 wow animate-fade-in-image">
+            <img src="${model.contentModelCF.imageSrc}" alt="">
+        </div>
+        <div
+            class="cell blockCard large-6 large-order-1 large-padding-right-1 xlarge-padding-right-3 wow animate-fade-in-bottom">
+            <div class="caption-1" style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                ${model.contentModelCF.caption}</div>
+            <div class="title-1 text-primary" style="margin-top:8px;">
+                ${model.contentModelCF.title @ context="html"}
+            </div>
+            <div class="subtitle-1 text-black" style="margin-top:8px; ">
+                ${model.contentModelCF.subtitle @ context="html"}</div>
+            <div class="body-1 text-black" style="margin-top:16px; margin-bottom:24px">
+                ${model.contentModelCF.text @ context='html'}</div>
+        </div>
+    </div>
+
+
+</template>
+<!-- article Banner -->
+<template data-sly-template.article="${@ model, carousel}"
+    style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+
+    <section class="banner">
+        <div class="articleBanner">
+            <div class="grid-x overflow-x-hidden">
+                <div class="cell">
+                    <div class="grid-x grid-margin-x align-middle">
+                        <sly data-sly-test.imageData="${model.contentModelCFImage.imageMetaData}"></sly>
+
+
+                        <div
+                            class="cell medium-6 image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                            <img src="${model.contentModelCF.imageSrc}" alt="${imageData.title}">
+                        </div>
+
+
+
+                        <div class="cell medium-6"
+                            style="color:${model.contentModelCF.fontColor @context='unsafe'}; background-color:${properties.bgColor @context='unsafe'}">
+                            <div class="caption-1" style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                ${model.contentModelCF.caption}</div>
+                            <div data-sly-element="${properties.titleStyle @context='unsafe'}" class="title-1"
+                                style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                ${model.contentModelCF.title @ context="html"}
+                            </div data-sly-element="${properties.titleStyle @context='unsafe'}">
+
+                            <div class="body-1" style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                ${model.contentModelCF.text @ context='html'}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</template>
+<!-- Card slice -->
+<template data-sly-template.cardSlice="${@ mainmodel}">
+    <sly data-sly-list.currentChoppedList="${mainmodel.choppedList}">
+        <div class="swiper-slide ${properties.parallaxOn?'rellax':''}"
+            data-rellax-speed="${properties.parallaxOn?'-5':''}">
+            <div class="align-middle grid-x controllerDiv">
+                <div class="cell">
+                    <div class="grid-x grid-margin-x small-up-1 large-up-4" data-equalizer>
+                        <sly data-sly-list.model="${currentChoppedList}">
+                            <a class="ctaText text-primary gaChecker" data-eventName="Card" data-eventCategory="Card"
+                                data-eventAction="click" href="#">
+                                <div class="cell" data-equalizer-watch>
+                                    <div
+                                        class="card align-center-middle wow animate-fade-in-bottom ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                                        <img src="${model.contentModelCF.imageSrc}" />
+                                        <div class="card-section"
+                                            style="background-color:${properties.bgColor @context='unsafe'};">
+                                            <div class="title-3 bold"
+                                                data-sly-element="${properties.titleStyle @context='unsafe'}"
+                                                style="color:${model.contentModelCF.fontColor @context='unsafe'};">
+                                                ${model.contentModelCF.title}</div>
+                                            <div class="subtitle-2 bold"
+                                                data-sly-element="${properties.subTitleStyle @context='unsafe'}"
+                                                style="color:${model.contentModelCF.fontColor @context='unsafe'};">
+                                                ${model.contentModelCF.subtitle @ context='html'}</div>
+                                            <div class="body-1 " style=" color:${model.contentModelCF.fontColor
+                                                @context='unsafe' }">${model.contentModelCF.text @ context='html'}
+                                            </div>
+                                            <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                                                <a class="ctaText link link-caret-dynamic text-primary"
+                                                    href="${model.linkContentFragmentModel.linkUrl}">
+                                                    <div class="body-1-link">${model.linkContentFragmentModel.linkText}
+                                                    </div>
+                                                </a>
+                                            </sly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </sly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sly>
+</template>
+
+</template>
+<!-- slice -->
+
+<template data-sly-template.slice="${@ model}">
+
+    <a class="ctaText text-primary gaChecker" data-eventName="Card" data-eventCategory="Card" data-eventAction="click"
+        href="${model.linkContentFragmentModel.linkUrl}">
+
+        <div class="card align-center-middle ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+            <img src="${model.contentModelCF.imageSrc}" />
+            <div class="card-section" style="background-color:${properties.bgColor @context='unsafe'};">
+                <div class="subtitle-2" data-sly-element="${properties.titleStyle @context='unsafe'}"
+                    style="color:${model.contentModelCF.fontColor @context='unsafe'};">${model.contentModelCF.title}
+                </div>
+                <div class="subtitle-3" data-sly-element="${properties.subTitleStyle @context='unsafe'}"
+                    style="color:${model.contentModelCF.fontColor @context='unsafe'};">${model.contentModelCF.subtitle @
+                    context='html'}</div>
+                <div class="body-1" style="color:${model.contentModelCF.fontColor @context='unsafe' }">
+                    ${model.contentModelCF.text @ context='html'}
+                </div>
+                <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                    <a class="ctaText link link-caret-dynamic text-primary" href="${model.linkContentFragmentModel.linkUrl}">
+                        <div class="body-1-link">${model.linkContentFragmentModel.linkText}
+                        </div>
+                    </a>
+                </sly>
+            </div>
+        </div>
+
+    </a>
+
+</template>

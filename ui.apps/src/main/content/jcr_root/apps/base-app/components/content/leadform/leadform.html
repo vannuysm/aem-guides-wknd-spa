@@ -1,0 +1,198 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptyhidden="Lead Form"></div>
+<div class="grid-x grid-margin-x ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+	style="background-color:${properties.bgColor @ context = 'unsafe'}">
+	<div class="cell"></div>
+	<div class="cell">
+		<form action class="leadForm" id="leadForm" name="leadForm" data-abide novalidate>
+			<div class="title-2 bold text-primary" style="margin:24px 0">
+				${properties.title}
+			</div>
+			<fieldset>
+				<input type="hidden" name="FR_ACCOUNT" value="forms01@WYNDM" />
+				<input type="hidden" name="FR_FORM" value="VERSION 1.0" />
+				<input type="hidden" name="FR_ALERT" value="9223372036854754225" />
+				<input type="hidden" name="SSK" value="000110000000085" />
+				<input type="hidden" name="FR_TABLE" value="CWInterestedOwnership" />
+				<!-- <input type="hidden" name="FR_REDIRECT" value="#" /> -->
+				<input type="hidden" name="Campaign" value="CWInterestedOwnership" />
+				<input type="hidden" name="FR_FORMNAME" value="CWInterestedOwnership" />
+				<input type="hidden" name="FR_DATETIME_SubmittedTime" value="Eastern Standard Time" />
+				<input type="hidden" name="FR_RANDOM_ID" value="ID" />
+				<div class="grid-x grid-margin-x ">
+					<div class="cell small-12">
+						<div class="grid-x grid-margin-x ">
+							<div class="cell">
+								<div class="body-1" style="margin:8px 0">
+									${properties.inst}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class=" medium-2   cell small-12 margin-bottom-1">
+						<div class="input-group form-field ">
+							<label for="firstName" class="form-field__label">
+								<input type="text" class="form-field__input required" name="firstName" id="firstName"
+									required pattern="userName" style="background-color:white;" />
+								<span style="z-index:5;" class>First Name *</span>
+							</label>
+						</div>
+						<span class="form-error firstNameError">
+            				This is a required field.
+          				</span>
+					</div>
+					<div class="medium-2   cell small-12 margin-bottom-1">
+						<div class="input-group form-field ">
+							<label for="lastName" class="form-field__label">
+								<input type="text" class="form-field__input required" name="lastName" id="lastName"
+									required pattern="userName" style="background-color:white;" />
+								<span style="z-index:5;" class>Last Name *</span>
+							</label>
+						</div>
+						<span class="form-error lastNameError">
+            				This is a required field.
+          				</span>
+					</div>
+					<div class="medium-2   cell small-12 margin-bottom-1">
+						<div class="input-group form-field">
+							<label for="phone" class="form-field__label">
+								<input type="number" class="form-field__input required" name="phone" id="phone" required
+									pattern="phone_number" style="background-color:white;" />
+								<span style="z-index:5;" class>Phone Number *</span>
+							</label>
+						</div>
+						<span class="form-error phoneError">
+            				This is a required field.
+          				</span>
+					</div>
+					<div class="medium-3  cell small-12 margin-bottom-1">
+						<div class="input-group form-field">
+							<label for="email" class="form-field__label">
+								<input type="text" class="form-field__input required" pattern="email" name="email" id="email" required
+									style="background-color:white;" />
+								<span style="z-index:5;" class>Email Address *</span>
+							</label>
+						</div>
+						<span class="form-error emailError">
+            				This is a required field.
+          				</span>
+					</div>
+					<div class="medium-3 small-12 cell margin-bottom-1">
+						<div class="input-group form-field">
+							<label for="state" class="form-field__label">
+								<select class="form-field__input required" name="state" id="state" size="1"
+									style="padding-right:25px; background-color:white;" required>
+									<option selected value=""></option>
+									<option value="AL">Alabama</option>
+									<option value="AK">Alaska</option>
+									<option value="AZ">Arizona</option>
+									<option value="AR">Arkansas</option>
+									<option value="CA">California</option>
+									<option value="CO">Colorado</option>
+									<option value="CT">Connecticut</option>
+									<option value="DE">Delaware</option>
+									<option value="FL">Florida</option>
+									<option value="GA">Georgia</option>
+									<option value="HI">Hawaii</option>
+									<option value="ID">Idaho</option>
+									<option value="IL">Illinois</option>
+									<option value="IN">Indiana</option>
+									<option value="IA">Iowa</option>
+									<option value="KS">Kansas</option>
+									<option value="KY">Kentucky</option>
+									<option value="LA">Louisiana</option>
+									<option value="ME">Maine</option>
+									<option value="MD">Maryland</option>
+									<option value="MA">Massachusetts</option>
+									<option value="MI">Michigan</option>
+									<option value="MN">Minnesota</option>
+									<option value="MS">Mississippi</option>
+									<option value="MO">Missouri</option>
+									<option value="MT">Montana</option>
+									<option value="NE">Nebraska</option>
+									<option value="NV">Nevada</option>
+									<option value="NH">New Hampshire</option>
+									<option value="NJ">New Jersey</option>
+									<option value="NM">New Mexico</option>
+									<option value="NY">New York</option>
+									<option value="NC">North Carolina</option>
+									<option value="ND">North Dakota</option>
+									<option value="OH">Ohio</option>
+									<option value="OK">Oklahoma</option>
+									<option value="OR">Oregon</option>
+									<option value="PA">Pennsylvania</option>
+									<option value="RI">Rhode Island</option>
+									<option value="SC">South Carolina</option>
+									<option value="SD">South Dakota</option>
+									<option value="TN">Tennessee</option>
+									<option value="TX">Texas</option>
+									<option value="UT">Utah</option>
+									<option value="VT">Vermont</option>
+									<option value="VA">Virginia</option>
+									<option value="WA">Washington</option>
+									<option value="WV">West Virginia</option>
+									<option value="WI">Wisconsin</option>
+									<option value="WY">Wyoming</option>
+								</select>
+								<span style="z-index:5;" class>State *</span>
+							</label>
+						</div>
+					</div>
+					<div class="cell small-12 margin-bottom-1">
+						<div class="grid-x ">
+							<div class="cell">
+								<div style="margin:8px 0">
+									<div class="grid-x ">
+										<div class="cell shrink">
+											<div style="margin:0px 10px 0 0; display:inline-block">
+												<input class="required" type="checkbox" name="agree" value="agree"
+													required />
+											</div>
+										</div>
+										<div class="cell auto">
+											<div class="body-3" style="display:inline-block">
+												*${properties.agree}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cell small-12 margin-bottom-1">
+							<div class="grid-x ">
+								<div class="cell">
+									<sly data-sly-test="${properties.ctaType != 'hidden'}">
+										<button type="button"
+											class="gaChecker ${properties.ctaColor} ${properties.ctaType} ${properties.hollow} button formSubmit disabled"
+											data-eventName="leadForm" data-eventCategory="leadForm"
+											data-eventAction="click" data-eventLabel="${properties.title}" data-eventValue="">
+											SUBMIT
+										</button>  
+									</sly>
+								</div>
+							</div>
+						</div>
+					</div>
+			</fieldset>
+		</form>
+		<div class="grid-x grid-margin-x thanks align-center-middle" style="display:none; height:336px;">
+			<div class="cell small-9 text-center">
+				<div class="grid-x grid-margin-x ">
+					<div class="cell">
+						<div class="title-2">
+							Thank you for reaching out!
+						</div>
+						<div class="body-1">
+							A Club Wyndham specialist will be in contact with you soon. In the
+							meantime, check out the
+							<a href="https://clubwyndham.wyndhamdestinations.com/us/en/deals-and-offers">vacation
+								deals</a>
+							going on right now.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,422 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+  data-emptytext="Generic Header"></div>
+<sly data-sly-use.headerNav="com.wyndham.baseapp.core.models.HeaderNavigation"></sly>
+
+<!--/* <ul>
+        <sly data-sly-list="${headerNav.primaryLinks}">
+            <li>
+                ${item.linkLabel},${item.linkPath}
+                <ul>
+                    <sly data-sly-list="${item.primaryLinks}">
+                        <li>
+                            ${item.linkLabel},${item.linkPath}
+                            <ul>
+                                <sly data-sly-list="${item.primaryLinks}">
+                                    <li>${item.linkLabel},${item.linkPath}</li>
+                                </sly>
+                            </ul>
+                        </li>
+                    </sly>
+                </ul>
+            </li>
+        </sly>
+    </ul> */-->
+
+<!-- This is the desktop menu -->
+<sly data-sly-test="${properties.type == 'default'}">
+  <div class="show-for-large hide-for-small">
+    <div class="genHeaderParent" style="background-color: ${properties.bgColor @context='unsafe'}">
+      <div class="grid-x ">
+        <div class="cell">
+          <div class="grid-container ">
+            <div class="grid-x grid-margin-x">
+              <div class="cell auto align-self-middle">
+                <a href="${properties.logoLinkUrl}" class="gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                data-eventLabel="${properties.fileReference}">
+                  <img src="${properties.fileReference}" class="show-for-large hide-for-small logo" />
+
+                </a>
+              </div>
+              <div class="cell small-8 grid-padding-y align-self-middle">
+                <ul class="dropdown menu primaryMenu align-middle float-right" data-dropdown-menu
+                  data-closing-time="100" data-sly-list="${headerNav.primaryLinks}">
+                  <li class="mainMenuItems">
+                    <a class="dropMenuItem gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                    data-eventLabel="${item.linkLabel}" href="${item.linkPath @context='html'}" target="${item.linkTarget} gaChecker"
+                      title="">
+                      <span>${item.linkLabel @context='html'}</span>
+                    </a>
+                    <ul class="menu" data-sly-list="${item.primaryLinks}">
+                      <li class="accordion" data-accordion data-multi-expand="true">
+                        <div class="accordion-item is-active is-submenu-item">
+                          <a href="${item.linkPath @context='html'}" class="gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                          data-eventLabel="${item.linkLabel}"
+                            target="${item.linkTarget}"><span>${item.linkLabel}</span></a>
+                          <div class="accordion-content" data-tab-content data-sly-list="${item.primaryLinks}">
+                            <a href="${item.linkPath @context='html'}"
+                              target="${item.linkTarget}" class="gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                              data-eventLabel="${item.linkLabel}"><span>${item.linkLabel}</span></a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--/* <li class="mainMenuItems">
+                <a class="dropMenuItem " target="" href="#" title="">
+                  <span>Item 2</span>
+                </a>
+                <ul class="menu">
+                  <li class="accordion" data-accordion data-multi-expand="true">
+                    <div class="accordion-item is-active is-submenu-item">
+                      <a href="#" class=" "><span>Item 2B</span></a>
+                      <div class="accordion-content" data-tab-content>
+                        <a href="#"><span>Item 2Bi</span></a>
+                        <a href="#"><span>Item 2Bii</span></a>
+                        <a href="#"><span>Item 2Biii</span></a>
+                      </div>
+                    </div>
+                    <div class="accordion-item is-active is-submenu-item" data-accordion-item>
+                      <a href="#" class=""><span>Item 2C</span></a>
+                      <div class="accordion-content" data-tab-content>
+                      </div>
+                    </div>
+                    <div class="accordion-item is-active is-submenu-item" data-accordion-item>
+                      <a href="#" class=""><span>Item 2D</span></a>
+                      <div class="accordion-content" data-tab-content>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="mainMenuItems">
+                <a class="dropMenuItem " target="" href="#" title="">
+                  <span>Item 3</span>
+                </a>
+              </li>
+              <li class="mainMenuItems">
+                <a class="dropMenuItem " target="" href="#" title="">
+                  <span>Item 4</span>
+                </a>
+              </li>
+              <li class="mainMenuItems">
+                <a class="dropMenuItem " target="" href="#" title="">
+                  <span>Item 5</span>
+                </a>
+              </li> */-->
+                </ul>
+              </div>
+              <sly data-sly-test="${properties.showLogin == 'true'}">
+                <div class="cell auto align-self-middle loginButtonContainer">
+                  <sly data-sly-test="${properties.hollowLogin == 'true'}">
+                    <div class="hollow ${properties.ctaColor} align-self-middle button float-center korModalActivate"
+                      data-open="loginModalLarge" style="margin-bottom: 0;">
+                      ${properties.loginButtonText @context='html'}
+                    </div>
+                  </sly>
+                  <sly data-sly-test="${properties.hollowLogin != 'true'}">
+                    <div class="${properties.ctaColor} align-self-middle button float-center korModalActivate"
+                      data-open="loginModalLarge" style="margin-bottom: 0;">
+                      ${properties.loginButtonText @context='html'}
+                    </div>
+                  </sly>
+                </div>
+              </sly>
+              <sly data-sly-test="${properties.showSearch == 'true'}">
+                <div class="cell small-1 text-center align-self-middle searchButtonContainer">
+                  <button class="dropMenuItem button primary searchButton active" href="#"
+                    style="background-color: ${properties.bgColor @context='unsafe'}"><img
+                      src="${properties.SearchIconPath}"></button>
+
+                </div>
+              </sly>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-x">
+        <div class="cell">
+          <div class="grid-container ">
+            <div class="grid-x grid-margin-x">
+              <div class="grid-container searchBox">
+                <div class="grid-x align-right">
+                  <div class="cell small-12 search">
+                    <div class="input-group">
+                      <input class="input-group-field searchQuery" type="text"
+                        placeholder="Find resort, destination, or topic">
+                      <div class="input-group-button">
+                        <input type="submit" class="button primary siteSearch" value="Search"
+                          data-searchUrl="${properties.searchPath}">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+  </div>
+
+
+  <!-- This is the mobile menu -->
+
+
+  <div class="show-for-small hide-for-large ">
+    <div class="spacer"></div>
+    <div class="grid-x genHeaderParent" style="background-color: ${properties.bgColor @context='unsafe'}">
+      <div class="cell small-6">
+        <a href="${properties.logoLinkUrl}" class="gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+        data-eventLabel="${properties.fileReference}">
+          <img src="${properties.fileReference}" alt="${header.logoAltText}" class="show-for-small logo" />
+        </a>
+      </div>
+	  <div class="cell small-6 " data-sly-test="${headerNav.primaryLinks && headerNav.primaryLinks.size > 0}">
+        <div class="grid-x align-middle">
+          <div class="cell">
+            <div id="nav-icon4">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-x genMobileNav hide-for-large show-for-small" style="display: none;">
+    <div class="cell">
+      <sly data-sly-test="${properties.showSearch == 'true'}">
+        <div class="searchBoxSmall">
+          <div class="grid-x align-middle">
+            <div class="cell auto full search">
+              <div class="input-group">
+                <div class="clearable input-group-field">
+                  <input class="input-group-field searchQuery" type="text"
+                    placeholder="Find resort, destination, or topic" />
+                  <span class="clearButton">&times;</span>
+                </div>
+                <div class="input-group-button">
+                  <input type="submit" class="button primary siteSearch" value="Search"
+                    data-searchUrl="${properties.searchPath}">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sly>
+      <ul class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true"
+        style="background-color: ${properties.subMenuBgColor @context='unsafe'}">
+        <li data-sly-repeat="${headerNav.primaryLinks}">
+          <a class="dropMenuItem" target="${item.linkTarget}" href="${item.linkPath @context='html'}">
+            <span>${item.linkLabel @context='html'}</span>
+          </a>
+          <ul class="menu vertical nested" data-sly-list="${item.primaryLinks}">
+            <li style="border-color: ${properties.subMenuBroderColor @context='unsafe'}">
+              <a class=" gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                data-eventLabel="${item.linkLabel}" data-eventValue="${item.linkLabel}"
+                href="${item.linkPath @context='html'}" target="${item.linkTarget}"
+                data-clickUrl="${item.linkPath @context='html'}">
+                ${item.linkLabel}</a>
+              <ul class="menu vertical nested" data-sly-list="${item.primaryLinks}">
+                <li style="border-color: ${properties.subMenuBroderColor @context='unsafe'}">
+                  <a class="gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                    data-eventLabel="${item.linkLabel}" data-eventValue="${item.linkLabel}"
+                    href="${item.linkPath @context='html'}" target="${item.linkTarget}"
+                    data-clickUrl="${item.linkPath @context='html'}" target="">
+                    ${item.linkLabel}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <sly data-sly-test="${properties.showLogin == 'true'}">
+          <li>
+            <sly data-sly-test="${properties.hollowLogin == 'true'}">
+              <a class="hollow ${properties.ctaColor} korModalActivate hollow button gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+              data-eventLabel="${properties.loginButtonText}" href="#" style="margin: 1rem;"
+                data-open="loginModalSmall">${properties.loginButtonText @context='html'}</a>
+            </sly>
+            <sly data-sly-test="${properties.hollowLogin != 'true'}">
+              <a class="${properties.ctaColor} korModalActivate button gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+              data-eventLabel="${properties.loginButtonText}" href="#" style="margin: 1rem;"
+                data-open="loginModalSmall">${properties.loginButtonText @context='html'}</a>
+            </sly>
+          </li>
+        </sly>
+      </ul>
+    </div>
+  </div>
+
+  <div class="korModal" id="loginModalLarge">
+    <div class="korContentContainer">
+      <div class="modalExitButton"><span class="korModalCloseText"> X</span></div>
+      <div class="korContent">
+        <div class="grid-x">
+          <div class="cell large-6 left">
+            <div class="title-2 korModalLogInTitle">Already a Club Wyndham owner?</div>
+            <div class="body-1 korModalLogInBody">We're improving your Club Wyndham experience. Join us. </div>
+            <a class="button teal-button"
+              href="https://www.myclubwyndham.com/mycw/home.page?_ga=2.199806062.1725437215.1579016270-1059603120.1576250998&_gac=1.178466320.1578675834.EAIaIQobChMIrN7m2sD55gIVlYWRCh3CxA8XEAAYASAAEgIYcvD_BwE">
+              See how</a>
+          </div>
+          <div class="cell large-6 right">
+            <div class="title-2 korModalLogInTitle">Not a Club Wyndham owner?</div>
+            <div class="body-1 korModalLogInBody">Sample the resort vacation experience with Wyndham Vacation Rentals.
+            </div>
+            <a class="button white-button" href="https://www.extraholidays.com/">See how</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="korModal" id="loginModalSmall">
+    <div class="korContentContainer">
+      <div class="modalExitButton"><span class="korModalCloseText"> X</span></div>
+      <div class="korContent">
+        <div class="grid-x left">
+          <div class="cell">
+            <div class="title-1 korModalLogInTitle">Already a Club Wyndham owner?</div>
+            <div class="body-1 korModalLogInBody">We're improving your Club Wyndham experience. Join us. </div>
+            <a class="button teal-button"
+              href="https://www.myclubwyndham.com/mycw/home.page?_ga=2.199806062.1725437215.1579016270-1059603120.1576250998&_gac=1.178466320.1578675834.EAIaIQobChMIrN7m2sD55gIVlYWRCh3CxA8XEAAYASAAEgIYcvD_BwE">
+              See how</a>
+          </div>
+        </div>
+        <div class="grid-x right">
+          <div class="cell">
+            <div class="title-1 korModalLogInTitle">Not a Club Wyndham owner?</div>
+            <div class="body-1 korModalLogInBody">Sample the resort vacation experience with Wyndham Vacation Rentals.
+            </div>
+            <a class="button white-button" href="https://www.extraholidays.com/">See how</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</sly>
+
+
+<!--panorama header start-->
+<sly data-sly-test="${properties.type == 'centered'}">
+  <div class="show-for-large hide-for-small">
+    <div class="genHeaderParent" style="background-color: ${properties.bgColor @context='unsafe'}">
+      <div class="grid-x ">
+        <div class="cell">
+          <div class="grid-container ">
+            <div class="grid-x grid-margin-x">
+              <div class="cell small-5 grid-padding-y align-self-middle">
+                <ul class="dropdown menu primaryMenu align-middle float-left" data-dropdown-menu data-closing-time="100"
+                  data-sly-list="${headerNav.primaryLinks}">
+                  <sly data-sly-test="${itemList.index < 2 && !itemList.last}" data-sly-unwrap>
+                    <li class="mainMenuItems">
+                      <a class="dropMenuItem gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                      data-eventLabel="${item.linkLabel}" target="${item.linkTarget}" href="${item.linkPath @context='html'}"
+                        title="">
+                        <span>${item.linkLabel @context='html'}</span>
+                      </a>
+                    </li>
+                  </sly>
+                  <sly data-sly-test="${itemList.index == 0 && itemList.last}" data-sly-unwrap>
+                    <li class="mainMenuItems">
+                      <a class="dropMenuItem gaChecker"  data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                      data-eventLabel="${item.linkLabel}" target="${item.linkTarget}" href="${item.linkPath @context='html'}"
+                        title="">
+                        <span>${item.linkLabel @context='html'}</span>
+                      </a>
+                    </li>
+                  </sly>
+                </ul>
+              </div>
+              <div class="cell small-2 align-self-middle text-center">
+                <a href="${properties.logoLinkUrl}" class="gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                data-eventLabel="${properties.fileReference}">
+                  <img src="${properties.fileReference}" class="show-for-large hide-for-small logo" />
+                </a>
+              </div>
+              <div class="cell small-5 grid-padding-y align-self-middle">
+                <ul class="dropdown menu primaryMenu align-middle float-right" data-dropdown-menu
+                  data-closing-time="100" data-sly-list="${headerNav.primaryLinks}">
+                  <sly
+                    data-sly-test="${itemList.index >= 2 || itemList.last && itemList.index < 4 && itemList.index != 0}"
+                    data-sly-unwrap>
+                    <li class="mainMenuItems">
+                      <a class="dropMenuItem gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                      data-eventLabel="${item.linkLabel}" target="${item.linkTarget}" href="${item.linkPath @context='html'}"
+                        title="">
+                        <span>${item.linkLabel @context='html'}</span>
+                      </a>
+                    </li>
+                  </sly>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+  </div>
+
+
+  <!-- This is the mobile menu -->
+
+
+  <div class="show-for-small hide-for-large ">
+    <div class="spacer"></div>
+    <div class="grid-x genHeaderParent" style="background-color: ${properties.bgColor @context='unsafe'}">
+      <div class="cell small-2">
+        <div class="grid-x align-middle">
+          <div class="cell">
+            <div id="nav-icon4">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cell small-8 text-center">
+        <a href="${properties.logoLinkUrl}" class="gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+        data-eventLabel="${properties.fileReference}">
+          <img src="${properties.fileReference}" alt="${header.logoAltText}" class="show-for-small logo" />
+        </a>
+      </div>
+      <div class="cell small-2"></div>
+    </div>
+  </div>
+  <div class="grid-x genMobileNav hide-for-large show-for-small" style="display: none;">
+    <div class="cell">
+      <ul class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true"
+        style="background-color: ${properties.subMenuBgColor @context='unsafe'}">
+        <li data-sly-repeat="${headerNav.primaryLinks}">
+          <a class="dropMenuItem gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+          data-eventLabel="${item.linkLabel}" href="${item.linkPath @context='html'}" target="${item.linkTarget}">
+            <span>${item.linkLabel @context='html'}</span>
+          </a>
+          <ul class="menu vertical nested" data-sly-list="${item.primaryLinks}">
+            <li style="border-color: ${properties.subMenuBroderColor @context='unsafe'}">
+              <a class=" gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                data-eventLabel="${item.linkLabel}" data-eventValue="${item.linkLabel}"
+                href="${item.linkPath @context='html'}" target="${item.linkTarget}"
+                data-clickUrl="${item.linkPath @context='html'}">
+                ${item.linkLabel}</a>
+              <ul class="menu vertical nested" data-sly-list="${item.primaryLinks}">
+                <li style="border-color: ${properties.subMenuBroderColor @context='unsafe'}">
+                  <a class="gaChecker" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                    data-eventLabel="${item.linkLabel}" data-eventValue="${item.linkLabel}"
+                    href="${item.linkPath @context='html'}" target="${item.linkTarget}"
+                    data-clickUrl="${item.linkPath @context='html'}" target="">
+                    ${item.linkLabel}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</sly>

@@ -1,0 +1,14 @@
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<sly data-sly-test.models="${baseModel.contentFragmentSourceModels}"></sly>
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+  data-emptytext="Horizontal Rule"></div>
+
+
+<div
+  class="horizontalRule ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}">
+  <div class="align-center grid-x">
+    <div class="${properties.size} cell small-${properties.length}">
+      <hr class="${properties.color}">
+    </div>
+  </div>
+</div>

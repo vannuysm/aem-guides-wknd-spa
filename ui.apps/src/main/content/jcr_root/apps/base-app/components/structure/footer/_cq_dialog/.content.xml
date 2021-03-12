@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Footer"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <footercolumn1
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Footer Column 1"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldDescription="Text to display in footer column heading."
+                                        fieldLabel="Heading"
+                                        name="./footerColumn1Heading"/>
+                                    <linkTo
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldLabel="Heading Link To"
+                                        name="./footerColumn1HeadingLink"
+                                        rootPath="/content/wyndham"/>
+                                    <multi
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true"
+                                        fieldLabel="Configure Links">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            name="./footerColumn1Links">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <linkText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Text to display in footer link. Leave empty to use Page Title"
+                                                    fieldLabel="Link Text"
+                                                    name="linkText"/>
+                                                <linkUrl
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Internal or External page Url. Must start with (http or https) for external pages to display external page icon."
+                                                    fieldLabel="Link Url"
+                                                    name="linkUrl"
+                                                    rootPath="/content/wyndham"/>
+                                                <openInNewWindow
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    fieldDescription="Check to open link in new tab"
+                                                    name="./linkOpenInNewWindow"
+                                                    text="Open in New Window?"
+                                                    value="true"/>
+                                            </items>
+                                        </field>
+                                    </multi>
+                                </items>
+                            </column>
+                        </items>
+                    </footercolumn1>
+                    <footercolumn2
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Footer Column 2"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldDescription="Text to display in footer column heading."
+                                        fieldLabel="Heading"
+                                        name="./footerColumn2Heading"/>
+                                    <linkTo
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldLabel="Heading Link To"
+                                        name="./footerColumn2HeadingLink"
+                                        rootPath="/content/wyndham"/>
+                                    <multi
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true"
+                                        fieldLabel="Configure Links">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            name="./footerColumn2Links">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <linkText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Text to display in footer link. Leave empty to use Page Title"
+                                                    fieldLabel="Link Text"
+                                                    name="linkText"/>
+                                                <linkUrl
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Internal or External page Url. Must start with (http or https) for external pages to display external page icon."
+                                                    fieldLabel="Link Url"
+                                                    name="linkUrl"
+                                                    rootPath="/content/wyndham"/>
+                                                <openInNewWindow
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    fieldDescription="Check to open link in new tab"
+                                                    name="./linkOpenInNewWindow"
+                                                    text="Open in New Window?"
+                                                    value="true"/>
+                                            </items>
+                                        </field>
+                                    </multi>
+                                </items>
+                            </column>
+                        </items>
+                    </footercolumn2>
+                    <footercolumn3
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Footer Column 3"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldDescription="Text to display in footer column heading."
+                                        fieldLabel="Heading"
+                                        name="./footerColumn3Heading"/>
+                                    <linkTo
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldLabel="Heading Link To"
+                                        name="./footerColumn3HeadingLink"
+                                        rootPath="/content/wyndham"/>
+                                    <multi
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true"
+                                        fieldLabel="Configure Links">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            name="./footerColumn3Links">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <linkText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Text to display in footer link. Leave empty to use Page Title"
+                                                    fieldLabel="Link Text"
+                                                    name="linkText"/>
+                                                <linkUrl
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Internal or External page Url. Must start with (http or https) for external pages to display external page icon."
+                                                    fieldLabel="Link Url"
+                                                    name="linkUrl"
+                                                    rootPath="/content/wyndham"/>
+                                                <openInNewWindow
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    fieldDescription="Check to open link in new tab"
+                                                    name="./linkOpenInNewWindow"
+                                                    text="Open in New Window?"
+                                                    value="true"/>
+                                            </items>
+                                        </field>
+                                    </multi>
+                                </items>
+                            </column>
+                        </items>
+                    </footercolumn3>
+                    <footercolumn4
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Footer Column 4"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldDescription="Text to display in footer column heading."
+                                        fieldLabel="Heading"
+                                        name="./footerColumn4Heading"/>
+                                    <linkTo
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldLabel="Heading Link To"
+                                        name="./footerColumn4HeadingLink"
+                                        rootPath="/content/wyndham"/>
+                                    <multi
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true"
+                                        fieldLabel="Configure Links">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            name="./footerColumn4Links">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <linkText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Text to display in footer link. Leave empty to use Page Title"
+                                                    fieldLabel="Link Text"
+                                                    name="linkText"/>
+                                                <linkUrl
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Internal or External page Url. Must start with (http or https) for external pages to display external page icon."
+                                                    fieldLabel="Link Url"
+                                                    name="linkUrl"
+                                                    rootPath="/content/wyndham"/>
+                                                <openInNewWindow
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    fieldDescription="Check to open link in new tab"
+                                                    name="./linkOpenInNewWindow"
+                                                    text="Open in New Window?"
+                                                    value="true"/>
+                                            </items>
+                                        </field>
+                                    </multi>
+                                </items>
+                            </column>
+                        </items>
+                    </footercolumn4>
+                    <footercolumn5
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Footer Column 5"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldDescription="Text to display in footer column heading."
+                                        fieldLabel="Heading"
+                                        name="./footerColumn5Heading"/>
+                                    <linkTo
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldLabel="Heading Link To"
+                                        name="./footerColumn5HeadingLink"
+                                        rootPath="/content/wyndham"/>
+                                    <multi
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true"
+                                        fieldLabel="Configure Links">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            name="./footerColumn5Links">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <linkText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Text to display in footer link. Leave empty to use Page Title"
+                                                    fieldLabel="Link Text"
+                                                    name="linkText"/>
+                                                <linkUrl
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Internal or External page Url. Must start with (http or https) for external pages to display external page icon."
+                                                    fieldLabel="Link Url"
+                                                    name="linkUrl"
+                                                    rootPath="/content/wyndham"/>
+                                                <openInNewWindow
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    fieldDescription="Check to open link in new tab"
+                                                    name="./linkOpenInNewWindow"
+                                                    text="Open in New Window?"
+                                                    value="true"/>
+                                            </items>
+                                        </field>
+                                    </multi>
+                                </items>
+                            </column>
+                        </items>
+                    </footercolumn5>
+                    <footerLogo
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Logo"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <logoimage
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldDescription="Populate the image path of the Wyndham next gen footer logo"
+                                        fieldLabel="Logo Image Path"
+                                        name="./logoSrc"
+                                        required="{Boolean}true"
+                                        rootPath="/content/dam/wyndham"/>
+                                    <logolinkurl
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldDescription="Populate the link of the logo"
+                                        fieldLabel="Logo Lik Url"
+                                        name="./logoLinkUrl"
+                                        required="{Boolean}true"
+                                        rootPath="/content/wyndham"/>
+                                    <logoalttext
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        allowBlank="{Boolean}false"
+                                        fieldDescription="Enter Logo Alt Text [Max - 30]"
+                                        fieldLabel="Logo Alt Text"
+                                        key="logoAltText"
+                                        maxLength="30"
+                                        name="./logoAltText"/>
+                                    <logonewwindow
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                        fieldDescription="Check to open link in new tab"
+                                        key="logoOpenInNewWindow"
+                                        name="./logoOpenInNewWindow"
+                                        text="Open logo in New Window?"
+                                        value="true"/>
+                                </items>
+                            </column>
+                        </items>
+                    </footerLogo>
+                    <sociallinks
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Social Media Links"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <multi
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true"
+                                        fieldLabel="Configure Social Media">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            name="./socialmedia">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <icon
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Select social media icon path."
+                                                    fieldLabel="Icon"
+                                                    name="icon"
+                                                    rootPath="/content/dam/wyndham"/>
+                                                <linkText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Text to display in area label for accessibility"
+                                                    fieldLabel="Area Label for Accessibility"
+                                                    name="linkText"/>    
+                                                <linkUrl
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                    fieldDescription="Add social media link. Must start with http:// or https:// for external links."
+                                                    fieldLabel="Url"
+                                                    name="linkUrl"
+                                                    rootPath="/content/wyndham"/>
+                                            </items>
+                                        </field>
+                                    </multi>
+                                </items>
+                            </column>
+                        </items>
+                    </sociallinks>
+                    <copyrights
+                        cq:showOnCreate="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Copyrights"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                	<timeShareLegalCopy
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                        fieldLabel="Timeshare Legal Copy"
+                                        name="./timeShareLegalCopy"/>
+                                    <copyrightText1
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Copyright Text 1"
+                                        name="./copyrightText1"/>
+                                    <copyrightText2
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Copyright Text 2"
+                                        name="./copyrightText2"/>
+                                </items>
+                            </column>
+                        </items>
+                    </copyrights>
+                    <quicklinks
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Quick Links"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <multi
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true"
+                                        fieldLabel="Configure Footer Quicklinks">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            name="./quicklinks">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <linkText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Text to display in footer quick links. Leave empty to use Page Title"
+                                                    fieldLabel="Link Text"
+                                                    name="linkText"/>
+                                                <linkUrl
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldLabel="Link Url"
+                                                    name="linkUrl"
+                                                    rootPath="/content/wyndham"/>
+                                                <openInNewWindow
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    fieldDescription="Check to open link in new tab"
+                                                    name="./linkOpenInNewWindow"
+                                                    text="Open in New Window?"
+                                                    value="true"/>
+                                            </items>
+                                        </field>
+                                    </multi>
+                                </items>
+                            </column>
+                        </items>
+                    </quicklinks>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

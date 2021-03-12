@@ -1,0 +1,326 @@
+<template data-sly-template.success="${ @ title, body}">
+	<div class="cell align-self-middle">
+		<div class="grid-x grid-margin-x thanks align-center-middle" style="display:none; min-height: 336px;">
+			<div class="cell small-9 ${properties.contentAlignment}">
+				<div class="grid-x grid-margin-x ">
+					<div class="cell">
+						<div class="title-2">
+							<sly data-sly-test="${!properties.title}">
+								Thank you for reaching out!
+							</sly>
+							<sly data-sly-test="${properties.title}">
+								${properties.title}
+							</sly>
+
+
+						</div>
+						<div class="body-1">
+							<sly data-sly-test="${!properties.successBody}">
+								A specialist will contact you soon.
+							</sly>
+							<sly data-sly-test="${properties.successBody}">
+								${properties.successBody @ context='html'}
+							</sly>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<sly data-sly-use.form="com.wyndham.baseapp.core.models.FormBuilder" data-sly-unwrap></sly>
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptytext="Form Builder" data-sly-unwrap></div>
+<!-- field title: ${form.fieldtitle}
+field instruction: ${form.inst}
+<sly data-sly-list="${form.formBuilderFields}">
+    field Name: ${item.placeholderText}
+    <sly data-sly-list="${item.radioButtons}"> 
+        ${item.value}
+    </sly>
+</sly> -->
+
+<!-- <sly data-sly-use.form="com.wyndham.baseapp.core.models.FormBuilder"></sly>
+<sly data-sly-list="${form.formBuilderFields}">
+    field Name: ${item.fieldName}
+    <sly data-sly-list="${item.radioButtons}">
+        ${item.value}
+    </sly>
+     <sly data-sly-list="${item.dropdownList}">
+        ${item.title}--${item.value}<br/>
+    </sly>
+</sly> -->
+
+<!--checkbox for Calculator Component linking-->
+<!--${form.calculatorId}
+ ${form.calculatorHide}
+ <sly data-sly-list="${form.hideSectionID}">
+ Test ID: ${item.sectionId}
+</sly>-->
+
+<!--${form.hideSectionIDs}
+	${form.hasDynamicContent}
+${form.hideSectionIDs != 'null'}-->
+
+<!--<sly data-sly-test="${form.hasDynamicContent == true}" >
+	<div class="replaceFields" data-source='${properties.primarySource}' style="display:none;">
+		<sly data-sly-use.model="com.wyndham.baseapp.core.models.DynamicContent"
+			data-sly-list="${model.dynamicContent}">
+				<div class="repKey">${item.key}, ${item.value}</div>
+		</sly>
+	</div>
+</sly>-->
+<div id="${properties.id}" style="background-color:${properties.bgColor @ context = 'unsafe'}"
+	class="scrollMargin grid-x grid-margin-x formBuilder ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}">
+	<div class="cell">
+		<form data-sly-use.model="com.wyndham.baseapp.core.models.DynamicContent" action
+			data-hide-section-ids="${form.calculatorHide ? form.hideSectionIDs : ''}"
+			class="formBuilder ${form.hasDynamicContent ? 'updateComponentData': ''}"
+			data-search-type="${form.hasDynamicContent ? properties.primarySource :''}"
+			data-component-type="${form.hasDynamicContent ? 'string-update':''}"
+			data-custom-data="${form.hasDynamicContent ? model.customData :''}" id="${properties.campaign}"
+			name="${properties.campaign}" data-abide novalidate>
+			<fieldset>
+
+				<sly data-sly-list.hidden="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+					<input type="hidden" name="${hidden.contentModelCF.title }"
+						value="${hidden.contentModelCF.caption }" />
+				</sly>
+				<input type="hidden" name="FR_ACCOUNT" value="forms01@WYNDM" />
+				<input type="hidden" name="FR_FORM" value="VERSION 1.0" />
+				<input type="hidden" name="FR_DATETIME_SubmittedTime" value="Eastern Standard Time" />
+				<input type="hidden" name="FR_RANDOM_ID" value="ID" />
+				<input type="hidden" name="FR_TABLE" value="${properties.campaign}" />
+				<input type="hidden" name="FR_FORMNAME" value="${properties.campaign}" />
+				<input type="hidden" name="Campaign" value="${properties.campaign}" />
+				<div class="">
+					<div class="grid-x">
+						<div class="cell" style="padding-bottom: 0;">
+							<div data-sly-element="${properties.titleStyle @context='html'}" class="title-2 formTitle">
+								${properties.fieldtitle}
+							</div data-sly-element="${properties.titleStyle @context='unsafe'}">
+						</div>
+					</div>
+					<div class="grid-x">
+						<div class="cell" style="padding-top: 0;">
+							<div class="body-1">
+								${properties.inst}
+							</div>
+						</div>
+					</div>
+					<div class="grid-x">
+						<sly data-sly-list="${form.formBuilderFields}">
+							<sly data-sly-test="${item.fieldType == 'Input'}">
+								<div
+									class="cell small-${item.smallLength} medium-${item.mediumLength} large-${item.largeLength} ">
+									<div class="input-group form-field ">
+										<label for="${item.fieldName}" class="form-field__label">
+											<input
+												type="${item.regX == 'phone_number' ? 'number' : ''} ${item.regX == 'email' ? 'email' : ''} ${item.regX != 'email' && item.regX != 'phone_number'  ? 'text' : ''}"
+												inputmode="${item.regX == 'phone_number' ? 'numeric' :''}${item.regX == 'email' ? 'email' :''}"
+												class="form-field__input ${item.required}" name="${item.fieldName}"
+												id="${item.fieldName}" pattern="${item.regX}"
+												required="${item.required}" disabled="${item.disabled}" />
+											<span data-sly-test="${item.required == 'required'}" style="z-index:5;"
+												class>${item.placeholderText} *</span>
+											<span data-sly-test="${item.required != 'required'}" style="z-index:5;"
+												class>${item.placeholderText}</span>
+										</label>
+										<div data-sly-test="${item.text}" class="body-3">${item.text}</div>
+									</div>
+									<span class="form-error ${item.fieldName}Error">
+										${item.errorMessage}
+									</span>
+								</div>
+							</sly>
+							<!--Date Picker-->
+							<sly data-sly-test="${item.fieldType == 'datePicker'}">
+								<div
+									class="cell small-${item.smallLength} medium-${item.mediumLength} large-${item.largeLength} ">
+									<div class="input-group form-field ">
+										<label for="${item.fieldName}" class="form-field__label datepicker-section">
+											<svg xmlns="http://www.w3.org/2000/svg" width="1.4rem" height="1.4rem"
+												viewBox="0 0 24 24">
+												<path
+													d="M18.9474 4H17.95V3c0-.55-.4487-1-.9972-1s-.9972.45-.9972 1v1H7.9778V3c0-.55-.4487-1-.9972-1s-.9972.45-.9972 1v1H4.986c-1.1069 0-1.9844.9-1.9844 2l-.01 14c0 1.1.8875 2 1.9944 2h13.9613c1.097 0 1.9944-.9 1.9944-2V6c0-1.1-.8975-2-1.9944-2zm0 15c0 .55-.4488 1-.9973 1H5.9834c-.5485 0-.9973-.45-.9973-1V9h13.9613v10zM6.9806 11h1.9945v2H6.9806v-2zm3.989 0h1.9944v2h-1.9945v-2zm3.9888 0h1.9945v2h-1.9945v-2z">
+												</path>
+											</svg>
+											<input type="text" class="datepicker form-field__input ${item.required}"
+												name="${item.fieldName}" data-min-date="${item.minDateVal}"
+												data-max-date="${item.maxDateVal}" id="${item.fieldName}"
+												required="${item.required}" disabled="${item.disabled}" />
+											<span data-sly-test="${item.required == 'required'}" style="z-index:5;"
+												class>${item.placeholderText} *</span>
+											<span data-sly-test="${item.required != 'required'}" style="z-index:5;"
+												class>${item.placeholderText}</span>
+										</label>
+										<div data-sly-test="${item.text}" class="body-3">${item.text}</div>
+									</div>
+									<span class="form-error ${item.fieldName}Error">
+										${item.errorMessage}
+									</span>
+								</div>
+							</sly>
+							<sly data-sly-test="${item.fieldType == 'Dropdown'}">
+								<div
+									class="cell small-${item.smallLength} medium-${item.mediumLength} large-${item.largeLength} ">
+									<label for="${item.fieldName}">
+										<span data-sly-test="${item.required == 'required'}">${item.placeholderText}
+											*</span>
+										<span
+											data-sly-test="${item.required != 'required'}">${item.placeholderText}</span>
+										<select name="${item.fieldName}" class="${item.required}"
+											placeholder="${item.placeholderText} *" required="${item.required}"
+											style="margin: 0;" disabled="${item.disabled}">
+											<option selected value="">
+											</option>
+											<sly data-sly-list="${item.dropdownList}">
+												<option value="${item.value}">${item.title}
+												</option>
+											</sly>
+										</select>
+										<div class="form-error ${item.fieldName}Error">
+											${item.errorMessage}
+										</div>
+										<div data-sly-test="${item.text}" class="body-3">${item.text}</div>
+									</label>
+								</div>
+							</sly>
+							<sly data-sly-test="${item.fieldType == 'TextArea'}">
+								<div
+									class="cell small-${item.smallLength} medium-${item.mediumLength} large-${item.largeLength} ">
+									<div class="input-group form-field ">
+										<label for="${item.fieldName}" class="form-field__label">
+											<sly data-sly-test="${item.required != 'required'}">
+												<textarea class="${item.required}" required="${item.required}"
+													disabled="${item.disabled}" id="${item.fieldName}"
+													name="${item.fieldName}" style=""
+													placeholder="${item.placeholderText}" rows="4" cols="50"></textarea>
+											</sly>
+											<sly data-sly-test="${item.required == 'required'}">
+												<textarea class="${item.required}" required="${item.required}"
+													disabled="${item.disabled}" id="${item.fieldName}"
+													name="${item.fieldName}" style=""
+													placeholder="${item.placeholderText} *" rows="4"
+													cols="50"></textarea>
+											</sly>
+											<span class="aasdf"></span>
+										</label>
+										<div data-sly-test="${item.text}" class="body-3">${item.text}</div>
+									</div>
+									<span class="form-error ${item.fieldName}Error">
+										${item.errorMessage}
+									</span>
+								</div>
+							</sly>
+							<sly data-sly-test="${item.fieldType == 'Checkbox'}">
+								<div
+									class="cell inlineField small-${item.smallLength} medium-${item.mediumLength} large-${item.largeLength} ">
+
+									<div style="display:inline-block; margin-right:10px;"><input
+											class="${item.required}" id="${item.fieldName}" type="checkbox"
+											name="${item.fieldName}" required="${item.required}"
+											disabled="${item.disabled}">
+									</div>
+
+									<div data-sly-test="${item.required == 'required'}"
+										style="display:inline-block; width:90%;"><label for="${item.fieldName}">
+											${item.text} *
+										</label></div>
+									<div data-sly-test="${item.required != 'required'}"
+										style="display:inline-block; width:90%;"><label for="${item.fieldName}">
+											${item.text}
+										</label></div>
+								</div>
+							</sly>
+							<sly data-sly-test="${item.fieldType == 'radioButton'}">
+
+								<div
+									class="cell inlineField small-${item.smallLength} medium-${item.mediumLength} large-${item.largeLength} ">
+									<div>${item.text}</div>
+									<div data-sly-test.radioName="${item.fieldName}" data-sly-unwrap></div>
+									<div data-sly-test.radioRequired="${item.required}" data-sly-unwrap></div>
+									<div data-sly-test.radioDisabled="${item.disabled}" data-sly-unwrap></div>
+									<sly data-sly-list="${item.radioButtons}">
+										<input class="openCase" type="radio" id="${item.value}" name="${radioName}"
+											value="${item.value}" style="display:inline-block"
+											disabled="${radioDisabled}" checked="${radioRequired}">
+										<label for="${item.value}" style="display:inline-block">${item.label}</label>
+									</sly>
+								</div>
+							</sly>
+							<sly data-sly-test="${item.fieldType == 'caption'}">
+								<div
+									class="cell inlineField small-${item.smallLength} medium-${item.mediumLength} large-${item.largeLength} ">
+									<div class="caption-1">
+										${item.text @ context='html'}
+									</div>
+								</div>
+							</sly>
+							<sly data-sly-test="${item.fieldType == 'subTitle'}">
+								<div
+									class="cell inlineField small-${item.smallLength} medium-${item.mediumLength} large-${item.largeLength} ">
+									<div class="subtitle-1">
+										${item.text @ context='html'}
+									</div>
+								</div>
+							</sly>
+							<sly data-sly-test="${item.fieldType == 'sectionHeader'}">
+								<div
+									class="cell inlineField small-${item.smallLength} medium-${item.mediumLength} large-${item.largeLength} ">
+									<div class="subtitle-2">
+										${item.text @ context='html'}
+									</div>
+								</div>
+							</sly>
+							<sly data-sly-test="${item.fieldType == 'sectionBody'}">
+								<div
+									class="cell inlineField small-${item.smallLength} medium-${item.mediumLength} large-${item.largeLength} ">
+									<div class="body-1">
+										${item.text @ context='html'}
+									</div>
+								</div>
+							</sly>
+							<sly data-sly-test="${item.fieldType == 'sectionDivider'}">
+								<div
+									class="cell small-${item.smallLength} medium-${item.mediumLength} large-${item.largeLength}">
+									<div class="horizontalRule ">
+										<div class="align-center grid-x">
+											<div class="${item.height} cell small-${item.sectionDivider}"
+												style="padding: 0;">
+												<hr class="${item.color}">
+											</div>
+										</div>
+									</div>
+								</div>
+							</sly>
+						</sly>
+						<div class="cell small-12">
+							<div class="grid-x">
+								<div
+									class="cell large-${properties.ctaLargeLength} medium-${properties.ctaMediumLength} small-${properties.ctaSmallLength}">
+									<!-- removed gaChecker and am dynamically adding it if the button is enabled. -->
+									<button type="button"
+										class=" ${properties.hollow} expanded ${properties.ctaColor} button formSubmit disabled"
+										data-eventName="${properties.eventName}"
+										data-eventCategory="${properties.eventCategory}"
+										data-eventAction="${properties.eventAction}"
+										data-eventLabel="${properties.eventLabel}">
+										${properties.ctaLabel}
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+			</fieldset>
+		</form>
+	</div>
+	<sly data-sly-call="${success @ title=properties.title, body=properties.text}"></sly>
+</div>
+
+<!--<div data-sly-use.model="com.wyndham.baseapp.core.models.DynamicContent" class="updateComponentData" data-search-type="${properties.primarySource}" data-component-type="string-update" data-custom-data="${model.customData}">
+
+	<h1>This is banner {{lastName}}  {{firstName}}</h1>
+</div>-->

@@ -1,0 +1,1062 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+     data-emptytext="General Carousel"></div>
+
+<sly data-sly-use.carouselModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<!-- <sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly> -->
+<!-- <sly data-sly-test.modelsAreDefined="${carouselModel.contentFragmentSourceModels}"></sly> -->
+
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+     data-emptytext="Slick Carousel"></div>
+
+<sly data-sly-use.carouselModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<sly data-sly-test.modelsAreDefined="${carouselModel.contentFragmentSourceModels}"></sly>
+
+
+
+<div id="${properties.AnchorId}"
+     class='scrollMargin carouselComponent controllerDiv ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}'>
+
+    <!-- card-banner -->
+    <sly data-sly-test="${properties.typeCarousel == 'card'}">
+        <div class="slick-button-prev carNav myPrev-${properties.id} hide-for-small show-for-large">
+            <div class="toFlex">
+                <div class="flexed">
+                    ◀︎
+                </div>
+            </div>
+        </div>
+        <div class="slickCar" data-ap="${properties.autoplay}" data-apSpeed="${properties.apSpeed}" data-slick='{"slidesToShow": ${properties.numSlides}}' id="${properties.id}">
+
+            <sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}">
+                <section class="banner  animation-wrapper "
+                         style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                    <div class="cardBanner">
+                        <sly data-sly-test.imageData="${model.contentModelCFImage.imageMetaData}"></sly>
+                        <sly data-sly-test="${imageData.assetType == 'mp4'}">
+                            <div class="image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                                <video autoplay loop muted style="width:100%">
+                                    <source src="${model.contentModelCF.imageSrc}" type="video/mp4">
+
+                                    Your browser does not support HTML5 video.
+                                </video>
+                            </div>
+
+                        </sly>
+                        <sly data-sly-test="${imageData.assetType != 'mp4'}">
+                            <div class="image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                                <img src="${model.contentModelCF.imageSrc}" alt="${imageData.title}">
+                            </div>
+                        </sly>
+
+                        <div class="grid-container text-white"
+                             style="background-color:${properties.bgColor @context='unsafe'}">
+                            <div class="grid-x minHeight align-middle">
+                                <sly data-sly-test="${!properties.bgColor}">
+
+                                    <div class="cell large-5 bannerCard ${model.contentModelCF.flipContent ? 'large-order-2' : ''} ${properties.anamationOn == 'true' ? 'wow animate-fade-in-card' : ''} "
+                                         style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                </sly>
+                                <sly data-sly-test="${properties.bgColor}">
+                                    <div class="cell large-5 bannerCard ${model.contentModelCF.flipContent ? 'large-order-2' : ''} ${properties.anamationOn == 'true' ? 'wow animate-fade-in-card' : ''} "
+                                         style="color:${model.contentModelCF.fontColor @context='unsafe'}; background-color:${properties.bgColor @context='unsafe'}">
+
+                                </sly>
+                                <div class="caption-1"
+                                     style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                    ${model.contentModelCF.caption}</div>
+                                <div data-sly-element="${properties.titleStyle @context='unsafe'}" class="title-1"
+                                     style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                    ${model.contentModelCF.title}
+                                </div>
+                                <div data-sly-element="${properties.subTitleStyle @context='html'}" class="subtitle-3"
+                                     style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}; ">
+                                    ${model.contentModelCF.subtitle @context='unsafe'}</div
+                                        data-sly-element="${properties.subTitleStyle @context='html'}">
+                                <div class="body-1"
+                                     style="margin-top:16px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                    ${model.contentModelCF.text @ context='html'}
+                                </div>
+
+                                <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                                    <sly data-sly-call="${link @ model=model, cssClasses='hollow button white'}"></sly>
+                                </sly>
+                            </div>
+                            <div class="large-7"></div>
+                        </div>
+
+                    </div>
+                </section>
+            </sly>
+
+        </div>
+        <div class='slick-button-next carNav myNext-${properties.id} hide-for-small show-for-large'>
+            <div class="toFlex">
+                <div class="flexed">
+                    ▶︎
+                </div>
+            </div>
+        </div>
+    </sly>
+    <!-- End Card-Banner -->
+
+    <!-- Article -->
+    <sly data-sly-test="${properties.typeCarousel == 'article'}">
+        <div class="grid-x">
+            <div class="cell small-1">
+                <div class="slick-button-prev carNav myPrev-${properties.id} hide-for-small show-for-large">
+                    <div class="toFlex">
+                        <div class="flexed">
+                            ◀︎
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-10">
+
+                <div class="slickCar" data-ap="${properties.autoplay}" data-apSpeed="${properties.apSpeed}" data-slick='{"slidesToShow": ${properties.numSlides}}' id="${properties.id}">
+                    <sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}">
+                        <section class="banner">
+                            <div class="articleBanner">
+                                <div class="grid-x overflow-x-hidden">
+                                    <div class="cell">
+                                        <div class="grid-x grid-margin-x align-middle">
+                                            <sly data-sly-test.imageData="${model.contentModelCFImage.imageMetaData}">
+                                            </sly>
+                                            <sly data-sly-test="${imageData.assetType == 'mp4'}">
+                                                <div
+                                                        class="cell medium-6 image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                                                    <video autoplay loop muted style="width:100%">
+                                                        <source src="${model.contentModelCF.imageSrc}" type="video/mp4">
+
+                                                        Your browser does not support HTML5 video.
+                                                    </video>
+                                                </div>
+
+                                            </sly>
+                                            <sly data-sly-test="${imageData.assetType != 'mp4'}">
+                                                <div
+                                                        class="cell medium-6 image ${model.contentModelCF.flipContent ? 'large-order-2' : ''} ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                                                    <img src="${model.contentModelCF.imageSrc}/jcr:content/renditions/cq5dam.thumbnail.762.565.${imageData.assetType}"
+                                                         alt="${imageData.title}">
+                                                </div>
+                                            </sly>
+
+
+                                            <div class="cell medium-6 ${model.contentModelCF.flipContent ? 'padding-left-2' : ''}"
+                                                 style="color:${model.contentModelCF.fontColor @context='unsafe'}; background-color:${properties.bgColor @context='unsafe'}">
+                                                <div class="caption-1"
+                                                     style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                    ${model.contentModelCF.caption}</div>
+                                                <div data-sly-element="${properties.titleStyle @context='unsafe'}"
+                                                     class="title-1"
+                                                     style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                    ${model.contentModelCF.title @ context="html"}
+                                                </div>
+
+                                                <div class="body-1"
+                                                     style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                    ${model.contentModelCF.text @ context='html'}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </sly>
+                </div>
+            </div>
+            <div class="cell small-1">
+                <div class='slick-button-next carNav myNext-${properties.id} hide-for-small show-for-large'>
+                    <div class="toFlex">
+                        <div class="flexed">
+                            ▶︎
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sly>
+    <!-- End Article -->
+    <!--Hybrid Card Video-->
+    <sly data-sly-test="${properties.typeCarousel == 'hybrid'}">
+        <div class="slick-button-prev carNav myPrev-${properties.id} hide-for-small show-for-large">
+            <div class="toFlex">
+                <div class="flexed">
+                    ◀︎
+                </div>
+            </div>
+        </div>
+        <div class="slickCar" data-ap="${properties.autoplay}" data-apSpeed="${properties.apSpeed}" data-slick='{"slidesToShow": ${properties.numSlides}}' id="${properties.id}">
+            <sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}" data-sly-unwrap>
+                <div
+                        class="${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}">
+                    <section class="videoComponent" style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                        <div class="blockVideo">
+                            <div class="video">
+                                <div
+                                        class="image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                                    <img src="${model.contentModelCF.imageSrc}" alt="" />
+                                    <sly data-sly-test="${model.contentModelCF.videoUrl}">
+                                        <a href="#" data-open="${model.contentModelCF.videoId}"
+                                           class="playButton korModalActivate"></a>
+                                    </sly>
+                                </div>
+
+                                <div class=" large-bg-transparent">
+
+                                    <div class="grid-container setBgColor"
+                                         style="background-color :${properties.bgColor @context='unsafe'}">
+                                        <div
+                                                class="grid-x minHeight align-middle ${model.contentModelCF.flipContent ? 'align-right' : ''} ">
+                                            <sly data-sly-test="${bgColor == ''}">
+                                                <div class="cell videoCard large-5 banner __content ${properties.anamationOn == 'true' ? 'wow animate-fade-in-bottom' : ''} "
+                                                     style="color:${model.contentModelCF.fontColor @context='unsafe'};">
+
+                                            </sly>
+                                            <sly data-sly-test="${bgColor != ''}">
+                                                <div class="cell videoCard large-5 banner __content  ${properties.anamationOn == 'true' ? 'wow animate-fade-in-bottom' : ''} "
+                                                     style="color:${model.contentModelCF.fontColor @context='unsafe'}; background-color:${properties.bgColor @context='unsafe'}">
+
+                                            </sly>
+
+
+                                            <div class="caption-1" style="margin-top:0px;">
+                                                ${model.contentModelCF.caption}
+                                            </div>
+                                            <div data-sly-element="${properties.titleStyle @context='unsafe'}"
+                                                 class="title-1"
+                                                 style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                ${model.contentModelCF.title @ context="html"}
+                                            </div>
+                                            <div data-sly-element="${properties.subTitleStyle @context='html'}"
+                                                 class="subtitle-3"
+                                                 style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                ${model.contentModelCF.subtitle @context='unsafe'}</div
+                                                    data-sly-element="${properties.subTitleStyle @context='html'}">
+                                            <div class="body-1"
+                                                 style="margin-top:16px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                ${model.contentModelCF.text @ context='html'}</div>
+
+                                            <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                                                <sly
+                                                        data-sly-call="${link @ model=model, cssClasses='hollow button white'}">
+                                                </sly>
+                                            </sly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </sly>
+        </div>
+        <div class='slick-button-next carNav myNext-${properties.id} hide-for-small show-for-large'>
+            <div class="toFlex">
+                <div class="flexed">
+                    ▶︎
+                </div>
+            </div>
+        </div>
+    </sly>
+    <!--End Hybrid Block Video-->
+    <!-- Start Small Block Video Type -->
+    <sly data-sly-test="${properties.typeCarousel == 'smallBlock'}">
+        <div class="slick-button-prev carNav myPrev-${properties.id} hide-for-small show-for-large">
+            <div class="toFlex">
+                <div class="flexed">
+                    ◀︎
+                </div>
+            </div>
+        </div>
+        <div class="slickCar" data-ap="${properties.autoplay}" data-apSpeed="${properties.apSpeed}" data-slick='{"slidesToShow": ${properties.numSlides}}' id="${properties.id}">
+            <sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}" data-sly-unwrap>
+                <div class=" videoSectionBlock grid-x videoComponent ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+                     style="background-color: ${properties.bgColor @context='unsafe'}; color: ${model.contentModelCF.fontColor @context='unsafe'};">
+
+
+                    <sly data-sly-test="${model.contentModelCF.imageSrc}">
+                        <img src="${model.contentModelCF.imageSrc}" style="position: absolute;" alt="">
+                    </sly>
+                    <div
+                            class="cell large-6 small-order-2 ${model.contentModelCF.flipContent ? 'large-order-2' : 'large-order-1'}">
+                        <div class="videoContent ${model.contentModelCF.flipContent ? 'setFlipSize' : ''} ${model.contentModelCF.flipContent ? 'text-right' : ''}"
+                             style="z-index: 1;">
+                            <div class="caption-1">${model.contentModelCF.caption}</div>
+                            <div data-sly-element="${properties.titleStyle @context='unsafe'}" class="title-1">
+                                ${model.contentModelCF.title}
+                            </div>
+                            <div data-sly-element="${properties.subTitleStyle @context='html'}" class="subtitle-3">
+                                ${model.contentModelCF.subtitle @context='html'}
+                            </div>
+                            <div class="body-1">${model.contentModelCF.text @ context='html'}</div>
+                            <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                                <sly data-sly-call="${link @ model=model, cssClasses='hollow button white'}">
+                                </sly>
+                            </sly>
+                        </div>
+                    </div>
+                    <div class="cell large-6 small-order-1 float-right">
+                        <div class="videoSection">
+                            <div class="smallBlock">
+                                <img src="${model.contentModelCF.videoImage}" alt="" />
+                                <a href="#" data-open="${model.contentModelCF.videoId}"
+                                   class="korModalActivate playButton"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </sly>
+        </div>
+        <div class='slick-button-next carNav myNext-${properties.id} hide-for-small show-for-large'>
+            <div class="toFlex">
+                <div class="flexed">
+                    ▶︎
+                </div>
+            </div>
+        </div>
+    </sly>
+    <!-- End Small Block Video Type -->
+    <!-- Start Block Type -->
+    <sly data-sly-test="${properties.typeCarousel == 'block'}">
+        <div class="grid-x">
+            <div class="cell small-1">
+                <div class="slick-button-prev carNav myPrev-${properties.id} hide-for-small show-for-large">
+                    <div class="toFlex">
+                        <div class="flexed">
+                            ◀︎
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-10">
+                <div class="slickCar" data-ap="${properties.autoplay}" data-apSpeed="${properties.apSpeed}" data-slick='{"slidesToShow": ${properties.numSlides}}' id="${properties.id}">
+                    <sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}">
+
+                        <div>
+                            <section class="banner" style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                <div
+                                        class="${model.contentModelCF.flipContent ? 'blockBannerRight' : 'blockBannerLeft'} grid-x align-middle">
+
+                                    <sly data-sly-test.imageData="${model.contentModelCFImage.imageMetaData}"></sly>
+                                    <sly data-sly-test="${imageData.assetType == 'mp4'}">
+                                        <div
+                                                class="cell large-6 ${model.contentModelCF.flipContent ? 'large-order-1 padding-left-2' : ''} ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''} ">
+                                            <video autoplay loop muted style="width:100%">
+                                                <source src="${model.contentModelCF.imageSrc}" type="video/mp4">
+
+                                                Your browser does not support HTML5 video.
+                                            </video>
+                                        </div>
+
+                                    </sly>
+                                    <sly data-sly-test="${imageData.assetType != 'mp4'}">
+                                        <div
+                                                class="cell large-6 ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}  ${model.contentModelCF.flipContent ? 'small-order-2' : ''}">
+                                            <img src="${model.contentModelCF.imageSrc}/jcr:content/renditions/cq5dam.thumbnail.762.565.${imageData.assetType}"
+                                                 alt="${imageData.title}">
+                                        </div>
+                                    </sly>
+
+                                    <div
+                                            class="cell blockCard large-6 ${model.contentModelCF.flipContent ? 'large-order-1 padding-left-2' : ''}  large-padding-right-1 xlarge-padding-right-3 ${properties.anamationOn == 'true' ? 'wow animate-fade-in-bottom' : ''}  ${model.contentModelCF.flipContent ? 'small-order-1' : ''} ">
+                                        <div class="caption-1"
+                                             style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                            ${model.contentModelCF.caption @ context="html"}</div>
+                                        <div data-sly-element="${properties.titleStyle @context='unsafe'}"
+                                             class="title-1 text-primary" style="margin-top:8px;">
+                                            ${model.contentModelCF.title}
+                                        </div>
+                                        <div data-sly-element="${properties.subTitleStyle @context='html'}"
+                                             class="subtitle-3 text-black" style="margin-top:8px; ">
+                                            ${model.contentModelCF.subtitle @context='unsafe'}</div
+                                                data-sly-element="${properties.subTitleStyle @context='html'}">
+
+                                        <div class="body-1 text-black" style="margin-top:16px; margin-bottom:24px     ">
+                                            ${model.contentModelCF.text @ context='html'}</div>
+
+                                        <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                                            <sly
+                                                    data-sly-call="${link @ model=model, cssClasses='hollow button white'}">
+                                            </sly>
+                                        </sly>
+                                    </div>
+                                </div>
+
+                            </section>
+                        </div>
+                    </sly>
+                </div>
+            </div>
+            <div class="cell small-1">
+                <div class='slick-button-next carNav myNext-${properties.id} hide-for-small show-for-large'>
+                    <div class="toFlex">
+                        <div class="flexed">
+                            ▶︎
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sly>
+    <!-- End Block Type -->
+    <!-- Quote Banner -->
+    <sly data-sly-test="${properties.typeCarousel == 'quote'}">
+        <div class="grid-x" style="background-color:${properties.bgColor @context='unsafe'}">
+            <div class="cell small-1">
+                <div class="slick-button-prev carNav myPrev-${properties.id} hide-for-small show-for-large">
+                    <div class="toFlex">
+                        <div class="flexed">
+                            ◀︎
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-10">
+                <div class="slickCar" data-ap="${properties.autoplay}" data-apSpeed="${properties.apSpeed}" data-slick='{"slidesToShow": ${properties.numSlides}}' id="${properties.id}">
+                    <sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}">
+                        <div>
+                            <section class="banner animation-wrapper ${properties.parallaxOn?'rellax':''}"
+                                     data-rellax-speed="${properties.parallaxOn?'-5':''}"
+                                     style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                <div class="align-middle align-center grid-x quoteBanner">
+                                    <div class="cell ">
+                                        <div class="grid-x grid-padding-x">
+                                            <div class="quote cell large-8 medium-12 small-12 float-center text-center">
+
+                                                <div class="body-1"
+                                                     style="margin-top:16px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                    ${model.contentModelCF.text @ context='html'}</div>
+                                                <div class="title-3"
+                                                     style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                    ${model.contentModelCF.title @ context='html'}</div>
+                                                <div class="caption-1"
+                                                     style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                    ${model.contentModelCF.caption}</div>
+                                                <div class="subtitle-3"
+                                                     style="margin-top:8px; color:${model.contentModelCF.fontColor @context='unsafe'}; ">
+                                                    ${model.contentModelCF.subtitle @ context='html'}</div>
+
+                                                <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                                                    <sly
+                                                            data-sly-call="${link @ model=model, cssClasses='hollow button white'}">
+                                                    </sly>
+                                                </sly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </sly>
+                </div>
+            </div>
+            <div class="cell small-1">
+                <div class='slick-button-next carNav myNext-${properties.id} hide-for-small show-for-large'>
+                    <div class="toFlex">
+                        <div class="flexed">
+                            ▶︎
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sly>
+    <!-- End Quot Banner -->
+
+    <!-- Image Quote Banner -->
+    <sly data-sly-test="${properties.typeCarousel == 'image-quote-banner'}">
+        <div class="slick-button-prev carNav myPrev-${properties.id} hide-for-small show-for-large">
+            <div class="toFlex">
+                <div class="flexed">
+                    ◀︎
+                </div>
+            </div>
+        </div>
+        <div class="slickCar" data-ap="${properties.autoplay}" data-apSpeed="${properties.apSpeed}" data-slick='{"slidesToShow": ${properties.numSlides}}' id="${properties.id}">
+
+            <sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}">
+                <section class="banner animation-wrapper ${properties.parallaxOn?'rellax':''} "
+                         data-rellax-speed="${properties.parallaxOn?'-5':''}"
+                         style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                    <div class="image-quote-banner">
+                        <div class="quote-image">
+                            <img src="${model.contentModelCF.imageSrc}" alt="">
+                        </div>
+                        <div class="align-middle align-center grid-x quote-content">
+                            <div class="cell ">
+                                <div class="grid-x grid-padding-x align-center-middle">
+                                    <div class="quote cell large-8 medium-12 small-12 text-center">
+                                        <div class="cell large-2"></div>
+                                        <div class="caption-1"
+                                             style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                            ${model.contentModelCF.caption}
+                                        </div>
+
+                                        <div data-sly-element="${properties.titleStyle @context='unsafe'}"
+                                             class="title-1 textSpacing"
+                                             style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                            ${model.contentModelCF.title @ context="html"}
+                                        </div>
+
+                                        <div data-sly-element="${properties.subTitleStyle @context='html'}"
+                                             class="subtitle-3 textSpacing"
+                                             style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                            ${model.contentModelCF.subtitle @ context="html"}
+                                        </div>
+
+                                        <div class="body-1 textSpacing"
+                                             style="margin-top:16px; color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                            ${model.contentModelCF.text @ context='html'}
+                                        </div>
+                                        <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                                            <sly
+                                                    data-sly-call="${link @ model=model, cssClasses='button hollow buttonDefault'}">
+                                            </sly>
+                                        </sly>
+                                    </div>
+                                </div>
+                                <div class="cell large-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </sly>
+
+        </div>
+        <div class='slick-button-next carNav myNext-${properties.id} hide-for-small show-for-large'>
+            <div class="toFlex">
+                <div class="flexed">
+                    ▶︎
+                </div>
+            </div>
+        </div>
+    </sly>
+    <!-- END Image Quote Banner -->
+
+    <!-- Hero Banner -->
+    <sly data-sly-test="${properties.typeCarousel == 'hero'}">
+
+        <div class="slick-button-prev carNav myPrev-${properties.id} hide-for-small show-for-large">
+            <div class="toFlex">
+                <div class="flexed">
+                    ◀︎
+                </div>
+            </div>
+        </div>
+
+        <div class="slickCar" data-ap="${properties.autoplay}" data-apSpeed="${properties.apSpeed}" data-slick='{"slidesToShow": ${properties.numSlides}}' id="${properties.id}">
+            <sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}">
+                <div>
+
+                    <section class="banner">
+                        <div class="heroBanner">
+                            <sly data-sly-test.imageData="${model.contentModelCFImage.imageMetaData}"></sly>
+                            <sly data-sly-test="${imageData.assetType == 'mp4'}">
+                                <div class="image wow animate-fade-in-image">
+                                    <video autoplay loop muted style="width:100%">
+                                        <source src="${model.contentModelCF.imageSrc}" type="video/mp4">
+
+                                        Your browser does not support HTML5 video.
+                                    </video>
+                                </div>
+
+                            </sly>
+                            <sly data-sly-test="${imageData.assetType != 'mp4'}">
+                                <div
+                                        class="image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''}">
+                                    <sly data-sly-test="${model.contentModelCF.imageSrc}">
+                                        <img src="${model.contentModelCF.imageSrc}" alt="${imageData.title}">
+                                    </sly>
+                                </div>
+                            </sly>
+                            <div class="minHeight">
+                                <div class="grid-container minHeight">
+                                    <div class="grid-x minHeight">
+                                        <div class="align-self-middle heroText large-8 ${model.contentModelCF.flipContent ? 'large-order-2' : ''} ${model.contentModelCF.flipContent ? 'text-right' : ''}"
+                                             style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                            <sly data-sly-test="${model.contentModelCF.caption}">
+                                                <div class="caption-1"
+                                                     style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                    ${model.contentModelCF.caption}</div>
+                                            </sly>
+                                            <sly data-sly-test="${model.contentModelCF.title}">
+                                                <div data-sly-element="${properties.titleStyle @context='unsafe'}"
+                                                     class="title-1">
+                                                    ${model.contentModelCF.title}
+                                                </div>
+                                            </sly>
+                                            <sly data-sly-test="${model.contentModelCF.subtitle}">
+                                                <div data-sly-element="${properties.subTitleStyle @context='html'}"
+                                                     class="subtitle-3"
+                                                     style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                    ${model.contentModelCF.subtitle @context='unsafe'}</div>
+                                            </sly>
+                                            <sly data-sly-test="${model.contentModelCF.text}">
+                                                <div class="body-1"
+                                                     style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                    ${model.contentModelCF.text @ context='html'}</div>
+                                            </sly>
+
+                                            <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}">
+                                                <sly data-sly-call="${link @ model=model, cssClasses='button primary'}">
+                                                </sly>
+                                            </sly>
+                                        </div>
+                                        <div class="large-4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </sly>
+        </div>
+        <div class='slick-button-next carNav myNext-${properties.id} hide-for-small show-for-large'>
+            <div class="toFlex">
+                <div class="flexed">
+                    ▶︎
+                </div>
+            </div>
+        </div>
+
+    </sly>
+    <!-- End Hero Banner -->
+    <!-- Title Banner -->
+    <sly data-sly-test="${properties.typeCarousel == 'title'}">
+
+        <div class="slick-button-prev carNav myPrev-${properties.id} hide-for-small show-for-large">
+            <div class="toFlex">
+                <div class="flexed">
+                    ◀︎
+                </div>
+            </div>
+        </div>
+
+
+        <div class="slickCar" data-ap="${properties.autoplay}" data-apSpeed="${properties.apSpeed}" data-slick='{"slidesToShow": ${properties.numSlides}}' id="${properties.id}">
+            <sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}">
+                <div>
+                    <!-- cut here -->
+                    <section class="banner " style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                        <div class="titleBanner">
+                            <sly data-sly-test.imageData="${model.contentModelCFImage.imageMetaData}"></sly>
+                            <sly data-sly-test="${imageData.assetType == 'mp4'}">
+                                <div
+                                        class="image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''} ">
+                                    <video autoplay loop muted style="width:100%">
+                                        <source src="${model.contentModelCF.imageSrc}" type="video/mp4">
+
+                                        Your browser does not support HTML5 video.
+                                    </video>
+                                </div>
+
+                            </sly>
+                            <sly data-sly-test="${imageData.assetType != 'mp4'}">
+                                <div
+                                        class="image ${properties.anamationOn == 'true' ? 'wow animate-fade-in-image' : ''} ">
+                                    <img src="${model.contentModelCF.imageSrc}" alt="${imageData.title}">
+                                </div>
+                            </sly>
+                            <div class="minHeight large-text-center">
+                                <div class="grid-container minHeight">
+                                    <div class="grid-x minHeight align-center align-middle">
+                                        <div class="cell bannerText">
+                                            <div class="caption-1"
+                                                 style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                ${model.contentModelCF.caption @ context="html"}</div>
+                                            <div data-sly-element="${properties.titleStyle @context='unsafe'}"
+                                                 class="title-1"
+                                                 style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                ${model.contentModelCF.title}
+                                            </div>
+                                            <div data-sly-element="${properties.subTitleStyle @context='html'}"
+                                                 class="subtitle-3"
+                                                 style="color:${model.contentModelCF.fontColor @context='unsafe'}">
+                                                ${model.contentModelCF.subtitle @context='unsafe'}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- cut here -->
+                </div>
+            </sly>
+        </div>
+
+
+        <div class='slick-button-next carNav myNext-${properties.id} hide-for-small show-for-large'>
+            <div class="toFlex">
+                <div class="flexed">
+                    ▶︎
+                </div>
+            </div>
+        </div>
+
+    </sly>
+    <!-- End Title Banner -->
+    <!-- card slice -->
+    <sly data-sly-test="${properties.typeCarousel == 'slice'}">
+        <div class="grid-x" style="background-color:${properties.bgColor @context='unsafe'}">
+            <div class="cell small-1">
+                <div class="slick-button-prev carNav myPrev-${properties.id} hide-for-small show-for-large">
+                    <div class="toFlex">
+                        <div class="flexed">
+                            ◀︎
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-10">
+                <div class="slickCar" data-ap="${properties.autoplay}" data-apSpeed="${properties.apSpeed}" data-slick='{"slidesToShow": ${properties.numSlides}}' id="${properties.id}">
+
+                    <sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}">
+                        <div class="grid-x " data-equalizer>
+                            <div>
+                                <!-- cut here -->
+
+
+                                <sly data-sly-test.imageData="${model.contentModelCFImage.imageMetaData}"></sly>
+                                <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}" data-sly-unwrap>
+                                    <a class="ctaText text-primary gaChecker" data-eventName="Card"
+                                       data-eventCategory="Card" data-eventAction="click"
+                                       data-eventLabel="${model.contentModelCF.title}"
+                                       data-clickUrl="${model.linkContentFragmentModel.linkUrl}" data-eventValue=""
+                                       href="${model.linkContentFragmentModel.linkUrl}">
+                                </sly>
+                                <div class="cell cardSpace">
+                                    <div class="card align-center-middle ${properties.anamationOn == 'true' ? 'wow animate-fade-in-bottom' : ''}"
+                                         data-equalizer-watch>
+                                        <sly data-sly-test="${model.contentModelCF.imageSrc}" data-sly-unwrap>
+
+
+                                            <img src="${model.contentModelCF.imageSrc}" alt="${imageData.title}">
+
+                                        </sly>
+                                        <div class="card-section">
+                                            <div class="subtitle-2 bold">${model.contentModelCF.title}
+                                            </div>
+                                            <div class="subtitle-3 bold">${model.contentModelCF.subtitle @
+                                                context="html"}</div>
+                                            <div class="body-1">${model.contentModelCF.text @ context="html"}</div>
+                                            <div class="link-caret-dynamic body-1-link">
+                                                ${model.linkContentFragmentModel.linkText}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <sly data-sly-test="${model.linkContentFragmentModel.linkUrl}" data-sly-unwrap>
+                                    </a>
+                                </sly>
+
+
+                                <!-- cut here -->
+                            </div>
+                        </div>
+                    </sly>
+
+                </div>
+            </div>
+            <div class="cell small-1">
+                <div class='slick-button-next carNav myNext-${properties.id} hide-for-small show-for-large'>
+                    <div class="toFlex">
+                        <div class="flexed">
+                            ▶︎
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sly>
+    <!-- end card slice -->
+
+    <!-- Icon List Standard -->
+    <sly data-sly-test="${properties.typeCarousel == 'iconliststandard'}">
+        <div class="grid-x icon-list-carousel" style="background-color:${properties.bgColor @context='unsafe'}">
+            <div class="cell show-for-large large-1 icon-list-carousel--arrows left">
+                <div class="slick-button-prev carNav myPrev-${properties.id} hide-for-small show-for-large">
+                    <div class="toFlex">
+                        <div class="flexed">
+                            ◀︎
+                            <span class="show-for-sr">Previous Slide</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell large-10">
+                <div class="cell icon-list-carousel__container" id="${properties.id}" data-slick='{"slidesToShow": ${properties.numSlides}}'>
+                    <sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}">
+                        <!-- cut here -->
+                        <div class="grid-x icon-list-carousel__slide">
+                            <div class="cell large-5 icon-list-carousel__image--container">
+                                <!-- Image  -->
+                                <div class="grid-x">
+                                    <div class="cell icon-list-carousel__image--wrapper">
+                                        <img class="icon-list-carousel__image--image" src="${model.contentModelCF.imageSrc}" />
+                                    </div>
+                                    <div class="cell" style="background-color: ${model.contentModelCF.imageBackgroundColor @context='unsafe'}">
+                                        <div class="icon-list-carousel__image--text" style="color: ${model.contentModelCF.imageCaptionTextColor @context='unsafe'}">
+                                            <div class="icon-list-carousel__image--icon" style="background-image:url('${model.contentModelCF.imageIcon @context='unsafe'}')"></div>
+                                            ${model.contentModelCF.imageCaption}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell icon-list-carousel__content--container-desktop large-7 show-for-large">
+                                <div class="grid-x">
+                                    <div class="cell">
+                                        <!-- Title -->
+                                        <div class="title-3 icon-list-carousel__content--title">${model.contentModelCF.title}</div>
+                                        <!-- Subtitle -->
+                                        <div class="semibold icon-list-carousel__content--subtitle">${model.contentModelCF.subtitle @context="html"}</div>
+                                        <!-- Body / Description -->
+                                        <div class="body-1 icon-list-carousel__content--description">${model.contentModelCF.text @context="html"}</div>
+                                    </div>
+                                    <!-- Icon List Title -->
+                                    <div class="cell caption-2 icon-list-carousel__content--list-title text-dark-gray">
+                                        ${model.contentModelCF.iconListTitle}
+                                    </div>
+                                    <div class="grid-x">
+                                        <div class="cell icon-list-carousel__content--list-container">
+                                            <!-- Icon List Image -->
+                                            <div class="grid-x">
+                                                <span class="cell large-1">
+                                                    <img src="${model.contentModelCF.iconListImageOne}">
+                                                </span>
+                                                <div class="cell large-11 icon-list-carousel__content--list-content">
+                                                    <!-- Icon List Title -->
+                                                    <div class="subtitle-3">
+                                                        ${model.contentModelCF.iconListTitleOne}
+                                                    </div>
+                                                    <!-- Icon List Description -->
+                                                    <div class="body-2">
+                                                        ${model.contentModelCF.iconListDescriptionOne @context="html"}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cell icon-list-carousel__content--list-container">
+                                            <!-- Icon List Image -->
+                                            <div class="grid-x">
+                                                <span class="cell large-1">
+                                                    <img src="${model.contentModelCF.iconListImageTwo}">
+                                                </span>
+                                                <div class="cell large-11 icon-list-carousel__content--list-content">
+                                                    <!-- Icon List Title -->
+                                                    <div class="subtitle-3">
+                                                        ${model.contentModelCF.iconListTitleTwo}
+                                                    </div>
+                                                    <!-- Icon List Description -->
+                                                    <div class="body-2">
+                                                        ${model.contentModelCF.iconListDescriptionTwo @context="html"}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cell icon-list-carousel__content--list-container">
+                                            <!-- Icon List Image -->
+                                            <div class="grid-x">
+                                                <span class="cell large-1">
+                                                    <img src="${model.contentModelCF.iconListImageThree}">
+                                                </span>
+                                                <div class="cell large-11 icon-list-carousel__content--list-content">
+                                                    <!-- Icon List Title -->
+                                                    <div class="subtitle-3">
+                                                        ${model.contentModelCF.iconListTitleThree}
+                                                    </div>
+                                                    <!-- Icon List Description -->
+                                                    <div class="body-2">
+                                                        ${model.contentModelCF.iconListDescriptionThree @context="html"}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-x hide-for-large icon-list-carousel__content--container-mobile">
+                                <div class="cell">
+                                    <div class="title-3 icon-list-carousel__content--title">${model.contentModelCF.title}</div>
+                                    <div class="semibold icon-list-carousel__content--subtitle">${model.contentModelCF.subtitle @context="html"}</div>
+                                    <div class="body-1 icon-list-carousel__content--description">${model.contentModelCF.text @context="html"}</div>
+                                </div>
+                                <ul class="cell accordion" data-accordion data-allow-all-closed="true">
+                                    <li class="accordion-item" data-accordion-item>
+                                        <!-- Accordion tab title -->
+                                        <a href="#" class="body-2-link">
+                                            <div class="flex-container">
+                                                <span>${model.contentModelCF.iconListTitle}</span>
+                                                <span class="icon-list-carousel__accordion--icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1.142 0L0 1.058 3.709 4.5 0 7.942 1.142 9 6 4.5z" fill-rule="evenodd"/>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </a>
+                                        <div class="accordion-content" data-tab-content>
+                                            <div class="grid-x">
+                                                <div class="cell icon-list-carousel__content--list-container">
+                                                    <!-- Icon List Image -->
+                                                    <div class="grid-x">
+                                                        <span class="cell small-2 medium-1">
+                                                            <img src="${model.contentModelCF.iconListImageOne}">
+                                                        </span>
+                                                        <div class="cell small-10 medium-11 icon-list-carousel__accordion--content">
+                                                            <!-- Icon List Title -->
+                                                            <div class="subtitle-3">
+                                                                ${model.contentModelCF.iconListTitleOne}
+                                                            </div>
+                                                            <!-- Icon List Description -->
+                                                            <div class="body-2">
+                                                                ${model.contentModelCF.iconListDescriptionOne
+                                                                @context="html"}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cell icon-list-carousel__content--list-container">
+                                                    <!-- Icon List Image -->
+                                                    <div class="grid-x">
+                                                        <span class="cell small-2 medium-1">
+                                                            <img src="${model.contentModelCF.iconListImageTwo}">
+                                                        </span>
+                                                        <div class="cell small-10 medium-11 icon-list-carousel__accordion--content">
+                                                            <!-- Icon List Title -->
+                                                            <div class="subtitle-3">
+                                                                ${model.contentModelCF.iconListTitleTwo}
+                                                            </div>
+                                                            <!-- Icon List Description -->
+                                                            <div class="body-2">
+                                                                ${model.contentModelCF.iconListDescriptionTwo
+                                                                @context="html"}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cell icon-list-carousel__content--list-container">
+                                                    <!-- Icon List Image -->
+                                                    <div class="grid-x">
+                                                        <span class="cell small-2 medium-1">
+                                                            <img src="${model.contentModelCF.iconListImageThree}">
+                                                        </span>
+                                                        <div class="cell small-10 medium-11 icon-list-carousel__accordion--content">
+                                                            <!-- Icon List Title -->
+                                                            <div class="subtitle-3">
+                                                                ${model.contentModelCF.iconListTitleThree}
+                                                            </div>
+                                                            <!-- Icon List Description -->
+                                                            <div class="body-2">
+                                                                ${model.contentModelCF.iconListDescriptionThree
+                                                                @context="html"}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- cut here -->
+                    </sly>
+                </div>
+            </div>
+            <div class="cell show-for-large large-1 icon-list-carousel--arrows right">
+                <div class='slick-button-next carNav myNext-${properties.id} hide-for-small show-for-large'>
+                    <div class="toFlex">
+                        <div class="flexed">
+                            ▶︎
+                            <span class="show-for-sr">Next Slide</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sly>
+    <!-- End of Icon List Standard-->
+
+</div>
+
+
+<!-- This is where all the ctas get their properties from.  -->
+<template data-sly-template.link="${@ model, cssClasses}">
+
+    <sly data-sly-test="${properties.ctaType == 'text'}">
+        <div class="ctaText link"><a href="${model.linkContentFragmentModel.linkUrl}"
+                                     target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+                                     class="gaChecker link-caret-dynamic" data-clickUrl="${model.linkContentFragmentModel.linkUrl}"
+                                     data-eventName="Banner" data-eventCategory="Banner" data-eventAction="click"
+                                     data-eventLabel="${model.linkContentFragmentModel.linkText}"
+                                     data-eventValue="">${model.linkContentFragmentModel.linkText}</a>
+        </div>
+    </sly>
+    <sly data-sly-test="${properties.ctaType != 'text'}">
+        <sly data-sly-test="${properties.ctaColor != 'custom'}">
+            <a href="${model.linkContentFragmentModel.linkUrl}"
+               class="button ${properties.ctaColor} ${properties.ctaType} ${properties.hollow} gaChecker"
+               data-eventName="Banner" data-eventCategory="Banner" data-eventAction="click"
+               data-eventLabel="${model.contentModelCF.title}" data-eventValue=""
+               data-clickUrl="${model.linkContentFragmentModel.linkUrl}"
+               target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+               style="margin-top:24px;">${model.linkContentFragmentModel.linkText}</a>
+        </sly>
+        <sly data-sly-test="${properties.ctaColor == 'custom'}">
+            <a href="${model.linkContentFragmentModel.linkUrl}" class="button ${properties.ctaType} gaChecker"
+               data-eventName="Banner" data-eventCategory="Banner" data-eventAction="click"
+               data-eventLabel="${model.contentModelCF.title}" data-eventValue=""
+               data-clickUrl="${model.linkContentFragmentModel.linkUrl}"
+               target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+               style="background-color:${properties.ctaBG @context='unsafe'}; color:${properties.fontColor @context='unsafe'}; margin-top:24px;">${model.linkContentFragmentModel.linkText}</a>
+        </sly>
+    </sly>
+</template>
+
+
+
+<sly data-sly-list.model="${carouselModel.contentFragmentSourceModels}">
+    <div class="korModal" id="${model.contentModelCF.videoId}"
+         style="color: ${properties.fontColor @context='unsafe'};">
+
+        <div class="korTitle subtitle-1">
+            <div class="grid-container">
+                <div class="grid-x">
+                    <!-- This is a change that will need to be updated in AEM -->
+                    <div class="cell small-11 large-6">
+                        ${model.contentModelCF.videoTitle}
+                    </div>
+                    <div class="cell small-1 large-6 text-right">
+                        <button class="close-button" aria-label="Close alert" type="button" data-close>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="korContentContainer">
+            <sly data-sly-test="${model.contentModelCF.videoType == 'Vimeo'}">
+                <div class="korContent responsive-embed widescreen">
+                    <iframe title="vimeo-player" src="${model.contentModelCF.videoUrl}" frameborder="0"
+                            allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+            </sly>
+            <sly data-sly-test="${model.contentModelCF.videoType == 'YouTube'}">
+                <div class="korContent responsive-embed widescreen">
+                    <iframe id="ytplayer" src="${model.contentModelCF.videoUrl}?rel=0" frameborder="0"
+                            allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+            </sly>
+            <sly data-sly-test="${model.contentModelCF.videoType == 'DAM'}">
+                <div class="korContent responsive-embed widescreen">
+                    <iframe src="${model.contentModelCF.videoUrl}" frameborder="0" allow="autoplay"
+                            allowfullscreen></iframe>
+                </div>
+            </sly>
+        </div>
+    </div>
+</sly>

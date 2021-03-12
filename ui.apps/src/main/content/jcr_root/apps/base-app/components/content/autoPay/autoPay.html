@@ -1,0 +1,42 @@
+<h4 data-sly-test="${wcmmode.edit || wcmmode.design}">
+    My Auto Pay Component
+</h4>
+
+
+
+<div class="main-container ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"  style="background-color:${properties.backColor @context='unsafe'}">
+<!--Grid-First-start-->
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        <div class="cell small-12 medium-6 large-6">                 
+            <div class="notification-main-container">
+                <div class="auto-pay-container">
+                    <div class="auto-pay-caption-2">${properties.title}</div>
+                    <div class="auto-pay-inner-container">                        
+                        <div class="auto-pay-inner-container_auto-pay-body-1 enrollimg hidden"><img src="${properties.enrolledicon}" alt=""/> ${properties.enrolledtext} </div>
+                        <div class="auto-pay-inner-container_auto-pay-body-1 notenrolledimg hidden"><img src="${properties.notenrolledicon}" alt=""/> ${properties.notenrolledtext} </div>
+                        <div class="auto-pay-inner-container_enroll-now-link-container">                            
+                            <form name="autoPayForm" id="autoPayForm" method="post" action="https://autopay.wyndhamvacationownership.com/pac/displayForm.action? entity=wvr" target="_blank">
+                                <!-- <a href="#" id="editEnrollLinkID" class=" enrolled">${properties.enroll} </a>
+                                <a href="#" id="enrollLinkID" class="auto-pay-body-1-link  notenrolled">${properties.notenrolled} </a> -->
+                                <sly data-sly-test="${properties.ctaColor != 'custom'}">
+                                    <input class="auto-pay-body-1-link editEnrollLinkID ${properties.ctaType} ${properties.ctaColor} ${properties.hollow} " type="submit" value="${properties.ctaLabel}" ></input>
+                                    <input class="auto-pay-body-1-link enrollLinkID ${properties.ctaTypeenrollnow} ${properties.ctaColorenrollnow}" type="submit" value="${properties.ctaLabelenrollnow}"></input>
+                                </sly>
+                                <sly data-sly-test="${properties.ctaColor == 'custom'}">
+                                    <input class="auto-pay-body-1-link editEnrollLinkID ${properties.ctaType} ${properties.hollow}" style="background-color:${properties.customColor @context='unsafe'}; color:${properties.fontColor @context='unsafe'}" type="submit" value="${properties.ctaLabel}" ></input>
+                                    <input class="auto-pay-body-1-link enrollLinkID ${properties.ctaTypeenrollnow} ${properties.hollowenrollnow}" style="background-color:${properties.customcolorenrollnow @context='unsafe'}; color:${properties.fontColorenrollnow @context='unsafe'}" type="submit" value="${properties.ctaLabelenrollnow}"></input>
+                                </sly>                               
+                                <input name="ownerId" id="ownerId" class="autopayEnroll" value="" type="hidden"></input>
+                            </form>
+                        </div>
+                    </div>
+                </div>   
+                <div class="notification-container autopay-err">
+                    <div class="notification-message"> </div>
+                </div>                    
+            </div>
+        </div>
+    </div>
+</div>
+</div>

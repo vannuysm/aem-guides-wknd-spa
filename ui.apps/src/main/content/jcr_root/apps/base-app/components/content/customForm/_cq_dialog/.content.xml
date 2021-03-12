@@ -1,0 +1,1597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Form Builder"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="base-app.checkboxhideshow">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+            margin="{Boolean}false"/>
+        <items jcr:primaryType="nt:unstructured">
+            <columnProperties
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Content"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <tabs
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                                maximized="{Boolean}false">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <content
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Content"
+                                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <title
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Title"
+                                                        name="./fieldtitle"/>
+                                                    <instructions
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                        fieldLabel="instructions"
+                                                        name="./inst"/>
+                                                    <contentSource
+                                                        granite:class="hide "
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        defaultValue="inline"
+                                                        name="./contentSource">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"/>
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <inline
+                                                                granite:hide="${cqDesign.disableInline}"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Inline"
+                                                                value="inline"/>
+                                                        </items>
+                                                    </contentSource>
+                                                    <setInline
+                                                        granite:class="foundation-layout-util-vmargin"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            showhidetargetvalue="inline"/>
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <well
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <multi
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                                        composite="{Boolean}true"
+                                                                        fieldDescription="Click add to add a more form fields"
+                                                                        fieldLabel="Add Fields">
+                                                                        <field
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                            name="./formBuilderFields">
+                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                <fieldName
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                    fieldLabel="Field Name"
+                                                                                    name="./fieldName"/>
+                                                                                <Required
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                                    name="./required"
+                                                                                    text="Field Is Required"
+                                                                                    value="required"/>
+                                                                                <Disabled
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                                    name="./disabled"
+                                                                                    text="Field Is Disabled"
+                                                                                    value="disabled"/>
+                                                                                <smallLength
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                                    fieldLabel="Small Length"
+                                                                                    name="./smallLength">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <length12
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="12"
+                                                                                            value="12"/>
+                                                                                        <length11
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="11"
+                                                                                            value="11"/>
+                                                                                        <length10
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="10"
+                                                                                            value="10"/>
+                                                                                        <length9
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="9"
+                                                                                            value="9"/>
+                                                                                        <length8
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="8"
+                                                                                            value="8"/>
+                                                                                        <length7
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="7"
+                                                                                            value="7"/>
+                                                                                        <length6
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="6"
+                                                                                            value="6"/>
+                                                                                        <length5
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="5"
+                                                                                            value="5"/>
+                                                                                        <length4
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="4"
+                                                                                            value="4"/>
+                                                                                        <length3
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="3"
+                                                                                            value="3"/>
+                                                                                        <length2
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="2"
+                                                                                            value="2"/>
+                                                                                        <length1
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="1"
+                                                                                            value="1"/>
+                                                                                    </items>
+                                                                                </smallLength>
+                                                                                <mediumLength
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                                    fieldLabel="Medium Length"
+                                                                                    name="./mediumLength">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <length12
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="12"
+                                                                                            value="12"/>
+                                                                                        <length11
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="11"
+                                                                                            value="11"/>
+                                                                                        <length10
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="10"
+                                                                                            value="10"/>
+                                                                                        <length9
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="9"
+                                                                                            value="9"/>
+                                                                                        <length8
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="8"
+                                                                                            value="8"/>
+                                                                                        <length7
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="7"
+                                                                                            value="7"/>
+                                                                                        <length6
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="6"
+                                                                                            value="6"/>
+                                                                                        <length5
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="5"
+                                                                                            value="5"/>
+                                                                                        <length4
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="4"
+                                                                                            value="4"/>
+                                                                                        <length3
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="3"
+                                                                                            value="3"/>
+                                                                                        <length2
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="2"
+                                                                                            value="2"/>
+                                                                                        <length1
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="1"
+                                                                                            value="1"/>
+                                                                                    </items>
+                                                                                </mediumLength>
+                                                                                <largeLength
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                                    fieldLabel="Large Length"
+                                                                                    name="./largeLength">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <length12
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="12"
+                                                                                            value="12"/>
+                                                                                        <length11
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="11"
+                                                                                            value="11"/>
+                                                                                        <length10
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="10"
+                                                                                            value="10"/>
+                                                                                        <length9
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="9"
+                                                                                            value="9"/>
+                                                                                        <length8
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="8"
+                                                                                            value="8"/>
+                                                                                        <length7
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="7"
+                                                                                            value="7"/>
+                                                                                        <length6
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="6"
+                                                                                            value="6"/>
+                                                                                        <length5
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="5"
+                                                                                            value="5"/>
+                                                                                        <length4
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="4"
+                                                                                            value="4"/>
+                                                                                        <length3
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="3"
+                                                                                            value="3"/>
+                                                                                        <length2
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="2"
+                                                                                            value="2"/>
+                                                                                        <length1
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="1"
+                                                                                            value="1"/>
+                                                                                    </items>
+                                                                                </largeLength>
+                                                                                <fieldType
+                                                                                    granite:class="cq-dialog-dropdown-showhide"
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                                    fieldLabel="Type"
+                                                                                    name="./fieldType">
+                                                                                    <granite:data jcr:primaryType="nt:unstructured"/>
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <input
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Input"
+                                                                                            value="Input"/>
+                                                                                        <dropdown
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Dropdown"
+                                                                                            value="Dropdown"/>
+                                                                                        <textArea
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Text Area"
+                                                                                            value="TextArea"/>
+                                                                                        <checkbox
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Checkbox"
+                                                                                            value="Checkbox"/>
+                                                                                        <radioButton
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Radio Button"
+                                                                                            value="radioButton"/>
+                                                                                        <sectionHeader
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Section Header"
+                                                                                            value="sectionHeader"/>
+                                                                                        <sectionBody
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Section Body"
+                                                                                            value="sectionBody"/>
+                                                                                        <sectionDivider
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Section Divider"
+                                                                                            value="sectionDivider"/>
+                                                                                        <caption
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Section Caption"
+                                                                                            value="caption"/>
+                                                                                        <subtitle
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Section Subtitle"
+                                                                                            value="subTitle"/>
+                                                                                        <datePicker
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Date Picker"
+                                                                                            value="datePicker"/>
+                                                                                    </items>
+                                                                                </fieldType>
+                                                                                <placeholderText
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                    fieldLabel="Placeholder Text (Input, Dropdown, Text Area)"
+                                                                                    name="./placeholderText"/>
+                                                                                <errorMessage
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                    fieldLabel="Error Message (Input, Dropdown, Text Area)"
+                                                                                    name="./errorMessage"/>
+                                                                                <RegX
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                                    fieldLabel="RegX (input)"
+                                                                                    name="./regX">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <memberNumber
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Member Number"
+                                                                                            value="memberNumber"/>
+                                                                                        <userName
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="User Name"
+                                                                                            value="userName"/>
+                                                                                        <phone
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Phone"
+                                                                                            value="phone_number"/>
+                                                                                        <zip
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Zip Code"
+                                                                                            value="zip"/>
+                                                                                        <email
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Email"
+                                                                                            value="email"/>
+                                                                                    </items>
+                                                                                </RegX>
+                                                                                <GenericList
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                                    fieldLabel="Generic List (Dropdown)"
+                                                                                    name="./genericList">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <State
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="State"
+                                                                                            value="states"/>
+                                                                                        <TimeCall
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Time to Call"
+                                                                                            value="time-to-call"/>
+                                                                                        <Prefix
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Prefix"
+                                                                                            value="prefix"/>
+                                                                                        <MemberType
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Member Type"
+                                                                                            value="member-type"/>
+                                                                                        <MaritalStatus
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Marital Status"
+                                                                                            value="marital-status"/>
+                                                                                        <Club
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Club"
+                                                                                            value="club"/>
+                                                                                        <Age
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Age"
+                                                                                            value="age"/>
+                                                                                        <Income
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Income"
+                                                                                            value="income"/>
+                                                                                        <CustomOne
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="custom one"
+                                                                                            value="custom-one"/>
+                                                                                        <CustomTwo
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="custom two"
+                                                                                            value="custom-two"/>
+                                                                                        <CustomThree
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="custom three"
+                                                                                            value="custom-three"/>
+                                                                                    </items>
+                                                                                </GenericList>
+                                                                                <Text
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                                                    fieldLabel="Text (Checkbox, Section Header, Section Body)"
+                                                                                    name="./text"/>
+                                                                                <SectionDividerlength
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                                    fieldLabel="Section Divider Length (Section Divider)"
+                                                                                    name="./sectionDivider">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <length12
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="12"
+                                                                                            value="12"/>
+                                                                                        <length11
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="11"
+                                                                                            value="11"/>
+                                                                                        <length10
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="10"
+                                                                                            value="10"/>
+                                                                                        <length9
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="9"
+                                                                                            value="9"/>
+                                                                                        <length8
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="8"
+                                                                                            value="8"/>
+                                                                                        <length7
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="7"
+                                                                                            value="7"/>
+                                                                                        <length6
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="6"
+                                                                                            value="6"/>
+                                                                                        <length5
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="5"
+                                                                                            value="5"/>
+                                                                                        <length4
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="4"
+                                                                                            value="4"/>
+                                                                                        <length3
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="3"
+                                                                                            value="3"/>
+                                                                                        <length2
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="2"
+                                                                                            value="2"/>
+                                                                                        <length1
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="1"
+                                                                                            value="1"/>
+                                                                                    </items>
+                                                                                </SectionDividerlength>
+                                                                                <height
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                                    fieldLabel="Height (Section Divider)"
+                                                                                    name="./height">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <xs
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="X Small"
+                                                                                            value="xSmall"/>
+                                                                                        <s
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Small"
+                                                                                            value="small"/>
+                                                                                        <m
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Medium "
+                                                                                            value="medium"/>
+                                                                                        <l
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="Large"
+                                                                                            value="large"/>
+                                                                                        <xl
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="x large"
+                                                                                            value="xLarge"/>
+                                                                                    </items>
+                                                                                </height>
+                                                                                <color
+                                                                                    granite:class="cq-dialog-dropdown-showhide"
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                                    fieldLabel="Color (Section Divider)"
+                                                                                    name="./color">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <color1
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color1"
+                                                                                            value="color1"/>
+                                                                                        <color2
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color2"
+                                                                                            value="color2"/>
+                                                                                        <color3
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color3"
+                                                                                            value="color3"/>
+                                                                                        <color4
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color4"
+                                                                                            value="color4"/>
+                                                                                        <color5
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color5"
+                                                                                            value="color5"/>
+                                                                                        <color6
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color6"
+                                                                                            value="color6"/>
+                                                                                        <color7
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color7"
+                                                                                            value="color7"/>
+                                                                                        <color8
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color8"
+                                                                                            value="color8"/>
+                                                                                        <color9
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color9"
+                                                                                            value="color9"/>
+                                                                                        <color10
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color10"
+                                                                                            value="color10"/>
+                                                                                        <color11
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color11"
+                                                                                            value="color11"/>
+                                                                                        <color12
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color12"
+                                                                                            value="color12"/>
+                                                                                        <color13
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color13"
+                                                                                            value="color13"/>
+                                                                                        <color14
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color14"
+                                                                                            value="color14"/>
+                                                                                        <color15
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color15"
+                                                                                            value="color15"/>
+                                                                                        <color16
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            text="color16"
+                                                                                            value="color16"/>
+                                                                                    </items>
+                                                                                </color>
+                                                                                <datePickerMinDate
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                                                    fieldLabel="Date Picker Start Date"
+                                                                                    minDate="0"
+                                                                                    name="./datePickerMinDate"/>
+                                                                                <datePickerMaxDate
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                                                    fieldLabel="Date Picker End Date"
+                                                                                    name="./datePickerMaxDate"/>
+                                                                                <well
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                        <multi
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                                                            composite="{Boolean}true"
+                                                                                            fieldLabel="Configure Radio Buttons sources">
+                                                                                            <field
+                                                                                                jcr:primaryType="nt:unstructured"
+                                                                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                                                name="./radioButtons">
+                                                                                                <items jcr:primaryType="nt:unstructured">
+                                                                                                    <label
+                                                                                                        jcr:primaryType="nt:unstructured"
+                                                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                                        fieldLabel="label"
+                                                                                                        name="./label"/>
+                                                                                                    <value
+                                                                                                        jcr:primaryType="nt:unstructured"
+                                                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                                        fieldLabel="Value"
+                                                                                                        name="./value"/>
+                                                                                                </items>
+                                                                                            </field>
+                                                                                        </multi>
+                                                                                    </items>
+                                                                                </well>
+                                                                            </items>
+                                                                        </field>
+                                                                    </multi>
+                                                                </items>
+                                                            </well>
+                                                        </items>
+                                                    </setInline>
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </content>
+                                    <Hidden
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Hidden Fields"
+                                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <Campaign
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Campaign"
+                                                        name="./campaign"/>
+                                                    <well
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <multi
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                                composite="{Boolean}true"
+                                                                fieldDescription="Click add to add a more hidden form fields"
+                                                                fieldLabel="Add Hidden Fields">
+                                                                <field
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                    name="./inlineItems">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <hiddenFieldName
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                            fieldLabel="Field Name"
+                                                                            name="./title"/>
+                                                                        <hiddenFieldValue
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                            fieldLabel="Field Value"
+                                                                            name="./caption"/>
+                                                                    </items>
+                                                                </field>
+                                                            </multi>
+                                                        </items>
+                                                    </well>
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </Hidden>
+                                    <cta
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="CTA"
+                                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                        margin="{Boolean}true">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <ctaLabel
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="CTA Label"
+                                                        name="./ctaLabel"/>
+                                                    <ctaSmallLength
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldLabel="Small Length"
+                                                        name="./ctaSmallLength">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <length12
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="12"
+                                                                value="12"/>
+                                                            <length11
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="11"
+                                                                value="11"/>
+                                                            <length10
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="10"
+                                                                value="10"/>
+                                                            <length9
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="9"
+                                                                value="9"/>
+                                                            <length8
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="8"
+                                                                value="8"/>
+                                                            <length7
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="7"
+                                                                value="7"/>
+                                                            <length6
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="6"
+                                                                value="6"/>
+                                                            <length5
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="5"
+                                                                value="5"/>
+                                                            <length4
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="4"
+                                                                value="4"/>
+                                                            <length3
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="3"
+                                                                value="3"/>
+                                                            <length2
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="2"
+                                                                value="2"/>
+                                                            <length1
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="1"
+                                                                value="1"/>
+                                                        </items>
+                                                    </ctaSmallLength>
+                                                    <ctaMediumLength
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldLabel="Medium Length"
+                                                        name="./ctaMediumLength">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <length12
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="12"
+                                                                value="12"/>
+                                                            <length11
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="11"
+                                                                value="11"/>
+                                                            <length10
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="10"
+                                                                value="10"/>
+                                                            <length9
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="9"
+                                                                value="9"/>
+                                                            <length8
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="8"
+                                                                value="8"/>
+                                                            <length7
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="7"
+                                                                value="7"/>
+                                                            <length6
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="6"
+                                                                value="6"/>
+                                                            <length5
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="5"
+                                                                value="5"/>
+                                                            <length4
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="4"
+                                                                value="4"/>
+                                                            <length3
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="3"
+                                                                value="3"/>
+                                                            <length2
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="2"
+                                                                value="2"/>
+                                                            <length1
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="1"
+                                                                value="1"/>
+                                                        </items>
+                                                    </ctaMediumLength>
+                                                    <ctaLargeLength
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldLabel="Large Length"
+                                                        name="./ctaLargeLength">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <length12
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="12"
+                                                                value="12"/>
+                                                            <length11
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="11"
+                                                                value="11"/>
+                                                            <length10
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="10"
+                                                                value="10"/>
+                                                            <length9
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="9"
+                                                                value="9"/>
+                                                            <length8
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="8"
+                                                                value="8"/>
+                                                            <length7
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="7"
+                                                                value="7"/>
+                                                            <length6
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="6"
+                                                                value="6"/>
+                                                            <length5
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="5"
+                                                                value="5"/>
+                                                            <length4
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="4"
+                                                                value="4"/>
+                                                            <length3
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="3"
+                                                                value="3"/>
+                                                            <length2
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="2"
+                                                                value="2"/>
+                                                            <length1
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="1"
+                                                                value="1"/>
+                                                        </items>
+                                                    </ctaLargeLength>
+                                                    <ctaColor
+                                                        granite:class="cq-dialog-dropdown-showhide"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldLabel="CTA Color"
+                                                        name="./ctaColor">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            cq-dialog-dropdown-showhide-target=".custColorTarget"/>
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <Default
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Default Color"
+                                                                value=""/>
+                                                            <primary
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Primary"
+                                                                value="primary"/>
+                                                            <secondary
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Secondary"
+                                                                value="secondary"/>
+                                                            <success
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Success"
+                                                                value="success"/>
+                                                            <alert
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Alert"
+                                                                value="alert"/>
+                                                            <warning
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Warning"
+                                                                value="warning"/>
+                                                            <color1
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color1"
+                                                                value="color1"/>
+                                                            <color2
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color2"
+                                                                value="color2"/>
+                                                            <color3
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color3"
+                                                                value="color3"/>
+                                                            <color4
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color4"
+                                                                value="color4"/>
+                                                            <color5
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color5"
+                                                                value="color5"/>
+                                                            <color6
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color6"
+                                                                value="color6"/>
+                                                            <color7
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color7"
+                                                                value="color7"/>
+                                                            <color8
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color8"
+                                                                value="color8"/>
+                                                            <color9
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color9"
+                                                                value="color9"/>
+                                                            <color10
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color10"
+                                                                value="color10"/>
+                                                            <color11
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color11"
+                                                                value="color11"/>
+                                                            <color12
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color12"
+                                                                value="color12"/>
+                                                            <color13
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color13"
+                                                                value="color13"/>
+                                                            <color14
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color14"
+                                                                value="color14"/>
+                                                            <color15
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color15"
+                                                                value="color15"/>
+                                                            <color16
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="color16"
+                                                                value="color16"/>
+                                                            <custom
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Custom"
+                                                                value="custom"/>
+                                                        </items>
+                                                    </ctaColor>
+                                                    <hollow
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                        fieldDescription="Hollow CTA"
+                                                        name="./hollow"
+                                                        text="Make the CTA hollow"
+                                                        value="hollow"/>
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </cta>
+                                    <success
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Success"
+                                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                        margin="{Boolean}true">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <title
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Title"
+                                                        name="./title"
+                                                        required="(Boolean)true"/>
+                                                    <text
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                        fieldLabel="Text"
+                                                        name="./successBody"
+                                                        useFixedInlineToolbar="{Boolean}true">
+                                                        <rtePlugins jcr:primaryType="nt:unstructured">
+                                                            <edit
+                                                                jcr:primaryType="nt:unstructured"
+                                                                features="*"/>
+                                                            <format
+                                                                jcr:primaryType="nt:unstructured"
+                                                                features="*"/>
+                                                            <subsuperscript
+                                                                jcr:primaryType="nt:unstructured"
+                                                                features="*"/>
+                                                            <justify
+                                                                jcr:primaryType="nt:unstructured"
+                                                                features="*"/>
+                                                            <lists
+                                                                jcr:primaryType="nt:unstructured"
+                                                                features="*"/>
+                                                            <paraformat
+                                                                jcr:primaryType="nt:unstructured"
+                                                                features="*">
+                                                                <formats jcr:primaryType="cq:WidgetCollection">
+                                                                    <heading1
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        description="Heading 1"
+                                                                        tag="h1"/>
+                                                                    <heading2
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        description="Heading 2"
+                                                                        tag="h2"/>
+                                                                    <heading3
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        description="Heading 3"
+                                                                        tag="h3"/>
+                                                                    <heading4
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        description="Heading 4"
+                                                                        tag="h4"/>
+                                                                    <heading5
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        description="Heading 5"
+                                                                        tag="h5"/>
+                                                                    <heading6
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        description="Heading 6"
+                                                                        tag="h6"/>
+                                                                    <myparagraph
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        description="Paragraph"
+                                                                        tag="p"/>
+                                                                    <strong
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        description="Strong"
+                                                                        tag="strong"/>
+                                                                    <pre
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        description="Preformatted"
+                                                                        tag="pre"/>
+                                                                    <hr
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        description="Hr"
+                                                                        tag="hr"/>
+                                                                </formats>
+                                                            </paraformat>
+                                                            <styles
+                                                                jcr:primaryType="nt:unstructured"
+                                                                features="*">
+                                                                <styles jcr:primaryType="nt:unstructured">
+                                                                    <wyn-type-display-1t
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type-display-1"
+                                                                        text="Display Header"/>
+                                                                    <wyn-type-headline-1
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type-headline-1"
+                                                                        text="Headline"/>
+                                                                    <wyn-type-title-1
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type-title-1"
+                                                                        text="Title 1"/>
+                                                                    <wyn-type-title-2
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type-title-2"
+                                                                        text="Title 2"/>
+                                                                    <wyn-type-title-3
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type-title-3"
+                                                                        text="Title 3"/>
+                                                                    <wyn-type-subheading-1
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type-subheading-1"
+                                                                        text="SubHeading 1"/>
+                                                                    <wyn-type-subheading-2
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type-subheading-2"
+                                                                        text="SubHeading 2"/>
+                                                                    <wyn-type-caption
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type-caption"
+                                                                        text="Caption"/>
+                                                                    <wyn-type-body-1
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type-body-1"
+                                                                        text="Regular Text"/>
+                                                                    <wyn-type-body-2
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type-body-2"
+                                                                        text="Small Text"/>
+                                                                    <wyn-type-disclaimer
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type-disclaimer"
+                                                                        text="Disclaimer"/>
+                                                                    <wyn-type--center
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-type--center"
+                                                                        text="Centered Text"/>
+                                                                    <wyn-color-primary
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-color-primary"
+                                                                        text="Primary Color"/>
+                                                                    <wyn-color-secondary
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-color-secondary"
+                                                                        text="Secondary Color"/>
+                                                                    <wyn-button-primary
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-button-primary"
+                                                                        text="Primary Button Link"/>
+                                                                    <wyn-button-secondary
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-button-secondary"
+                                                                        text="Secondary Button Link"/>
+                                                                    <wyn-button-cta
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-button-cta"
+                                                                        text="Button CTA"/>
+                                                                    <wyn-list--check
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-list--check"
+                                                                        text="Checked List"/>
+                                                                    <wyn-list--unstyled
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-list--unstyled"
+                                                                        text="Unstyled List"/>
+                                                                    <wyn-list--inline
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-list--inline"
+                                                                        text="Inline List"/>
+                                                                    <wyn-l-border--top
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-l-border--top"
+                                                                        text="Top Border"/>
+                                                                    <wyn-image--left
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-image--left"
+                                                                        text="Image Left"/>
+                                                                    <wyn-image--right
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-image--right"
+                                                                        text="Image Right"/>
+                                                                    <wyn-l-margin-small--bottom
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-l-margin-small--bottom"
+                                                                        text="Margin Bottom"/>
+                                                                    <wyn-l-padding-medium--bottom
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-l-padding-medium--bottom"
+                                                                        text="Mid Bottom Padding"/>
+                                                                    <wyn-l-margin-medium--bottom
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-l-margin-medium--bottom"
+                                                                        text="Medium Bottom Margin"/>
+                                                                    <wyn-link-cta
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-link-cta"
+                                                                        text="Arrow Link"/>
+                                                                    <wyn-l-margin-large--bottom
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-l-margin-large--bottom"
+                                                                        text="Large Bottom Margin"/>
+                                                                    <wyn-l-medium-wrapper--space
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-l-medium-wrapper--space"
+                                                                        text="Medium Wrapper"/>
+                                                                    <wyn-l-padding-xlarge--bottom
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cssName="wyn-l-padding-xlarge--bottom"
+                                                                        text="XLarge Bottom Padding"/>
+                                                                </styles>
+                                                            </styles>
+                                                            <table
+                                                                jcr:primaryType="nt:unstructured"
+                                                                features="*"/>
+                                                            <links
+                                                                jcr:primaryType="nt:unstructured"
+                                                                features="*"/>
+                                                            <misctools
+                                                                jcr:primaryType="nt:unstructured"
+                                                                features="*"/>
+                                                            <fullscreen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                features="*"/>
+                                                        </rtePlugins>
+                                                        <uiSettings jcr:primaryType="nt:unstructured">
+                                                            <cui jcr:primaryType="nt:unstructured">
+                                                                <inline
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    toolbar="[format#bold,format#italic,format#underline,subsuperscript#subscript,subsuperscript#superscript,#styles,#paraformat,image#imageProps,#justify,#lists,links#modifylink,links#unlink,links#anchor,misctools#specialchars,misctools#sourceedit,#fullscreen,edit#cut,edit#copy,edit#paste-default,edit#paste-plaintext,table#table]">
+                                                                    <popovers jcr:primaryType="nt:unstructured">
+                                                                        <justify
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            items="[justify#justifyleft,justify#justifycenter,justify#justifyright]"
+                                                                            ref="justify"/>
+                                                                        <lists
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            items="[lists#unordered,lists#ordered,lists#outdent,lists#indent]"
+                                                                            ref="lists"/>
+                                                                        <paraformat
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            items="paraformat:getFormats:paraformat-pulldown"
+                                                                            ref="paraformat"/>
+                                                                        <styles
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            items="styles:getStyles:styles-pulldown"
+                                                                            ref="styles"/>
+                                                                    </popovers>
+                                                                </inline>
+                                                            </cui>
+                                                        </uiSettings>
+                                                    </text>
+                                                    <contentAlignment
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldLabel="Content Alignment"
+                                                        name="./contentAlignment">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <center
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Center"
+                                                                value="text-center"/>
+                                                            <left
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Left"
+                                                                value="text-left"/>
+                                                            <right
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Right"
+                                                                value="text-right"/>
+                                                        </items>
+                                                    </contentAlignment>
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </success>
+                                    <Design
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Design"
+                                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <backgroundColor
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        fieldLabel="Background Color"
+                                                        name="./bgColor"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/bgColor"/>
+                                                    <titleStyle
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldLabel="Title Style"
+                                                        name="./titleStyle">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <def
+                                                                jcr:primaryType="nt:unstructured"
+                                                                selected="{Boolean}true"
+                                                                text="(default)"
+                                                                value=""/>
+                                                            <h1
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="H1"
+                                                                value="h1"/>
+                                                            <h2
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="H2"
+                                                                value="h2"/>
+                                                            <h3
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="H3"
+                                                                value="h3"/>
+                                                            <h4
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="H4"
+                                                                value="h4"/>
+                                                            <h5
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="H5"
+                                                                value="h5"/>
+                                                            <h6
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="H6"
+                                                                value="h6"/>
+                                                        </items>
+                                                    </titleStyle>
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </Design>
+                                    <config
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Configuration"
+                                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                 <ID
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="ID"
+                                                    name="./id"/>
+                                                    <CalculatorHide
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                        fieldDescription="Hide components on Submit"
+                                                        name="./calculatorHide"
+                                                        text="Hide components on submit"
+                                                        value="true"/>
+                                                    <well
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <multi
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                                composite="{Boolean}true"
+                                                                fieldDescription="Click add for component ID"
+                                                                fieldLabel="Add Component ID(s)">
+                                                                <field
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                    name="./hideSectionID">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <AID
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            fieldLabel="Component ID"
+                                                                            name="./sectionId"/>
+                                                                    </items>
+                                                                </field>
+                                                            </multi>
+                                                        </items>
+                                                    </well>
+                                                    <wellDynamic
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <dynamicheading
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/foundation/heading"
+                                                                level="3"
+                                                                text="Dynamic Content"/>
+                                                            <hasDynamicContent
+                                                                granite:class="showHideCheckbox"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                                fieldDescription="Has Dynamic Content"
+                                                                name="./hasDynamicContent"
+                                                                text="Has Dynamic Content"
+                                                                value="true">
+                                                                <granite:data
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    show-hide-target=".hideTarget"/>
+                                                            </hasDynamicContent>
+                                                            <primarySource
+                                                                granite:class="hideTarget"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                fieldLabel="Primary Source"
+                                                                name="./primarySource">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <blank
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text=""
+                                                                        value=""/>
+                                                                    <memberNumber
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="URL"
+                                                                        value="url"/>
+                                                                    <userName
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Login"
+                                                                        value="login"/>
+                                                                </items>
+                                                            </primarySource>
+                                                        </items>
+                                                    </wellDynamic>
+                                                    <vertheading
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/heading"
+                                                        level="3"
+                                                        text="Vertical Spacing"/>
+                                                    <marginBottomDesktop
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Large Margin Bottom"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./marginBottomDesk"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/marginBottomDesktop"/>
+                                                    <marginTopDesktop
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Large Margin Top"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./marginTopDesk"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/marginTopDesktop"/>
+                                                    <paddingBottomDesktop
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Large padding Bottom"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./paddingBottomDesk"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/paddingBottomDesktop"/>
+                                                    <paddingTopDesktop
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Large padding Top"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./paddingTopDesk"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/paddingTopDesktop"/>
+                                                    <marginBottomtablet
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Medium Margin Bottom"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./marginBottomtablet"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/marginBottomtablet"/>
+                                                    <marginToptablet
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Medium Margin Top"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./marginToptablet"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/marginToptablet"/>
+                                                    <paddingBottomtablet
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Medium padding Bottom"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./paddingBottomtablet"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/paddingBottomtablet"/>
+                                                    <paddingToptablet
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Medium padding Top"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./paddingToptablet"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/paddingToptablet"/>
+                                                    <marginBottommobile
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Small Margin Bottom"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./marginBottommobile"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/marginBottommobile"/>
+                                                    <marginTopmobile
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Small Margin Top"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./marginTopmobile"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/marginTopmobile"/>
+                                                    <paddingBottommobile
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Small padding Bottom"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./paddingBottommobile"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/paddingBottommobile"/>
+                                                    <paddingTopmobile
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Small padding Top"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./paddingTopmobile"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/paddingTopmobile"/>
+                                                    <hideheading
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/heading"
+                                                        level="3"
+                                                        text="Hide Options"/>
+                                                    <hideLarge
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Hide on large screens"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./hideLarge"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/hideLarge"/>
+                                                    <hideMedium
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Hide on medium screens"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./hideMedium"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/hideMedium"/>
+                                                    <hideSmall
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Hide on small screens"
+                                                        sling:resourceType="granite/ui/components/foundation/include"
+                                                        name="./hideSmall"
+                                                        path="base-app/components/content/design/cq:dialog/content/items/hideSmall"/>
+                                                    <hideLogin
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                        name="./LoggedIn"
+                                                        text="Hide When Loggedin"
+                                                        value="hideLoggedIn"/>
+                                                    <hideLogOut
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                        name="./LoggedOut"
+                                                        text="Hide When Loggedout"
+                                                        value="hideLoggedOut"/>
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </config>
+                                    <dynamicContent
+                                        granite:class="hideTarget"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Dynamic Content"
+                                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <multifield
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <multi
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                                composite="{Boolean}true"
+                                                                fieldDescription="Click add to add a more Dynamic Content fields"
+                                                                fieldLabel="Dynamic Content">
+                                                                <field
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                    name="./dynamicContent">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <key
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            fieldLabel="Key"
+                                                                            name="./key"/>
+                                                                        <value
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            fieldLabel="Value"
+                                                                            name="./value"/>
+                                                                    </items>
+                                                                </field>
+                                                            </multi>
+                                                        </items>
+                                                    </multifield>
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </dynamicContent>
+                                    <Analytics
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Analytics"
+                                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <EventName
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Event Name"
+                                                        name="./eventName"/>
+                                                    <EventCategory
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Event Category"
+                                                        name="./eventCategory"/>
+                                                    <EventAction
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Event Action"
+                                                        name="./eventAction"/>
+                                                    <EventLabel
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Event Label"
+                                                        name="./eventLabel"/>
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </Analytics>
+                                </items>
+                            </tabs>
+                        </items>
+                    </column>
+                </items>
+            </columnProperties>
+        </items>
+    </content>
+</jcr:root>

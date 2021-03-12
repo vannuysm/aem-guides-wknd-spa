@@ -1,0 +1,58 @@
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<sly data-sly-test.models="${baseModel.contentFragmentSourceModels}"></sly>
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptytext="Content Slice"></div>
+
+
+<div id="${properties.id}" data-sly-use.model="com.wyndham.baseapp.core.models.DynamicContent" class="contentSlice scrollMargin grid-x ${properties.flexPosition} ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile} ${properties.hasDynamicContent ? 'updateComponentData' : ''}"
+			data-search-type="${properties.hasDynamicContent ? properties.primarySource :''}"
+			data-component-type="${properties.hasDynamicContent ? 'string-update':''}"
+			data-custom-data="${properties.hasDynamicContent ? model.customData :''}"
+	style="border:${properties.borderSize @ context='unsafe'}px solid ${properties.borderColor @ context='unsafe'}; background-color:${properties.bgColor @context='unsafe'}">
+	<div class="cell ${properties.textAlign}">
+		<sly data-sly-list.model="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+			<sly data-sly-test="${properties.captColor != 'custom'}">
+				<div data-sly-element="${properties.captionStyle @context='html'}" class="caption-1  ${properties.captColor }">${model.contentModelCF.caption @ context="html"}
+				</div data-sly-element="${properties.captionStyle @context='html'}">              
+			</sly>
+			<sly data-sly-test="${properties.captColor == 'custom'}">
+				<div data-sly-element="${properties.captionStyle @context='html'}" class="caption-1 " style="color:${properties.captCustColor @ context='unsafe'}" >
+					${model.contentModelCF.caption @ context="html"}</div data-sly-element="${properties.captionStyle @context='html'}" >
+			</sly>
+
+			<sly data-sly-test="${model.contentModelCF.title}">
+
+				<sly data-sly-test="${properties.titleColor != 'custom'}">
+					<div data-sly-element="${properties.titleStyle @context='html'}"
+						class="${properties.titleColor} title-1">${model.contentModelCF.title}</div
+						data-sly-element="${properties.titleStyle @context='unsafe'}">
+				</sly>
+				<sly data-sly-test="${properties.titleColor == 'custom'}">
+					<div data-sly-element="${properties.titleStyle @context='html'}" class="title-1"
+						style="color:${properties.titleCustColor @ context='unsafe'}">${model.contentModelCF.title}</div
+						data-sly-element="${properties.titleStyle @context='unsafe'}">
+				</sly>
+			</sly>
+			<sly data-sly-test="${model.contentModelCF.subtitle}">
+				<sly data-sly-test="${properties.subtitleColor != 'custom'}">
+					<div data-sly-element="${properties.subTitleStyle @context='html'}"
+						class="${properties.subtitleColor } subtitle-1">${model.contentModelCF.subtitle @
+						context="html"}</div data-sly-element="${properties.subTitleStyle @context='html'}">
+				</sly>
+				<sly data-sly-test="${properties.subtitleColor == 'custom'}">
+					<div data-sly-element="${properties.subTitleStyle @context='html'}"
+						style="color:${properties.subtitleCustColor @ context='unsafe'}" class="subtitle-1">
+						${model.contentModelCF.subtitle @ context="html"}</div data-sly-element="${properties.subTitleStyle @context='html'}">
+				</sly>
+			</sly>
+			<sly data-sly-test="${model.contentModelCF.text}">
+				<sly data-sly-test="${properties.textColor != 'custom'}">
+					<div class="${properties.textColor } body-1">${model.contentModelCF.text @ context="html"}</div>
+				</sly>
+				<sly data-sly-test="${properties.textColor == 'custom'}">
+					<div style="color:${properties.textCustColor @ context='unsafe'}" class="body-1">${model.contentModelCF.text @ context="html"}</div>
+				</sly>
+			</sly>
+		</sly>
+	</div>
+</div>

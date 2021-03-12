@@ -1,0 +1,216 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+    data-emptytext="Cell Component"></div>
+<sly data-sly-use.tableCell="com.wyndham.baseapp.core.models.TableCell" />
+
+<div class="cellComponentWrapper grid-x ${properties.columnHoverColor}-background ${properties.type == 'badge' ? 'align-center': ''}"
+    style="border: solid; border-width:${properties.cellBorderWidth @context='unsafe'}; border-color:${properties.cellBorderColor @context='unsafe'}; border-left-width:${properties.borderLeft ? '': '0' @context='unsafe'}; border-top-width:${properties.borderTop ? '': '0' @context='unsafe'}; border-right-width:${properties.borderRight ? '': '0' @context='unsafe'}; border-bottom-width:${properties.borderBottom ? '': '0' @context='unsafe'}; background-color:${properties.customBackgroundColor @context='unsafe'}; color:${properties.fontColor @ context='unsafe'};"
+    data-equalizer-watch>
+
+    <div class="cell auto ${properties.type} ${properties.type == 'content' ? 'flex-container': ''} ${properties.type == 'content' ? properties.contentAlignment : ''} ${properties.contentAlignment == 'align-center-middle' ? 'text-center' : ''}"
+        data-equalizer-watch>
+        <sly data-sly-test="${properties.type == 'content'}">
+            <div class="body-2 semibold">
+                ${properties.text @context='html'}
+                <img src="${properties.imageReference}" alt="" />
+            </div>
+        </sly>
+        <sly data-sly-test="${properties.type == 'badge'}">
+            <span class="badge primary" style="height: 90%;"></span>
+        </sly>
+        <sly data-sly-test="${properties.type == 'linkCell'}">
+            <a href="${properties.openIn != 'modal' ? tableCell.contentReference : '#'}"
+                data-open="${properties.openIn == 'modal' ? properties.id : ''}-modal"
+                class="gaChecker body-2 ${properties.openIn == 'modal' ? 'korModalActivate' : ''}"
+                style="color:${properties.fontColor @ context='unsafe'};" data-eventName="${properties.eventName}"
+                data-eventCategory="${properties.eventCategory}" data-eventAction="${properties.eventAction}"
+                data-eventLabel="${properties.eventLabel}">
+                <div class="grid-x">
+                    <div class="cell small-11">
+
+                        <div class="linkText">${properties.text @context='html'} </div>
+                        <div class="linkArrow"></div>
+
+                    </div>
+                    <div class="cell shrink">
+                        <!-- <div class="linkArrow"></div> -->
+                    </div>
+                </div>
+            </a>
+        </sly>
+        <sly data-sly-test="${properties.type == 'formTitle'}">
+            <div
+                class="subtitle-2 ${properties.contentAlignment == 'align-center-middle' ? 'text-center' : ''} ${properties.contentAlignment == 'flex-dir-row-reverse' ? 'text-right' : ''} ${properties.contentAlignment ? '' : 'text-left'}">
+                ${properties.text @context='html'}
+            </div>
+        </sly>
+        <sly data-sly-test="${properties.type == 'columnHeader'}">
+            <div
+                class="grid-x ${properties.contentAlignment == 'align-center-middle' ? 'align-center' : ''} ${properties.contentAlignment == 'flex-dir-row-reverse' ? 'align-right' : ''} ${properties.contentAlignment ? '' : 'align-left'}">
+                <div class="cell shrink">
+                    <img src="${properties.imageReference}">
+                </div>
+                <div class="cell shrink caption-1">
+                    ${properties.text @context='html'}
+                </div>
+            </div>
+            <div class="grid-x">
+                <div
+                    class="cell semibold body-2 ${properties.contentAlignment == 'align-center-middle' ? 'text-center' : ''} ${properties.contentAlignment == 'flex-dir-row-reverse' ? 'text-right' : ''} ${properties.contentAlignment ? '' : 'text-left'} auto">
+                    ${properties.subText @context='html'}
+                </div>
+            </div>
+        </sly>
+        <sly data-sly-test="${properties.type == 'sectionHeader'}">
+            <div class="caption-3">
+                ${properties.text @context='html'}
+            </div>
+        </sly>
+    </div>
+</div>
+
+<sly data-sly-test="${properties.openIn == 'modal'}">
+    <div class="korModal cellModal" id="${properties.id}-modal">
+        <div class="korContentContainer">
+            <!-- <div class="modalExitButton"><span class="korModalCloseText"> </span></div> -->
+            <div class="korContent">
+                <div class="grid-container">
+                    <div class="grid-x">
+                        <div class="cell caption-1 auto">${tableCell.cfData.title @context='html'}</div>
+                        <div class="cell shrink">
+                            <button class="cell-close-button" aria-label="Close" type="button" data-close>
+                                &times;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="grid-container">
+                    <div class="grid-x">
+                        <div class="cell auto body-1 content">
+                            ${tableCell.cfData.body @context='html'}
+                        </div>
+                    </div>
+                    <div class="grid-x content">
+                        <div class="cell small-6">
+                            <div class="grid-x">
+                                <div class="cell shrink">
+                                    <img src="${tableCell.cfData.icon1Image}" alt="img">
+                                </div>
+                                <div class="cell auto">
+                                    <div class="grid-x">
+                                        <div class="cell body-2 semibold small-12"
+                                            style="color: ${tableCell.cfData.icon1TitleFontColor @context='unsafe'}">
+                                            ${tableCell.cfData.icon1Title @context='html'}
+                                        </div>
+                                    </div>
+                                    <div class="grid-x">
+                                        <div class="cell body-2 small-12"
+                                            style="color: ${tableCell.cfData.icon1DescriptionFontColor @context='unsafe'}">
+                                            ${tableCell.cfData.icon1Description @context='html'}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell small-6">
+                            <div class="grid-x">
+                                <div class="cell shrink">
+                                    <img src="${tableCell.cfData.icon2Image}" alt="img">
+                                </div>
+                                <div class="cell auto">
+                                    <div class="grid-x">
+                                        <div class="cell body-2 semibold small-12"
+                                            style="color: ${tableCell.cfData.icon2TitleFontColor @context='unsafe'}">
+                                            ${tableCell.cfData.icon2Title @context='html'}
+                                        </div>
+                                    </div>
+                                    <div class="grid-x">
+                                        <div class="cell body-2 small-12"
+                                            style="color: ${tableCell.cfData.icon2DescriptionFontColor @context='unsafe'}">
+                                            ${tableCell.cfData.icon2Description @context='html'}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-x content">
+                        <div class="cell small-6">
+                            <div class="grid-x">
+                                <div class="cell shrink">
+                                    <img src="${tableCell.cfData.icon3Image}" alt="img">
+                                </div>
+                                <div class="cell auto">
+                                    <div class="grid-x">
+                                        <div class="cell body-2 semibold small-12"
+                                            style="color: ${tableCell.cfData.icon3TitleFontColor @context='unsafe'}">
+                                            ${tableCell.cfData.icon3Title @context='html'}
+                                        </div>
+                                    </div>
+                                    <div class="grid-x">
+                                        <div class="cell body-2 small-12"
+                                            style="color: ${tableCell.cfData.icon3DescriptionFontColor @context='unsafe'}">
+                                            ${tableCell.cfData.icon3Description @context='html'}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell small-6">
+                            <div class="grid-x">
+                                <div class="cell shrink">
+                                    <img src="${tableCell.cfData.icon4Image}" alt="img">
+                                </div>
+                                <div class="cell auto">
+                                    <div class="grid-x">
+                                        <div class="cell body-2 semibold small-12"
+                                            style="color: ${tableCell.cfData.icon4TitleFontColor @context='unsafe'}">
+                                            ${tableCell.cfData.icon4Title @context='html'}
+                                        </div>
+                                    </div>
+                                    <div class="grid-x">
+                                        <div class="cell body-2 small-12"
+                                            style="color: ${tableCell.cfData.icon4DescriptionFontColor @context='unsafe'}">
+                                            ${tableCell.cfData.icon4Description @context='html'}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-x content">
+                        <div class="cell small-6">
+                            <div class="grid-x">
+                                <div class="cell shrink">
+                                    <img src="${tableCell.cfData.icon5Image}" alt="img">
+                                </div>
+                                <div class="cell auto">
+                                    <div class="grid-x">
+                                        <div class="cell body-2 semibold small-12"
+                                            style="color: ${tableCell.cfData.icon5TitleFontColor @context='unsafe'}">
+                                            ${tableCell.cfData.icon5Title @context='html'}
+                                        </div>
+                                    </div>
+                                    <div class="grid-x">
+                                        <div class="cell body-2 small-12"
+                                            style="color: ${tableCell.cfData.icon5DescriptionFontColor @context='unsafe'}">
+                                            ${tableCell.cfData.icon5Description @context='html'}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell small-6">
+                        </div>
+                    </div>
+                    <div class="grid-x content">
+                        <div class="cell small-12">
+                            <button class="button secondary expanded hollow" href="#">${tableCell.cfData.ctaLabel
+                                @context='html'}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</sly>

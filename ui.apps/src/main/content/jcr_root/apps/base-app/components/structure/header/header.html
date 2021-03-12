@@ -1,0 +1,270 @@
+<sly data-sly-use.header="com.wyndham.nextgen.core.models.HeaderModel" />
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" />
+<sly data-sly-call="${template.placeholder @ isEmpty=header.siteNavigationItems.size == 0}"></sly>
+
+<!-- This is the desktop menu -->
+<div class="show-for-large hide-for-small">
+  <div class="grid-x headerParent ">
+    <div class="cell">
+      <div class="grid-container ">
+        <div class="grid-x grid-margin-x">
+          <div class="cell small-2 align-self-middle">
+            <a href="${header.logoLinkUrl @ extension='html'}" class="gaChecker"
+              data-clickUrl="${header.logoLinkUrl @ extension='html'}" data-eventName="header"
+              data-eventCategory="header" data-eventAction="click" data-eventLabel="logo" data-eventValue="">
+              <img src="${header.desktopLogoSrc}" alt="${header.logoAltText}"
+                class="show-for-large hide-for-small logo" />
+            </a>
+          </div>
+          <div class="cell small-8 grid-padding-y align-self-middle">
+            <ul class="dropdown menu primaryMenu align-middle float-right" data-dropdown-menu>
+              <li class="mainMenuItems" data-sly-repeat.siteNavigationItem="${header.siteNavigationItems}">
+                <a class="dropMenuItem ${siteNavigationItem.active || siteNavigationItem.hierarchyActive ? 'active' : ''} gaChecker"
+                  data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                  data-eventLabel="${siteNavigationItem.page.navigationTitle ? siteNavigationItem.page.navigationTitle : siteNavigationItem.page.title}"
+                  data-eventValue=""
+                  target="${siteNavigationItem.page.contentResource.redirectInNewWindow == 'true' ? '_blank' : ''}"
+                  href="${siteNavigationItem.page.path @ extension='html'}"
+                  data-clickUrl="${siteNavigationItem.page.path @ extension='html'}"
+                  title="${siteNavigationItem.page.navigationTitle ? siteNavigationItem.page.navigationTitle : siteNavigationItem.page.title}">
+                  <span>
+                    ${siteNavigationItem.page.navigationTitle ?
+                    siteNavigationItem.page.navigationTitle :
+                    siteNavigationItem.page.title}</span>
+                </a>
+                <ul class="menu " data-sly-list.subitem="${siteNavigationItem.childNavigationItems}">
+                  <li class="accordion" data-accordion data-multi-expand="true">
+                    <div class="accordion-item is-active is-submenu-item">
+                      <a class="${subitem.active || subitem.hierarchyActive ? 'active' : ''} gaChecker"
+                        data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                        data-eventLabel="${subitem.page.navigationTitle ? subitem.page.navigationTitle : subitem.page.title}"
+                        data-eventValue=""
+                        target="${subitem.page.contentResource.redirectInNewWindow == 'true' ? '_blank' : ''}"
+                        href="${subitem.page.path @ extension='html'}"
+                        data-clickUrl="${subitem.page.path @ extension='html'}"><span>${subitem.page.navigationTitle ?
+                          subitem.page.navigationTitle :
+                          subitem.page.title}</span></a>
+                      <div class="accordion-content" data-tab-content
+                        data-sly-list.inneritem="${subItem.childNavigationItems}">
+                        <a class="${inneritem.active || inneritem.hierarchyActive ? 'active' : ''} gaChecker"
+                          data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                          data-eventLabel="${inneritem.page.navigationTitle ? inneritem.page.navigationTitle : inneritem.page.title}"
+                          data-eventValue="" href="${ inneritem.page.path @ extension='html'}"
+                          data-clickUrl="${ inneritem.page.path @ extension='html'}"
+                          target="${inneritem.page.contentResource.redirectInNewWindow == 'true' ? '_blank' : ''}"><span>${inneritem.page.navigationTitle
+                            ?
+                            inneritem.page.navigationTitle :
+                            inneritem.page.title}</span></a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="cell auto align-self-middle">
+            <div class="hollow korModalActivate white-button align-self-middle button float-center gaChecker"
+              data-open="loginModalLarge" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+              data-eventLabel="login" data-eventValue="" data-clickUrl="#" style="margin-bottom: 0;">
+              Login
+            </div>
+          </div>
+          <div class="cell small-1 align-self-middle">
+            <button class="dropMenuItem button primary searchButton gaChecker" data-eventName="header"
+              data-eventCategory="header" data-eventAction="click" data-eventLabel="search" data-eventValue=""
+              href="#"><img src="/content/dam/wyndham/wyndham-vacation-clubs/icons/search@3x.png"></button>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-x">
+    <div class="cell">
+      <div class="grid-container ">
+        <div class="grid-x grid-margin-x">
+          <div class="grid-container searchBox">
+            <div class="grid-x align-right">
+              <div class="cell small-4 search">
+                <div class="input-group">
+                  <input class="input-group-field searchQuery" type="text"
+                    placeholder="Find resort, destination, or topic">
+                  <div class="input-group-button">
+                    <input type="submit" class="button primary siteSearch" value="Search"
+                      data-searchUrl="${header.searchUrl}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+</div>
+
+<!-- This is the mobile menu -->
+
+<div class="show-for-small hide-for-large ">
+  <div class="spacer"></div>
+  <div class="grid-x headerParent fixed">
+    <div class="cell small-6">
+      <a href="${header.logoLinkUrl @ extension='html'}">
+        <img src="${header.mobileLogoSrc}" alt="${header.logoAltText}" class="show-for-small logo" />
+      </a>
+    </div>
+    <div class="cell small-6 ">
+      <div class="grid-x align-middle">
+        <div class="cell">
+          <div id="nav-icon4">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="grid-x mobileNav" style="display:none;">
+  <div class="cell">
+    <div class="searchBoxSmall">
+      <div class="grid-x align-middle">
+        <div class="cell auto full search">
+          <div class="input-group">
+            <div class="clearable input-group-field">
+              <input class="input-group-field searchQuery" type="text"
+                placeholder="Find resort, destination, or topic" />
+              <span class="clearButton">&times;</span>
+            </div>
+            <div class="input-group-button">
+              <input type="submit" class="button primary siteSearch" value="Search"
+                data-searchUrl="${header.searchUrl}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true">
+      <li data-sly-repeat.siteNavigationItem="${header.siteNavigationItems}">
+        <a class="dropMenuItem ${siteNavigationItem.active || siteNavigationItem.hierarchyActive ? 'active' : ''} gaChecker"
+          data-eventName="header" data-eventCategory="header" data-eventAction="click"
+          data-eventLabel="${siteNavigationItem.page.navigationTitle ? siteNavigationItem.page.navigationTitle : siteNavigationItem.page.title}"
+          data-eventValue=""
+          target="${siteNavigationItem.page.contentResource.redirectInNewWindow == 'true' ? '_blank' : ''}"
+          href="${siteNavigationItem.page.path @ extension='html'}"
+          data-clickUrl="${siteNavigationItem.page.path @ extension='html'}"
+          title="${siteNavigationItem.page.navigationTitle ? siteNavigationItem.page.navigationTitle : siteNavigationItem.page.title}">
+          <span>${siteNavigationItem.page.navigationTitle ?
+            siteNavigationItem.page.navigationTitle :
+            siteNavigationItem.page.title}</span>
+        </a>
+        <ul class="menu vertical nested" data-sly-list.subitem="${siteNavigationItem.childNavigationItems}">
+          <li>
+            <a class="${subitem.active || subitem.hierarchyActive ? 'active' : ''} gaChecker" data-eventName="header"
+              data-eventCategory="header" data-eventAction="click"
+              data-eventLabel="${subitem.page.navigationTitle ? subitem.page.navigationTitle : subitem.page.title}"
+              data-eventValue="" target="${subitem.page.contentResource.redirectInNewWindow == 'true' ? '_blank' : ''}"
+              href="${subitem.page.path @ extension='html'}"
+              data-clickUrl="${subitem.page.path @ extension='html'}">${subitem.page.navigationTitle ?
+              subitem.page.navigationTitle :
+              subitem.page.title}</a>
+            <ul class="menu vertical nested" data-sly-list.inneritem="${subItem.childNavigationItems}">
+              <li>
+                <a class="${inneritem.active || inneritem.hierarchyActive ? 'active' : ''} gaChecker"
+                  data-eventName="header" data-eventCategory="header" data-eventAction="click"
+                  data-eventLabel="${inneritem.page.navigationTitle ? inneritem.page.navigationTitle : inneritem.page.title}"
+                  data-eventValue="" href="${ inneritem.page.path @ extension='html'}"
+                  data-clickUrl="${ inneritem.page.path @ extension='html'}"
+                  target="${inneritem.page.contentResource.redirectInNewWindow == 'true' ? '_blank' : ''}">${inneritem.page.navigationTitle
+                  ?
+                  inneritem.page.navigationTitle : inneritem.page.title}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a class="white-button hollow button korModalActivate gaChecker" href="#" style="margin: 1rem;"
+          data-open="loginModalSmall" data-eventName="header" data-eventCategory="header" data-eventAction="click"
+          data-eventLabel="login" data-eventValue="" data-clickUrl="#">Login</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- <div class="large reveal loginPopUp" id="loginModalLarge" data-reveal>
+    <div class="grid-x ">
+      <div class="cell small-6 left" style="padding: 40px;">
+        <div class="title-1">Already a Club Wyndham owner?</div>
+        <div class="body-1">We're improving your Club Wyndham experience. Join us. </div>
+        <a class="button teal-button"
+          href="https://www.myclubwyndham.com/mycw/home.page?_ga=2.199806062.1725437215.1579016270-1059603120.1576250998&_gac=1.178466320.1578675834.EAIaIQobChMIrN7m2sD55gIVlYWRCh3CxA8XEAAYASAAEgIYcvD_BwE">
+          See how</a>
+      </div>
+      <div class="cell small-6 right">
+        <div class="title-1">Not a Club Wyndham owner?</div>
+        <div class="body-1">Sample the resort vacation experience with Wyndham Vacation Rentals.</div>
+        <a class="button white-button" href="https://www.extraholidays.com/">See how</a>
+      </div>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> -->
+
+<div<div class="korModal" id="loginModalLarge">
+  <div class="korContentContainer">
+    <div class="modalExitButton"><span class="korModalCloseText"> X</span></div>
+    <div class="korContent">
+      <div class="grid-x">
+        <div class="cell large-6 left">
+          <div class="title-2 korModalLogInTitle">Already a Club Wyndham owner?</div>
+          <div class="body-1 korModalLogInBody">We're improving your Club Wyndham experience. Join us. </div>
+          <a class="button teal-button gaChecker" data-eventName="header" data-eventCategory="loginCTA"
+            data-eventAction="click" data-eventLabel="Already a Club Wyndham owner?" data-eventValue=""
+            data-clickUrl="https://www.myclubwyndham.com/mycw/home.page?_ga=2.199806062.1725437215.1579016270-1059603120.1576250998&_gac=1.178466320.1578675834.EAIaIQobChMIrN7m2sD55gIVlYWRCh3CxA8XEAAYASAAEgIYcvD_BwE"
+            href="https://www.myclubwyndham.com/mycw/home.page?_ga=2.199806062.1725437215.1579016270-1059603120.1576250998&_gac=1.178466320.1578675834.EAIaIQobChMIrN7m2sD55gIVlYWRCh3CxA8XEAAYASAAEgIYcvD_BwE">
+            See how</a>
+        </div>
+        <div class="cell large-6 right">
+          <div class="title-2 korModalLogInTitle">Not a Club Wyndham owner?</div>
+          <div class="body-1 korModalLogInBody">Sample the resort vacation experience with Wyndham Vacation Rentals.
+          </div>
+          <a class="button white-button gaChecker" href="https://www.extraholidays.com/" data-eventName="header"
+            data-eventCategory="loginCTA" data-eventAction="click" data-eventLabel="Not a Club Wyndham owner?"
+            data-eventValue="" data-clickUrl="https://www.extraholidays.com/">See how</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="korModal" id="loginModalSmall">
+    <div class="korContentContainer">
+      <div class="modalExitButton"><span class="korModalCloseText"> X</span></div>
+      <div class="korContent">
+        <div class="grid-x left">
+          <div class="cell">
+            <div class="title-1 korModalLogInTitle">Already a Club Wyndham owner?</div>
+            <div class="body-1 korModalLogInBody">We're improving your Club Wyndham experience. Join us. </div>
+            <a class="button teal-button gaChecker" data-eventName="header" data-eventCategory="loginCTA"
+              data-eventAction="click" data-eventLabel="Already a Club Wyndham owner?" data-eventValue=""
+              data-clickUrl="https://www.myclubwyndham.com/mycw/home.page?_ga=2.199806062.1725437215.1579016270-1059603120.1576250998&_gac=1.178466320.1578675834.EAIaIQobChMIrN7m2sD55gIVlYWRCh3CxA8XEAAYASAAEgIYcvD_BwE"
+              href="https://www.myclubwyndham.com/mycw/home.page?_ga=2.199806062.1725437215.1579016270-1059603120.1576250998&_gac=1.178466320.1578675834.EAIaIQobChMIrN7m2sD55gIVlYWRCh3CxA8XEAAYASAAEgIYcvD_BwE">
+              See how</a>
+          </div>
+        </div>
+        <div class="grid-x right">
+          <div class="cell">
+            <div class="title-1 korModalLogInTitle">Not a Club Wyndham owner?</div>
+            <div class="body-1 korModalLogInBody">Sample the resort vacation experience with Wyndham Vacation Rentals.
+            </div>
+            <a class="button white-button gaChecker" href="https://www.extraholidays.com/" data-eventName="header"
+              data-eventCategory="loginCTA" data-eventAction="click" data-eventLabel="Not a Club Wyndham owner?"
+              data-eventValue="" data-clickUrl="https://www.extraholidays.com/">See how</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

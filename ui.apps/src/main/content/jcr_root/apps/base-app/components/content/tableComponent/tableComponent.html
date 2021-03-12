@@ -1,0 +1,116 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+    data-emptytext="Table Component"></div>
+
+<sly data-sly-use.table="com.wyndham.baseapp.core.models.TableComponent"></sly>
+<!--<div data-emptytext="Table Component"></div>
+${table.title}
+${table.numRows}
+${table.hoverLogic}
+<sly data-sly-list.key="${table.tableKey}">
+	${key.keyTitle}
+</sly>-->
+<div data-hoverOrStatic="${properties.hoverLogic}" class="hoverLogic"></div>
+<div id="${properties.id}"
+    class="${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}">
+    <sly data-sly-test="${table.title}">
+        <div class="grid-x">
+            <div class="cell text-center title-3" style="margin-bottom: 1rem;">${table.title}</div>
+        </div>
+    </sly>
+    <div class="${properties.freezeColumn ? 'lockCol' : ''}">
+
+        <div data-sly-test.author="${wcmmode.edit || wcmmode.design}">
+<table data-num-of-cols="${table.tableConfig.size}"
+            class="unstriped custom-table ${properties.freezeColumn ? 'lockOn' : ''} " cellpadding="0" cellspacing="0">
+            <sly data-sly-list.tableConfig="${table.tableList}">
+                <sly data-sly-test.firstItem="${tableConfigList.count == 1}">
+
+
+                        <tr data-sly-list.child="${tableConfig}">
+
+
+
+                        <sly data-sly-test.path="table_${tableConfigList.count}_${childList.count}"></sly>
+                        <th class="${child.columnID}" data-smallWidth="${child.widthSmall}"
+                            data-mediumWidth="${child.widthMedium}" data-largeWidth="${child.widthLarge}"
+                            data-hoverColor="${child.columnHoverColor}" data-opacityHover="${child.columnHoverOpacity}">
+                            <sly
+                                data-sly-resource="${ @path=path, resourceType='wcm/foundation/components/responsivegrid'}">
+                            </sly>
+                        </th>
+                    </tr>
+                </sly>
+                <sly data-sly-test="${!firstItem}">
+
+                        <tr data-sly-list.child="${tableConfig}" >
+
+                        <sly data-sly-test.path="table_${tableConfigList.count}_${childList.count}"></sly>
+                        <td class="${child.columnID}" data-hoverColor="${child.columnHoverColor}"
+                            data-smallWidth="${child.widthSmall}" data-mediumWidth="${child.widthMedium}"
+                            data-largeWidth="${child.widthLarge}" data-opacityHover="${child.columnHoverOpacity}">
+                            <sly
+                                data-sly-resource="${ @path=path, resourceType='wcm/foundation/components/responsivegrid'}">
+                            </sly>
+                        </td>
+                    </tr>
+                </sly>
+            </sly>
+        </table>
+            </div>
+
+            <div data-sly-test="${!author}">
+<table data-num-of-cols="${table.tableConfig.size}"
+            class="unstriped custom-table ${properties.freezeColumn ? 'lockOn' : ''} " cellpadding="0" cellspacing="0">
+            <sly data-sly-list.tableConfig="${table.tableList}">
+                <sly data-sly-test.firstItem="${tableConfigList.count == 1}">
+
+
+                        <tr data-sly-list.child="${tableConfig}" data-equalizer>
+
+
+
+                        <sly data-sly-test.path="table_${tableConfigList.count}_${childList.count}"></sly>
+                        <th class="${child.columnID}" data-smallWidth="${child.widthSmall}"
+                            data-mediumWidth="${child.widthMedium}" data-largeWidth="${child.widthLarge}"
+                            data-hoverColor="${child.columnHoverColor}" data-opacityHover="${child.columnHoverOpacity}">
+                            <sly
+                                data-sly-resource="${ @path=path, resourceType='wcm/foundation/components/responsivegrid'}">
+                            </sly>
+                        </th>
+                    </tr>
+                </sly>
+                <sly data-sly-test="${!firstItem}">
+
+                        <tr data-sly-list.child="${tableConfig}" data-equalizer>
+
+                        <sly data-sly-test.path="table_${tableConfigList.count}_${childList.count}"></sly>
+                        <td class="${child.columnID}" data-hoverColor="${child.columnHoverColor}"
+                            data-smallWidth="${child.widthSmall}" data-mediumWidth="${child.widthMedium}"
+                            data-largeWidth="${child.widthLarge}" data-opacityHover="${child.columnHoverOpacity}">
+                            <sly
+                                data-sly-resource="${ @path=path, resourceType='wcm/foundation/components/responsivegrid'}">
+                            </sly>
+                        </td>
+                    </tr>
+                </sly>
+            </sly>
+        </table>
+            </div>
+
+    </div>
+    <div class="screenSize">
+        <div class="key-main-section hide-for-large"
+            style="background-color:${table.keyBackgroundColor @ context='unsafe'};color:${table.keyTextColor @ context='unsafe'};">
+            <div class="caption-2">${table.keyTitle}</div>
+            <div data-sly-list.key="${table.tableKey}">
+                <div class="key-section">
+                    <div class="key-icon"><img src="${key.keyImage}" /></div>
+                    <div class="content-section">
+                        <div class="body-2 semibold">${key.keyTitle}</div>
+                        <div class="body-2">${key.keySubtitle}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

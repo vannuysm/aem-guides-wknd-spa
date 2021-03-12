@@ -1,0 +1,76 @@
+<!-- Single Column -->
+<template data-sly-template.singleColumn="${@ cfsm}">
+	<div class="grid-container" style="color:${cfsm.contentModelCF.fontColor @ context='styleString'};">
+	  <div class="grid-x minHeight">
+		<div class="cell large-8 large-offset-2">
+			<div data-sly-element="${properties.titleStyle @context='html'}" class="title-1">
+			  ${cfsm.contentModelCF.title}</div data-sly-element="${properties.titleStyle @context='html'}">        
+			  <div data-sly-element="${properties.subTitleStyle @context='html'}" class="subtitle-1">
+			  ${cfsm.contentModelCF.title}</div data-sly-element="${properties.subTitleStyle @context='html'}">  
+			  <div data-sly-element="${properties.bodyStyle @context='html'}" class="body-1">${cfsm.contentModelCF.text @ context='html'}
+		   </div data-sly-element="${properties.bodyStyle @context='html'}">
+		</div>
+	  </div>
+	</div>                   
+  </template>
+  
+  <!--  Two Column Split -->
+  <template data-sly-template.twoColumnSplit="${@ cfsm}">
+	  <section class="grid-container" style="color:${cfsm.contentModelCF.fontColor @ context='styleString'};">
+		<div class="grid-x grid-padding-x">
+		  <div class="cell medium-6 ${cfsm.contentModelCF.textAlignment == 'Left' ? 'medium-order-2' : 'medium-order-1'}">
+				  <div data-sly-element="${properties.titleStyle @context='html'}" class="title-1">
+						  ${cfsm.contentModelCF.title}</div data-sly-element="${properties.titleStyle @context='html'}">        
+						  <div data-sly-element="${properties.subtitleStyle @context='html'}" class="subtitle-1">
+						  ${model.contentModelCF.subtitle @context='unsafe'}</div data-sly-element="${properties.subtitleStyle @context='html'}">
+						  <div data-sly-element="${properties.bodyStyle @context='html'}" class="body-1">${cfsm.contentModelCF.text @ context='html'}
+				  </div data-sly-element="${properties.bodyStyle @context='html'}">
+		  </div>
+		</div>
+	  </section>
+  </template>                  
+  
+  <!-- Two Column Content -->
+  <template data-sly-template.twoColumnContent="${@ contentModel}">
+	  <section class="grid-container" style="color:${cfsm.contentModelCF.fontColor @ context='styleString'};">
+		  <div class="grid-x grid-padding-x" data-sly-list="${contentModel.contentFragmentSourceModels}">
+			<div class="cell medium-6 medium-order-1 contentTwoColumn">
+			<!-- Content Fragment 1 -->
+			<img class="margin-bottom-1 medium-margin-bottom-0"
+				  src="${item.contentModelCF.imageSrc}" alt="">
+			<div data-sly-element="${properties.titleStyle @ context='html'}" class="title-1">
+					${item.contentModelCF.title}</div data-sly-element="${properties.titleStyle @ context='html'}">        
+				  <div data-sly-element="${properties.subTitleStyle @ context='html'}" class="subtitle-1">
+						${item.contentModelCF.subTitle @ context='html'}</div data-sly-element="${properties.subtitleStyle @ context='html'}">
+				  <div data-sly-element="${properties.bodyStyle @ context='html'}" class="body-1">${item.contentModelCF.text @ context='html'}
+			   </div data-sly-element="${properties.bodyStyle @ context='html'}">                
+			<!-- /Content Fragment 1-->   
+			</div>
+			
+		  </div>
+	  </section>
+  </template>
+  
+  <!--  Two Column Media -->
+  <template data-sly-template.twoColumnMedia="${@ contentModel}">
+	  <section class="grid-container" style="color:${cfsm.contentModelCF.fontColor @ context='styleString'};">
+		  <div class="grid-x grid-padding-x">
+			<div class="cell medium-6 ${contentModel.contentFragmentSourceModels[0].contentModelCF.textAlignment == 'Left' ? 'medium-order-2' : 'medium-order-1'}">
+			  <!-- Content Fragment 1 -->
+			  <img class="margin-bottom-2 medium-margin-bottom-0"
+				  src="${contentModel.contentFragmentSourceModels[0].contentModelCF.imageSrc}" alt="">
+			  <!-- /Content Fragment 1 -->
+			</div>
+			<div class="cell medium-6 ${contentModel.contentFragmentSourceModels[0].contentModelCF.textAlignment == 'Left' ? 'medium-order-1' : 'medium-order-2'}">
+			  <!-- Content Fragment 2 -->
+			  <div data-sly-element="${properties.titleStyle @context='html'}" class="title-1">
+					  ${cfsm.contentModelCF.title}</div data-sly-element="${properties.titleStyle @context='html'}">        
+					  <div data-sly-element="${properties.subtitleStyle @context='html'}" class="subtitle-1">
+					  ${model.contentModelCF.subtitle @context='unsafe'}</div data-sly-element="${properties.subtitleStyle @context='html'}">
+					  <div data-sly-element="${properties.bodyStyle @context='html'}" class="body-1">${cfsm.contentModelCF.text @ context='html'}
+				   </div data-sly-element="${properties.bodyStyle @context='html'}">
+			  <!-- /Content Fragment 2 -->
+			</div>
+		  </div>
+		</section>
+  </template> 

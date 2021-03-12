@@ -1,0 +1,327 @@
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<sly data-sly-use.cards='${"card.js" @ num = baseModel.contentFragmentSourceModels.size}'></sly>
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+    data-emptytext="General Card"></div>
+<template data-sly-template.link="${@ item, cssClasses}">
+    <sly data-sly-test="${properties.ctaType == 'text'}">
+        <div class="body-1-link"><a href="${item.linkContentFragmentModel.linkUrl}"
+                target="${item.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+                class="gaChecker body-1-link link-caret-dynamic" data-clickUrl="${item.linkContentFragmentModel.linkUrl}"
+                data-eventName="Card" data-eventCategory="Card" data-eventAction="click"
+                data-eventLabel="${item.linkContentFragmentModel.linkText}"
+                data-eventValue="">${item.linkContentFragmentModel.linkText}</a>
+        </div>
+    </sly>
+    <sly data-sly-test="${properties.ctaType != 'text'}">
+        <sly data-sly-test="${properties.ctaColor != 'custom'}">
+            <a href="${item.linkContentFragmentModel.linkUrl}"
+                class="button ${properties.ctaColor} ${properties.ctaType} ${properties.hollow} gaChecker"
+                data-eventName="Card" data-eventCategory="Card" data-eventAction="click"
+                data-eventLabel="${item.contentModelCF.title}" data-eventValue=""
+                data-clickUrl="${item.linkContentFragmentModel.linkUrl}"
+                target="${item.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+                style="margin-top:24px;">${item.linkContentFragmentModel.linkText}</a>
+        </sly>
+        <sly data-sly-test="${properties.ctaColor == 'custom'}">
+            <a href="${item.linkContentFragmentModel.linkUrl}" class="button ${properties.ctaType} gaChecker"
+                data-eventName="Card" data-eventCategory="Card" data-eventAction="click"
+                data-eventLabel="${item.contentModelCF.title}" data-eventValue=""
+                data-clickUrl="${item.linkContentFragmentModel.linkUrl}"
+                target="${item.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+                style="background-color:${properties.ctaBG @context='unsafe'}; color:${properties.fontColor @context='unsafe'}; margin-top:24px;">${item.linkContentFragmentModel.linkText}</a>
+        </sly>
+    </sly>
+</template>
+<div id="${properties.AnchorId}" class = "scrollMargin">
+<sly data-sly-test="${properties.typeCard == 'square'}">
+    <div class="grid-x controllerDiv ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+        style="background-color:${properties.bgColor @ context='styleToken'}">
+        <div class="cell">
+            <div class="grid-x grid-margin-x " data-equalizer>
+                <sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+                    <sly data-sly-test.imageData="${item.contentModelCFImage.imageMetaData}"></sly>
+                    <sly data-sly-test="${item.linkContentFragmentModel.linkUrl}" data-sly-unwrap>
+                        <a class="ctaText text-primary gaChecker" data-eventName="Card" target="${item.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}" data-eventCategory="Card"
+                            data-eventAction="click" data-eventLabel="${item.contentModelCF.title}"
+                            data-clickUrl="${item.linkContentFragmentModel.linkUrl}" data-eventValue=""
+                            href="${item.linkContentFragmentModel.linkUrl}">
+                    </sly>
+                    <div class="cell medium-${cards.num}">
+                        <div  style="background-color:${properties.bgColor @ context='styleToken'}" class="card align-center-middle ${properties.anamationOn == 'true' ? 'wow animate-fade-in-bottom' : ''}"
+                            data-equalizer-watch>
+                            <sly data-sly-test="${item.contentModelCF.imageSrc}" data-sly-unwrap>
+                                <sly data-sly-test="${properties.desktop != 'source'}">
+                                    <img src="${item.contentModelCF.imageSrc}/jcr:content/renditions/cq5dam.thumbnail.${properties.desktop}.${imageData.assetType}"
+                                        alt="${imageData.title}">
+                                </sly>
+                                <sly data-sly-test="${properties.desktop == 'source'}">
+                                    <img src="${item.contentModelCF.imageSrc}" alt="${imageData.title}">
+                                </sly>
+                            </sly>
+                            <div class="card-section">
+                                <div class="subtitle-2 bold">${item.contentModelCF.title}
+                                </div>
+                                <div class="subtitle-3 bold">${item.contentModelCF.subtitle @ context="html"}</div>
+                                <div class="body-1">${item.contentModelCF.text @ context="html"}</div>
+                                <sly data-sly-test="${item.linkContentFragmentModel.linkUrl}" data-sly-unwrap>
+                                    <a class="ctaText link text-primary gaChecker" target="${item.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+                                        href="${item.linkContentFragmentModel.linkUrl}"  data-clickUrl="${item.linkContentFragmentModel.linkUrl}"
+                                        data-eventName="Card" data-eventCategory="Card" data-eventAction="click"
+                                        data-eventLabel="${item.contentModelCF.title}"
+                                        data-eventValue="">
+                                        <div class="body-1-link link-caret-dynamic">${item.linkContentFragmentModel.linkText}</div>
+                                    </a>
+                                </sly>
+                            </div>
+                        </div>
+                    </div>
+                    <sly data-sly-test="${item.linkContentFragmentModel.linkUrl}" data-sly-unwrap>
+                        </a>
+                    </sly>
+                </sly>
+            </div>
+        </div>
+    </div>
+</sly>
+<sly data-sly-test="${properties.typeCard == 'list'}">
+    <div class="cardList">
+        <div class="grid-x overflow-x-hidden overflow-y-hidden controllerDiv ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+            style="background-color:${properties.bgColor @ context='styleToken'}">
+            <ul class="no-bullet">
+                <sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+                    <sly data-sly-test.imageData="${item.contentModelCFImage.imageMetaData}"></sly>
+                    <li>
+                        <div class="grid-x">
+                            <div class="cell large-shrink medium-shrink samll-12">
+                                <sly data-sly-test="${item.contentModelCF.imageSrc}" data-sly-unwrap>
+                                    <sly data-sly-test="${properties.desktop != 'source'}">
+                                        <div class="cell large-shrink medium-shrink samll-12">
+                                            <img class="iconImage"
+                                                src="${item.contentModelCF.imageSrc}/jcr:content/renditions/cq5dam.thumbnail.${properties.desktop}.${imageData.assetType}"
+                                                alt="${imageData.title}">
+                                        </div>
+                                    </sly>
+                                    <sly data-sly-test="${properties.desktop == 'source'}">
+                                        <div class="cell large-shrink medium-shrink samll-12">
+                                            <img class="iconImage" src="${item.contentModelCF.imageSrc}"
+                                                alt="${imageData.title}">
+                                        </div>
+                                    </sly>
+                                </sly>
+                            </div>
+                            <div class="cell large-8 medium-8 samll-12">
+                                <div class="grid-x iconBlock align-center ">
+                                    <div class="subtitle-2 cell large-12">
+                                        ${item.contentModelCF.title}
+                                    </div>
+                                    <div class="subtitle-3 cell large-12">
+                                        ${item.contentModelCF.subtitle @ context="html"}
+                                    </div>
+                                    <div class="body-1 cell large-12">
+                                        ${item.contentModelCF.text @ context="html"}
+                                    </div>
+                                    <sly data-sly-test="${item.linkContentFragmentModel.linkUrl}" data-sly-unwrap>
+                                        <div class="body-1-link cell large-12">
+                                            <a class=" link-caret-dynamic body-1-link gaChecker"
+                                                href="${item.linkContentFragmentModel.linkUrl}" data-clickUrl="${item.linkContentFragmentModel.linkUrl}"
+                                                data-eventName="Card" data-eventCategory="Card" data-eventAction="click"
+                                                data-eventLabel="${item.contentModelCF.title}"
+                                                data-eventValue="">
+                                                ${item.linkContentFragmentModel.linkText}
+                                            </a>
+                                        </div>
+                                    </sly>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </sly>
+            </ul>
+        </div>
+    </div>
+</sly>
+<sly data-sly-test="${properties.typeCard == 'featured'}">
+    <div class="controllerDiv ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}" 
+    style="background-color: ${properties.bgColor @context='unsafe'};">
+        <div class="featuredCard">
+            <div class="grid-x grid-margin-x align-center-middle ">
+                <sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+                    <sly data-sly-test.imageData="${item.contentModelCFImage.imageMetaData}"></sly>
+                    <sly data-sly-test="${itemList.count == 1}">
+                        <div class="cell card medium-9">
+                            <div class="featuredBanner">
+                                <div class="image wow animate-fade-in-image">
+                                    <sly data-sly-test="${item.contentModelCF.imageSrc}" data-sly-unwrap>
+                                        <sly data-sly-test="${properties.desktop != 'source'}">
+                                            <img src="${item.contentModelCF.imageSrc}/jcr:content/renditions/cq5dam.thumbnail.${properties.desktop}.${imageData.assetType}"
+                                                alt="${imageData.title}">
+                                        </sly>
+                                        <sly data-sly-test="${properties.desktop == 'source'}">
+                                            <img src="${item.contentModelCF.imageSrc}" alt="${imageData.title}">
+                                        </sly>
+                                    </sly>
+                                </div>
+                                <div class="text-white grid-container ">
+                                    <div class="grid-x  align-middle featured">
+                                        <div class=" align-center cell large-5 small-12 wow animate-fade-in-card text"
+                                            style="color:${item.contentModelCF.fontColor @context='unsafe'}; background-color: ${properties.bgCardColor @context='unsafe'};">
+                                            <div class="subtitle-2 bold"
+                                                style=" margin-top:8px; color:${item.contentModelCF.fontColor @context='unsafe'}">
+                                                ${item.contentModelCF.title}
+                                            </div>
+                                            <div class="subtitle-3"
+                                                style="margin-top:16px; color:${item.contentModelCF.fontColor @context='unsafe'}">
+                                                ${item.contentModelCF.subtitle @ context="html"}
+                                            </div>
+                                            <div class="body-1">${item.contentModelCF.text @ context="html"}</div>
+                                            <sly data-sly-test="${item.linkContentFragmentModel.linkUrl}">
+                                                <sly
+                                                    data-sly-call="${link @ item=item, cssClasses='hollow button white'}">
+                                                </sly>
+                                            </sly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </sly>
+                    <sly data-sly-test="${itemList.count == 2}">
+                        <div class="cell small-12 medium-3">
+                            <sly data-sly-test="${item.linkContentFragmentModel.linkUrl}" data-sly-unwrap>
+                                <a class="gaChecker" data-eventName="Card" data-eventCategory="Card"
+                                    data-eventAction="click" data-eventLabel="${item.contentModelCF.title}"
+                                    href="${item.linkContentFragmentModel.linkUrl}">
+                            </sly>
+                            <div class="card CardTransparent align-center-middle wow animate-fade-in-bottom" >
+                                <sly data-sly-test="${item.contentModelCF.imageSrc}" data-sly-unwrap>
+                                    <sly data-sly-test="${properties.desktop != 'source'}">
+                                        <img src="${item.contentModelCF.imageSrc}/jcr:content/renditions/cq5dam.thumbnail.${properties.desktop}.${imageData.assetType}"
+                                            alt="${imageData.title}">
+                                    </sly>
+                                    <sly data-sly-test="${properties.desktop == 'source'}">
+                                        <img src="${item.contentModelCF.imageSrc}" alt="${imageData.title}">
+                                    </sly>
+                                </sly>
+                                <div class="card-section">
+                                    <div class="subtitle-2 bold">${item.contentModelCF.title}</div>
+                                    <div class="subtitle-3">${item.contentModelCF.subtitle @ context="html"}
+                                    </div>
+                                    <div class="body-1">${item.contentModelCF.text @ context="html"}</div>
+                                    <sly data-sly-test="${item.linkContentFragmentModel.linkUrl}" data-sly-unwrap>
+                                        <div class="body-1-link cell large-12">
+                                            <a class=" link-caret-dynamic body-1-link gaChecker"
+                                                href="${item.linkContentFragmentModel.linkUrl}" data-clickUrl="${item.linkContentFragmentModel.linkUrl}"
+                                                data-eventName="Card" data-eventCategory="Card" data-eventAction="click"
+                                                data-eventLabel="${item.contentModelCF.title}"
+                                                data-eventValue="">
+                                                ${item.linkContentFragmentModel.linkText}
+                                            </a>
+                                        </div>
+                                    </sly>
+                                </div>
+                            </div>
+                            <sly data-sly-test="${item.linkContentFragmentModel.linkUrl}" data-sly-unwrap> </a></sly>
+                        </div>
+                    </sly>
+                </sly>
+            </div>
+        </div>
+        <div class="grid-x grid-margin-x" data-equalizer>
+            <sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+                <sly data-sly-test.imageData="${item.contentModelCFImage.imageMetaData}"></sly>
+                <sly data-sly-test="${itemList.count >=3}">
+                    <div class="cell small-12 medium-3">
+                        <a class="ctaText text-primary gaChecker" data-eventName="Card" data-eventCategory="Card"
+                            data-eventAction="click" data-clickUrl="${item.linkContentFragmentModel.linkUrl}" data-eventLabel="${item.contentModelCF.title}" href="${item.linkContentFragmentModel.linkUrl}">
+                            <div class="card CardTransparent align-center-middle wow animate-fade-in-bottom">
+                                <sly data-sly-test="${item.contentModelCF.imageSrc}" data-sly-unwrap>
+                                    <sly data-sly-test="${properties.desktop != 'source'}">
+                                        <img src="${item.contentModelCF.imageSrc}/jcr:content/renditions/cq5dam.thumbnail.${properties.desktop}.${imageData.assetType}"
+                                            alt="${imageData.title}">
+                                    </sly>
+                                    <sly data-sly-test="${properties.desktop == 'source'}">
+                                        <img src="${item.contentModelCF.imageSrc}" alt="${imageData.title}">
+                                    </sly>
+                                </sly>
+                                <div class="card-section">
+                                    <div class="subtitle-2 bold">${item.contentModelCF.title}</div>
+                                    <div class="subtitle-3">${item.contentModelCF.subtitle @ context="html"}
+                                    </div>
+                                    <div class="body-1">${item.contentModelCF.text @ context="html"}</div>
+                                    <sly data-sly-test="${item.linkContentFragmentModel.linkUrl}" data-sly-unwrap>
+                                        <div class="body-1-link cell large-12">
+                                            <a class="link-caret-dynamic gaChecker" href="${item.linkContentFragmentModel.linkUrl}" data-clickUrl="${item.linkContentFragmentModel.linkUrl}"
+                                            data-eventName="Card" data-eventCategory="Card" data-eventAction="click"
+                                            data-eventLabel="${item.contentModelCF.title}"
+                                            data-eventValue="">
+                                                ${item.linkContentFragmentModel.linkText}
+                                            </a>
+                                        </div>
+                                    </sly>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </sly>
+            </sly>
+        </div>
+    </div>
+</sly>
+
+
+
+<sly data-sly-test="${properties.typeCard == 'explore'}">
+    <div class="grid-x controllerDiv ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+        style="background-color:${properties.bgColor @ context='styleToken'}">
+        <section class="cell margin-vertical-3 resort-availability">
+            <div class="cell">
+                <div class="grid-x grid-margin-x " data-equalizer>
+                    <sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+                        <sly data-sly-test.imageData="${item.contentModelCFImage.imageMetaData}"></sly>
+                        <div class="cell medium-${cards.num}">
+                            <sly data-sly-test="${item.linkContentFragmentModel.linkUrl}" data-sly-unwrap>
+                                <a class="ctaText text-primary gaChecker" data-eventName="Card"
+                                    data-eventCategory="Card" data-eventAction="click"
+                                    data-eventLabel="${item.contentModelCF.title}"
+                                    data-clickUrl="${item.linkContentFragmentModel.linkUrl}" data-eventValue=""
+                                    href="${item.linkContentFragmentModel.linkUrl}">
+                            </sly>
+                            <div class="card ${properties.anamationOn == 'true' ? 'wow animate-fade-in-bottom' : ''}"
+                                data-equalizer-watch>
+                                <sly data-sly-test="${item.contentModelCF.imageSrc}" data-sly-unwrap>
+                                    <sly data-sly-test="${properties.desktop != 'source'}">
+                                        <img src="${item.contentModelCF.imageSrc}/jcr:content/renditions/cq5dam.thumbnail.${properties.desktop}.${imageData.assetType}"
+                                            alt="${imageData.title}">
+                                    </sly>
+                                    <sly data-sly-test="${properties.desktop == 'source'}">
+                                        <img src="${item.contentModelCF.imageSrc}" alt="${imageData.title}">
+                                    </sly>
+                                </sly>
+                                <div class="card-content padding-1">
+                                    <div class="link">
+                                        <h3 class="subtitle-2 margin-bottom-0 link-caret-dynamic">
+                                            ${item.contentModelCF.title}
+                                        </h3>
+                                    </div>
+                                    <div class="body-2">${item.contentResortModel.city},
+                                        ${item.contentResortModel.state}</div>
+                                    <!--  <div class="CardReactReviewsHeader text-primary"
+                                        data-location="${item.contentResortModel.yextId}"
+                                        data-yext-api-url="/bin/services/owner/yextReviews" data-limit="3"
+                                        data-offset="0" data-card="true">
+                                    </div> -->
+                                    
+                                    <script type="text/javascript" id="5f93171443c19721fbb71359" src="//live.chatmeter.com/reviewBuilder/widget/script?widgetId=5f93171443c19721fbb71359&accountId=5f74b82139e8075b60c6a16a&locationId=${item.contentResortModel.yextId}&formCampaignId=5f7f58f338aab8393d5a5b3e"></script>
+                                </div>
+                            </div>
+                            <sly data-sly-test="${item.linkContentFragmentModel.linkUrl}" data-sly-unwrap>
+                                </a>
+                            </sly>
+                        </div>
+                    </sly>
+                </div>
+            </div>
+        </section>
+    </div>
+</sly>
+</div>

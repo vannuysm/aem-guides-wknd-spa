@@ -1,0 +1,53 @@
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<sly data-sly-test.models="${baseModel.contentFragmentSourceModels}"></sly>
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptytext="Dynamic-CTA Slice"></div>
+
+<div id="${properties.id}" class='scrollMargin'>
+	<div
+		class="grid-x ctaSliceParent ${properties.flexPosition} ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}">
+		<div class="cell small-12">
+			<sly data-sly-list.model="${baseModel.contentFragmentSourceModels}">
+				<sly data-sly-test="${properties.ctaType == 'text'}">
+					<div class="dynamicCtaText linkSlice "><a href="${model.linkContentFragmentModel.linkUrl}"
+							class="gaChecker link-caret-dynamic ctaText-${model.linkContentFragmentModel.fontColor}"
+							data-clickUrl="${model.linkContentFragmentModel.linkUrl}"
+							data-eventName="${properties.eventName ? properties.eventName : 'ctaSlice'}"
+							data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'ctaSlice'}"
+							data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+							data-eventLabel="${properties.eventLabel ? properties.eventLabel : model.linkContentFragmentModel.linkText}"
+							data-eventValue=""
+							target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+							style="color:${model.linkContentFragmentModel.fontColor == 'custom' ? model.linkContentFragmentModel.customFontColor : '' @context='unsafe'}">${model.linkContentFragmentModel.linkText}</a>
+					</div>
+				</sly>
+				<sly data-sly-test="${properties.ctaType == 'augmented'}">
+					<div class="dynamicCtaText linkSlice "><a
+							class="owner-augmented gaChecker link-caret-dynamic ctaText-${model.linkContentFragmentModel.fontColor}"
+							href="${model.linkContentFragmentModel.linkUrl @context = 'unsafe'}"
+							data-clickUrl="${model.linkContentFragmentModel.linkUrl}"
+							data-eventName="${properties.eventName ? properties.eventName : 'ctaSlice'}"
+							data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'ctaSlice'}"
+							data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+							data-eventLabel="${properties.eventLabel ? properties.eventLabel : model.linkContentFragmentModel.linkText}"
+							data-eventValue=""
+							target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+							style="color:${model.linkContentFragmentModel.fontColor == 'custom' ? model.linkContentFragmentModel.customFontColor : '' @context='unsafe'}">${model.linkContentFragmentModel.linkText}</a>
+					</div>
+				</sly>
+				<sly data-sly-test="${properties.ctaType != 'text' && properties.ctaType != 'augmented'}">
+					<a href="${model.linkContentFragmentModel.linkUrl}"
+						class="button cta-slice-${model.linkContentFragmentModel.fontColor == 'custom' ? '' : model.linkContentFragmentModel.fontColor} bgColor-cta-slice-${properties.hollow =='hollow' || properties.ctaColor == 'custom' ? '' : properties.ctaColor} ${properties.ctaType} ${properties.hollow == 'hollow'?'hollow':''} ${properties.ctaColor} gaChecker"
+						data-clickUrl="${model.linkContentFragmentModel.linkUrl}"
+						data-eventName="${properties.eventName ? properties.eventName : 'ctaSlice'}"
+						data-eventCategory="${properties.eventCategory ? properties.eventCategory : 'ctaSlice'}"
+						data-eventAction="${properties.eventAction ? properties.eventAction : 'click'}"
+						data-eventLabel="${properties.eventLabel ? properties.eventLabel : model.linkContentFragmentModel.linkText}"
+						data-eventValue=""
+						target="${model.linkContentFragmentModel.linkOpenInNewWindow ? '_blank' : ''}"
+						style="background-color:${properties.hollow !='hollow' && properties.ctaColor == 'custom'? properties.customBgColor : '' @context='unsafe'};border-color:${properties.hollow =='hollow' && properties.ctaColor == 'custom'? properties.customBgColor : '' @context='unsafe'}; color:${model.linkContentFragmentModel.fontColor == 'custom' ? model.linkContentFragmentModel.customFontColor : '' @context='unsafe'}; margin:0;">${model.linkContentFragmentModel.linkText}</a>
+				</sly>
+			</sly>
+		</div>
+	</div>
+</div>

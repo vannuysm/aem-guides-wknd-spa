@@ -1,0 +1,214 @@
+<sly
+    data-sly-use.model="com.wyndham.baseapp.core.models.MyAssesmentModel"
+	data-sly-test.isDefined="${model.data}">
+
+    <h4 data-sly-test="${wcmmode.edit || wcmmode.design}">
+        My Assesment Summary  Detail Component
+    </h4>
+
+	<div class="contract-main-container ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+	style="background-color:${properties.backColor @context='unsafe'}">
+        <div class="contract-table-container">
+            <div class="contract-container-caption-1">${properties.title}</div>
+            <div class="contract-table">
+                <div class="contract-table-body-3">
+                    <div>${model.contractHeading}</div>
+                    <div>${model.contractDescription}</div>
+                    <div>${model.monthlyPayment}</div>
+                    <div></div>
+                </div>
+                <div class="contract-table-content">                   
+                </div>
+                <div class="grey-box-top error-contracts hidden">
+                    <div class="error-text">We are currently unable to display your yearly assessment summaries. Please try again later.</div>
+                </div>
+            </div>
+        </div>    
+        <!-- Assessments details modal popup - START -->
+        <div class="reveal bg-white" id="assessments-model-id" role="dialog" data-reveal aria-labelledby="#assessments-model-id">           
+            <div class="modal-popup-container">
+                <div class="head-box-container">
+                    <div class="popup-title-caption-1">${model.assessmentDetails}</div>                    
+                </div>
+                <div class="color-box-container">
+                    <div class="assessment-summary-subtitle-3">${model.assessmentSummary}</div>
+                    <div class="assessment-summary-container">
+                        <div>
+                            <div class="assessment-summary-caption-3">${model.contractNumber}</div>
+                            <div class="assessment-summary-body-3 contractNumber"></div>
+                        </div>
+                        <div>
+                            <div class="assessment-summary-caption-3">${model.annualTotalHeading}</div>
+                            <div class="assessment-summary-body-3 annualTotal">$0.00</div>
+                        </div>
+                        <div>
+                            <div class="assessment-summary-caption-3">${model.description}</div>
+                            <div class="assessment-summary-body-3 description"></div>
+                        </div>
+                        <div>
+                            <div class="assessment-summary-caption-3">${model.monthlyPayment}</div>
+                            <div class="assessment-summary-body-3 monthlyPayment">$0.00</div>
+                        </div>
+                    </div>
+               </div>
+               <div class="white-box-container">
+                    <div class="contract-details-subtitle-3">${model.contractDetails}</div>
+                    <div class="contract-details-container">
+                        <div>
+                            <div class="contract-details-caption-3">${model.contractType}</div>
+                            <div class="contract-details-body-3 contractType"></div>
+                        </div>
+                        <div>
+                            <div class="contract-details-caption-3">${model.pointsOwned}</div>
+                            <div class="contract-details-body-3 pointsOwned">$0.00</div>
+                        </div>
+                        <div>
+                            <div class="contract-details-caption-3">${model.paymentFrequency}</div>
+                            <div class="contract-details-body-3 paymentFrequency"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gray-box-contanier">
+                    <div class="gray-white-box-contanier">
+                        
+                        <div class="homeowner-fees-caption-3">${model.homeownersAssociationFee}</div>                        
+                        <button class="accordion">
+                            <div>
+                                <div class="associate-fees-caption-3">${model.totalHOAHeading}</div>
+                                <div class="associate-fees-body-2 homeOwnerTotalHOAFee">$0.00 </div>
+                            </div>
+                        </button>
+                        <div class="panel">
+                            <div class="udi-five-elements hidden">
+                                <div class="maintenance-fees-div">
+                                    <div class="associate-fees-caption-3 maintenance-fees-lbl"></div>
+                                    <div class="associate-fees-body-2 maintenance-fees">$0.00</div>
+                                </div>
+                                <div class="reserve-funds-div">
+                                    <div class="associate-fees-caption-3 reserve-funds-lbl"></div>
+                                    <div class="associate-fees-body-2 reserve-funds">$0.00</div>
+                                </div>
+                                <div class="property-taxes-div">
+                                    <div class="associate-fees-caption-3 property-taxes-lbl"></div>
+                                    <div class="associate-fees-body-2 property-taxes">$0.00</div>
+                                </div>
+                                <div class="local-tax-div">
+                                    <div class="associate-fees-caption-3 local-tax-lbl"></div>
+                                    <div class="associate-fees-body-2 local-tax">$0.00</div>
+                                </div>
+                                <div class="special-assessment-div">
+                                    <div class="associate-fees-caption-3 special-assessment-lbl"></div>
+                                    <div class="associate-fees-body-2 special-assessment">$0.00</div>
+                                </div>
+                            </div>
+                            <div class="pic-bonus hidden">
+                                <div class="fee-billed-by-your-HOA-div">
+                                    <div class="associate-fees-caption-3"></div>
+                                    <div class="associate-fees-body-2 fee-billed-by-your-HOA">$0.00</div>
+                                </div>
+                            </div>
+                            <div class="bonus-contract hidden">
+                                <div class="total-HOA-fee-div">
+                                    <div class="associate-fees-caption-3 total-HOA-fee-lbl"></div>
+                                    <div class="associate-fees-body-2 total-HOA-fee">$0.00</div>
+                                </div>
+                            </div>
+                        </div>    
+                        <button class="accordion">
+                            <div class="program-fee-div">
+                                <div class="associate-fees-caption-3">${model.programFeeHeading}</div>
+                                <div class="associate-fees-body-2 program-fee">$0.00</div>
+                            </div>
+                        </button>
+                        <div class="panel">
+                            <div>
+                                <div class="associate-fees-caption-3 program-fee-lbl"></div>
+                                <div class="associate-fees-body-2 program-fee-expand"> $0.00</div>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="annual-fee-container">
+                        <div>
+                            <div>Annual Fee</div>
+                            <div class="annual-fee">$0.00 </div>
+                        </div>
+                    </div>    
+                    <hr>    
+                    <button class="accordion">
+                        <div>
+                            <div class="associate-fees-caption-3">${model.monthlyFee}</div>
+                            <div class="associate-fees-body-2 monthly-fee">$0.00</div>
+                        </div>
+                    </button>
+                    <div class="panel">
+                        <div>
+                            <div class="associate-fees-caption-3 monthly-fee-lbl"></div>
+                            <div class="associate-fees-body-2 monthly-fee-expand">$0.00</div>
+                        </div>
+                    </div>    
+                </div>                 
+            </div>
+            <button class="close-button" aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>           
+        </div>    
+        <!-- <a class='open-first'>Click me!</a>         -->
+        <!-- Assessments Error Modal - START -->
+        <div class="reveal bg-white" id="assessments-errmodel-id" role="dialog" data-reveal aria-labelledby="#assessments-errmodel-id">
+            <div class="popup-container_main-container">
+                <!-- <div class="popup-container_close-button-caption-1">X</div> -->
+                <div class="popup-container_inner-container">
+                    <div><img src="ui.apps\src\main\ui\holiday\src\assets\toolkit\images\icons\alert.svg" alt="" width="38px;"></div>
+                    <div class="popup-container_content-title-3">Something went wrong</div>
+                    <div class="popup-container_content-body-1">Your Assessment Summary cannot be displayed at this time. Please try again later.</div>
+                </div>
+                <div class="popup-container_hr-row"></div>
+                <div class="popup-container_back-to-button-container">
+                    <div class="popup-container_back-to-button">
+                    <div class="popup-container_back-to-button-body-1">Back to My Assessment</div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <!-- Assessments Error Modal - end -->	
+    <div class="assessment-summary-pdf">
+		<div class="assessment-summary-subtitle-3">${properties.titlePdf}</div>
+		<div class="pdf-main-container">
+            <sly data-sly-test="${properties.ctaColor != 'custom'}">
+                <div class="assessment-summary-pdf-container year1">
+                    <div class="assessment-summary-subtitle-2"></div>
+                    <div class="assessment-summary-link-container">
+                        <a href="" class="assessment-summary-body-1-link ${properties.ctaType} ${properties.ctaColor} ${properties.hollow}">${properties.ctaLabel}</a>
+                    </div>
+                </div>
+                <div class="assessment-summary-pdf-container year2">
+                    <div class="assessment-summary-subtitle-2"></div>
+                    <div class="assessment-summary-link-container">
+                        <a href="" class="assessment-summary-body-1-link ${properties.ctaType} ${properties.ctaColor} ${properties.hollow}">${properties.ctaLabel}</a>
+                    </div>
+                </div>
+            </sly>
+            <sly data-sly-test="${properties.ctaColor == 'custom'}">
+                <div class="assessment-summary-pdf-container year1">
+                    <div class="assessment-summary-subtitle-2"></div>
+                    <div class="assessment-summary-link-container">
+                        <a href="" class="assessment-summary-body-1-link ${properties.ctaType} ${properties.hollow}"
+                        style="background-color:${properties.bgColor @context='unsafe'}; color:${properties.fontColor @context='unsafe'}">${properties.ctaLabel}</a>
+                    </div>
+                </div>
+                <div class="assessment-summary-pdf-container year2">
+                    <div class="assessment-summary-subtitle-2"></div>
+                    <div class="assessment-summary-link-container">
+                        <a href="" class="assessment-summary-body-1-link ${properties.ctaType} ${properties.hollow}"
+                        style="background-color:${properties.bgColor @context='unsafe'}; color:${properties.fontColor @context='unsafe'}">${properties.ctaLabel}</a>
+                    </div>
+                </div>
+            </sly>
+        </div>
+        <div class="grey-box error-statements hidden">
+            <div class="error-text">We are currently unable to display your yearly assessment summaries. Please try again later.</div>
+        </div>
+    </div>	
+</div>	
+</sly>

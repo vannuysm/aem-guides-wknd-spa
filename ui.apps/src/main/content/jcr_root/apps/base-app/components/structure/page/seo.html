@@ -1,0 +1,26 @@
+<sly data-sly-use.pageModel="com.wyndham.baseapp.core.models.BaseCommonPageModel"></sly>
+<sly data-sly-test=" ${pageModel.ldJson != ''}">
+    <!-- LD json -->
+    <script type="application/ld+json"> 
+        ${pageModel.ldJson @ context='unsafe'}
+    </script>
+</sly>
+<sly data-sly-test.metaData="${pageModel.pageMetaData}">
+    <!-- Meta Robots -->
+    <sly data-sly-test="${metaData.robots}">
+        <meta name="robots" content="${metaData.robots}">
+    </sly>
+    <!-- Open Graph Tags -->
+    <meta property="og:image" content="${metaData.primaryImage}"/>
+    <meta property="og:title" content="${metaData.ogTitle}" />
+    <meta property="og:description" content="${metaData.ogDesc}"/>
+    <meta property="og:type" content="${metaData.type}"/>
+    <meta property="og:site_name" content="${metaData.siteName}"/>
+    <meta property="og:url" content= "${metaData.ogUrl}"/>
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="${metaData.twitterCard}" />
+    <meta name="twitter:site" content="${metaData.twitterSite}" />
+    <meta name="twitter:title" content="${metaData.ogTitle}" />
+    <meta name="twitter:description" content="${metaData.ogDesc}"/>
+    <meta name="twitter:image:src" content="${metaData.twitterImage}"/>
+</sly>

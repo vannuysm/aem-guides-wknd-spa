@@ -1,0 +1,22 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+  data-emptytext="Share Slice"></div>
+
+<script type='text/javascript'
+  src='//platform-api.sharethis.com/js/sharethis.js#property=5c646ec01ef90f001147a95e&product=inline-share-buttons'></script>
+<div
+  class='controllerDiv shareParent ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}'
+  style="background-color:${properties.bgColor @context='unsafe'}">
+  
+
+      <div class="base-share-button base-js-share-button">
+        <button class="base-share-button__toggle"><span class="show-for-sr">Share</span><img
+            src="${properties.fileReference @context = 'html'}">
+        </button>
+       
+          <div class="base-share-button__container">
+            <div class="sharethis-inline-share-buttons"></div>
+          </div> 
+       
+     
+  </div>
+</div>

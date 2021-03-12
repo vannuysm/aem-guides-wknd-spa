@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <wcm jcr:primaryType="nt:unstructured">
+        <foundation jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <responsivegrid jcr:primaryType="nt:unstructured">
+                    <content-default
+                        jcr:description="Policy for editable layout containers"
+                        jcr:lastModified="{Date}2019-04-03T16:20:57.617-04:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="BBM Site Default"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/libs/wcm/foundation/components/responsivegrid,/libs/foundation/components/text,group:BBM]"
+                        policyResourceType="wcm/foundation/components/responsivegrid">
+                        <cq:authoring jcr:primaryType="nt:unstructured">
+                            <assetToComponentMapping jcr:primaryType="nt:unstructured"/>
+                        </cq:authoring>
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </content-default>
+                    <policy_243840740985494
+                        jcr:lastModified="{Date}2019-04-15T15:13:34.889-04:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="BBM Content Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/libs/foundation/components/image,/libs/wcm/foundation/components/responsivegrid,/libs/foundation/components/list,/libs/foundation/components/text,/libs/foundation/components/title,group:BBM,group:Wyndham.NextGen]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:authoring jcr:primaryType="nt:unstructured">
+                            <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                                <mapping_1554391015717
+                                    jcr:primaryType="nt:unstructured"
+                                    assetGroup="media"
+                                    assetMimetype="image/*"
+                                    droptarget="image"
+                                    resourceType="foundation/components/image"/>
+                            </assetToComponentMapping>
+                        </cq:authoring>
+                    </policy_243840740985494>
+                    <policy_949272858026060
+                        jcr:lastModified="{Date}2019-04-30T10:22:02.443-04:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="test template policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/libs/foundation/components/text,/libs/foundation/components/title,group:BBM]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_949272858026060>
+                </responsivegrid>
+            </components>
+        </foundation>
+    </wcm>
+</jcr:root>

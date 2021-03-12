@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" 
+    xmlns:cq="http://www.day.com/jcr/cq/1.0" 
+    xmlns:jcr="http://www.jcp.org/jcr/1.0" 
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0" jcr:primaryType="nt:unstructured" jcr:title="Global Design" sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/container">
+        <layout jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" margin="{Boolean}false" />
+        <items jcr:primaryType="nt:unstructured">
+            <backgroundColor jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/textfield" fieldLabel="Background Color" name="./backgroundColor" />
+            <topMargin jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/numberfield" fieldLabel="Top Margin" max="80" min="-80" name="./topMargin" step="8" value="${not empty cqDesign.topMargin ? cqDesign.topMargin : 16}" />
+            <bottomMargin jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/numberfield" fieldLabel="Bottom Margin" max="80" min="0" name="./bottomMargin" step="8" value="${not empty cqDesign.bottomMargin ? cqDesign.bottomMargin : 16}" />
+            <topPadding jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/numberfield" fieldLabel="Top Padding" max="80" min="0" name="./topPadding" step="8" value="${not empty cqDesign.topPadding ? cqDesign.topPadding : 16}" />
+            <bottomPadding jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/numberfield" fieldLabel="Bottom Padding" max="80" min="0" name="./bottomPadding" step="8" value="${not empty cqDesign.bottomPadding ? cqDesign.bottomPadding : 16}" />
+
+            <bgColor jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/textfield" fieldLabel="Background Color" name="./bgColor"/>
+            <!-- zurb support -->
+            <marginBottomDesktop jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="Desktop Margin Bottom" name="./marginBottomDesk">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="desktop-no-margin-bottom" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="desktop-extra-small-margin-bottom" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="desktop-small-margin-bottom" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="desktop-medium-margin-bottom" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="desktop-large-margin-bottom" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="desktop-extra-large-margin-bottom " />
+                </items>
+            </marginBottomDesktop>
+            <marginTopDesktop jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="Desktop Margin Top" name="./marginTopDesk">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="desktop-no-margin-top" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="desktop-extra-small-margin-top" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="desktop-small-margin-top" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="desktop-medium-margin-top" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="desktop-large-margin-top" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="desktop-extra-large-margin-top " />
+                </items>
+            </marginTopDesktop>
+            <paddingBottomDesktop jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="Desktop padding Bottom" name="./paddingBottomDesk">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="desktop-no-padding-bottom" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="desktop-extra-small-padding-bottom" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="desktop-small-padding-bottom" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="desktop-medium-padding-bottom" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="desktop-large-padding-bottom" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="desktop-extra-large-padding-bottom " />
+                </items>
+            </paddingBottomDesktop>
+            <paddingTopDesktop jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="Desktop padding Top" name="./paddingTopDesk">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="desktop-no-padding-top" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="desktop-extra-small-padding-top" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="desktop-small-padding-top" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="desktop-medium-padding-top" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="desktop-large-padding-top" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="desktop-extra-large-padding-top " />
+                </items>
+            </paddingTopDesktop>
+            <marginBottomtablet jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="tablet Margin Bottom" name="./marginBottomtablet">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="tablet-no-margin-bottom" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="tablet-extra-small-margin-bottom" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="tablet-small-margin-bottom" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="tablet-medium-margin-bottom" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="tablet-large-margin-bottom" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="tablet-extra-large-margin-bottom" />
+                </items>
+            </marginBottomtablet>
+            <marginToptablet jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="tablet Margin Top" name="./marginToptablet">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="tablet-no-margin-top" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="tablet-extra-small-margin-top" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="tablet-small-margin-top" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="tablet-medium-margin-top" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="tablet-large-margin-top" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="tablet-extra-large-margin-top" />
+                </items>
+            </marginToptablet>
+            <paddingBottomtablet jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="tablet padding Bottom" name="./paddingBottomtablet">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="tablet-no-padding-bottom" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="tablet-extra-small-padding-bottom" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="tablet-small-padding-bottom" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="tablet-medium-padding-bottom" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="tablet-large-padding-bottom" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="tablet-extra-large-padding-bottom " />
+                </items>
+            </paddingBottomtablet>
+            <paddingToptablet jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="tablet padding Top" name="./paddingToptablet">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="tablet-no-padding-top" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="tablet-extra-small-padding-top" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="tablet-small-padding-top" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="tablet-medium-padding-top" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="tablet-large-padding-top" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="tablet-extra-large-padding-top " />
+                </items>
+            </paddingToptablet>
+            <marginBottommobile jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="mobile Margin Bottom" name="./marginBottommobile">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="no-margin-bottom" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="extra-small-margin-bottom" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="small-margin-bottom" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="medium-margin-bottom" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="large-margin-bottom" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="extra-large-margin-bottom" />
+                </items>
+            </marginBottommobile>
+            <marginTopmobile jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="mobile Margin Top" name="./marginTopmobile">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="no-margin-top" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="extra-small-margin-top" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="small-margin-top" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="medium-margin-top" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="large-margin-top" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="extra-large-margin-top" />
+                </items>
+            </marginTopmobile>
+            <paddingBottommobile jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="mobile padding Bottom" name="./paddingBottommobile">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="no-padding-bottom" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="extra-small-padding-bottom" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="small-padding-bottom" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="medium-padding-bottom" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="large-padding-bottom" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="extra-large-padding-bottom" />
+                </items>
+            </paddingBottommobile>
+            <paddingTopmobile jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="mobile padding Top" name="./paddingTopmobile">
+                <items jcr:primaryType="nt:unstructured">
+                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="None" value="no-padding-top" />
+                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra small" value="extra-small-padding-top" />
+                    <option3 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Small" value="small-padding-top" />
+                    <option4 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Medium" value="medium-padding-top" />
+                    <option5 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Large" value="large-padding-top" />
+                    <option6 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="Extra Large" value="extra-large-padding-top" />
+                </items>
+            </paddingTopmobile>
+            <textColor jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="Colors" name="./fontColor">
+                <items jcr:primaryType="nt:unstructured">
+                    <primary jcr:primaryType="nt:unstructured" text="Primary" value="text-primary" />
+                    <secondary jcr:primaryType="nt:unstructured" text="Secondary" value="text-secondary" />
+                    <success jcr:primaryType="nt:unstructured" text="Success" value="text-success" />
+                    <alert jcr:primaryType="nt:unstructured" text="Alert" value="text-alert" />
+                    <warning jcr:primaryType="nt:unstructured" text="Warning" value="text-warning" />
+                    <white jcr:primaryType="nt:unstructured" text="White" value="text-white" />
+                    <black jcr:primaryType="nt:unstructured" text="Black" value="text-black" />
+                    <gray jcr:primaryType="nt:unstructured" text="Gray" value="text-text-dark-gray" />
+                    <custom jcr:primaryType="nt:unstructured" text="Custom" value="custom" />
+                </items>
+            </textColor>
+           
+            <hideLarge jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/checkbox" fieldDescription="Check to hide on large" name="./hideLarge" text="Hide on large screens" value="hide-for-large" />
+            <hideMedium jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/checkbox" fieldDescription="Check to hide on medium" name="./hideMedium" text="Hide on medium screens" value="hide-for-medium-only" />
+            <hideSmall jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/checkbox" fieldDescription="Check to hide on small" name="./hideSmall" text="Hide on small screens" value="hide-for-small-only" />
+        </items>
+    </content>
+</jcr:root>

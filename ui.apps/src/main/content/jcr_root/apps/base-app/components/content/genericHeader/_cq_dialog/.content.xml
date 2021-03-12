@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" 
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0" 
+    xmlns:cq="http://www.day.com/jcr/cq/1.0" 
+    xmlns:jcr="http://www.jcp.org/jcr/1.0" 
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0" jcr:primaryType="nt:unstructured" jcr:title="Generic Header" sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/container">
+        <layout jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns" margin="{Boolean}false" />
+        <items jcr:primaryType="nt:unstructured">
+            <columnProperties jcr:primaryType="nt:unstructured" jcr:title="Content" sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns" margin="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <tabs jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/tabs" maximized="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <content jcr:primaryType="nt:unstructured" jcr:title="Content" sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns" margin="{Boolean}true">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <image jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" fieldLabel="Logo Path" name="./fileReference" rootPath="/content/dam" />
+                                                    <logoLinkPath jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" fieldLabel="Logo Link Path" name="./logoLinkUrl"/>
+                                                    <SearchIconLinkPath jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" fieldLabel="Search Icon Link Path" name="./SearchIconPath"/>
+                                                    <SearchPath jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" fieldLabel="Search Page Path" name="./searchPath"/>
+                                                    <loginButtonText jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/textfield" fieldLabel="Login Button Text" name="./loginButtonText"/>
+                                                    <primary-links jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/multifield" composite="{Boolean}true" fieldLabel="Primary Links">
+                                                        <field jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container" name="./primaryLinks">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <link-label jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/textfield" fieldLabel="Primary Link Label" name="./linkLabel"/>
+                                                                        <link-path jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" fieldLabel="Primary Link Path" name="./linkPath"/>
+                                                                        <link-target jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="Link Target" name="./linkTarget">
+                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="Same Tab" value="_self"/>
+                                                                                <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="New Tab" value="_blank"/>
+                                                                            </items>
+                                                                        </link-target>
+                                                                        <secondary-links jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/multifield" composite="{Boolean}true" fieldLabel="Secondary Links">
+                                                                            <field jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container" name="./primaryLinks">
+                                                                                <items jcr:primaryType="nt:unstructured">
+                                                                                    <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                                        <items jcr:primaryType="nt:unstructured">
+                                                                                            <link-label jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/textfield" fieldLabel="Secondary Link Label" name="./linkLabel"/>
+                                                                                            <link-path jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" fieldLabel="Secondary Link Path" name="./linkPath"/>
+                                                                                            <link-target jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="Link Target" name="./linkTarget">
+                                                                                                <items jcr:primaryType="nt:unstructured">
+                                                                                                    <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="Same Tab" value="_self"/>
+                                                                                                    <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="New Tab" value="_blank"/>
+                                                                                                </items>
+                                                                                            </link-target>
+                                                                                            <tertiary-links jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/multifield" composite="{Boolean}true" fieldLabel="Tertiary Links">
+                                                                                                <field jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container" name="./primaryLinks">
+                                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                                        <columns jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                                                <link-label jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/textfield" fieldLabel="Tertiary Link Label" name="./linkLabel"/>
+                                                                                                                <link-path jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" fieldLabel="Tertiary Link Path" name="./linkPath"/>
+                                                                                                                <link-target jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/select" fieldLabel="Link Target" name="./linkTarget">
+                                                                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                                                                        <option1 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" selected="{Boolean}true" text="Same Tab" value="_self"/>
+                                                                                                                        <option2 jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/form/option" text="New Tab" value="_blank"/>
+                                                                                                                    </items>
+                                                                                                                </link-target>
+                                                                                                            </items>
+                                                                                                        </columns>
+                                                                                                    </items>
+                                                                                                </field>
+                                                                                            </tertiary-links>
+                                                                                        </items>
+                                                                                    </column>
+                                                                                </items>
+                                                                            </field>
+                                                                        </secondary-links>
+                                                                    </items>
+                                                                </column>
+                                                            </items>
+                                                        </field>
+                                                    </primary-links>
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </content>
+                                    <config jcr:primaryType="nt:unstructured" jcr:title="Configuration" sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns" margin="{Boolean}true">
+
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <!-- Configuration component changes here. -->
+                                                    <typeOfHeader granite:class="cq-dialog-dropdown-showhide" jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/select" fieldLabel="Type" name="./type">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <DefaultType jcr:primaryType="nt:unstructured" text="Default" value="default" />
+                                                            <panorama jcr:primaryType="nt:unstructured" text="Centered" value="centered" />
+                                                        </items>
+                                                    </typeOfHeader>
+                                                    <vertheading jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/heading" level="3" text="Vertical Spacing" />
+                                                    <marginBottomDesktop jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginBottomDesktop" jcr:title="Desktop Margin Bottom" name="./marginBottomDesk" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <marginTopDesktop jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginTopDesktop" jcr:title="Desktop Margin Top" name="./marginTopDesk" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingBottomDesktop jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingBottomDesktop" jcr:title="Desktop padding Bottom" name="./paddingBottomDesk" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingTopDesktop jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingTopDesktop" jcr:title="Desktop padding Top" name="./paddingTopDesk" sling:resourceType="granite/ui/components/foundation/include" />
+
+                                                    <marginBottomtablet jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginBottomtablet" jcr:title="tablet Margin Bottom" name="./marginBottomtablet" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <marginToptablet jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginToptablet" jcr:title="tablet Margin Top" name="./marginToptablet" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingBottomtablet jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingBottomtablet" jcr:title="tablet padding Bottom" name="./paddingBottomtablet" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingToptablet jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingToptablet" jcr:title="tablet padding Top" name="./paddingToptablet" sling:resourceType="granite/ui/components/foundation/include" />
+
+                                                    <marginBottommobile jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginBottommobile" jcr:title="mobile Margin Bottom" name="./marginBottommobile" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <marginTopmobile jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/marginTopmobile" jcr:title="mobile Margin Top" name="./marginTopmobile" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingBottommobile jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingBottommobile" jcr:title="mobile padding Bottom" name="./paddingBottommobile" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <paddingTopmobile jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/paddingTopmobile" jcr:title="mobile padding Top" name="./paddingTopmobile" sling:resourceType="granite/ui/components/foundation/include" />
+
+                                                    <hideheading jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/heading" level="3" text="Hide Options" />
+                                                    <hideLarge jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/hideLarge" jcr:title="Hide on large screens" name="./hideLarge" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <hideMedium jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/hideMedium" jcr:title="Hide on medium screens" name="./hideMedium" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <hideSmall jcr:primaryType="nt:unstructured" path="base-app/components/content/design/cq:dialog/content/items/hideSmall" jcr:title="Hide on small screens" name="./hideSmall" sling:resourceType="granite/ui/components/foundation/include" />
+                                                    <showLogin jcr:primaryType="nt:unstructured" text="Show Login" name="./showLogin" sling:resourceType="granite/ui/components/coral/foundation/form/checkbox" value="true" />
+                                                    <showSearch jcr:primaryType="nt:unstructured" text="Show Search" name="./showSearch" sling:resourceType="granite/ui/components/coral/foundation/form/checkbox" value="true" />
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </config>
+                                    <Design jcr:primaryType="nt:unstructured" jcr:title="Design" sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns" margin="{Boolean}true">
+
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <!-- Component Design changes here. -->
+                                                    <ctaColor granite:class="cq-dialog-dropdown-showhide" jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/select" fieldLabel="Button Color" name="./ctaColor">
+                                                        <granite:data jcr:primaryType="nt:unstructured" cq-dialog-dropdown-showhide-target=".custColorTarget" />
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <Default jcr:primaryType="nt:unstructured" text="Default Color" value="" />
+                                                            <primary jcr:primaryType="nt:unstructured" text="Primary" value="primary" />
+                                                            <secondary jcr:primaryType="nt:unstructured" text="Secondary" value="secondary" />
+                                                            <success jcr:primaryType="nt:unstructured" text="Success" value="success" />
+                                                            <alert jcr:primaryType="nt:unstructured" text="Alert" value="alert" />
+                                                            <warning jcr:primaryType="nt:unstructured" text="Warning" value="warning" />
+                                                            <color1 jcr:primaryType="nt:unstructured" text="color1" value="color1" />
+                                                            <color2 jcr:primaryType="nt:unstructured" text="color2" value="color2" />
+                                                            <color3 jcr:primaryType="nt:unstructured" text="color3" value="color3" />
+                                                            <color4 jcr:primaryType="nt:unstructured" text="color4" value="color4" />
+                                                            <color5 jcr:primaryType="nt:unstructured" text="color5" value="color5" />
+                                                            <color6 jcr:primaryType="nt:unstructured" text="color6" value="color6" />
+                                                            <color7 jcr:primaryType="nt:unstructured" text="color7" value="color7" />
+                                                            <color8 jcr:primaryType="nt:unstructured" text="color8" value="color8" />
+                                                            <color9 jcr:primaryType="nt:unstructured" text="color9" value="color9" />
+                                                            <color10 jcr:primaryType="nt:unstructured" text="color10" value="color10" />
+                                                            <color11 jcr:primaryType="nt:unstructured" text="color11" value="color11" />
+                                                            <color12 jcr:primaryType="nt:unstructured" text="color12" value="color12" />
+                                                            <color13 jcr:primaryType="nt:unstructured" text="color13" value="color13" />
+                                                            <color14 jcr:primaryType="nt:unstructured" text="color14" value="color14" />
+                                                            <color15 jcr:primaryType="nt:unstructured" text="color15" value="color15" />
+                                                            <color16 jcr:primaryType="nt:unstructured" text="color16" value="color16" />
+                                                            <custom jcr:primaryType="nt:unstructured" text="Custom" value="custom" />
+                                                        </items>
+                                                    </ctaColor>
+                                                    <hollowLogin jcr:primaryType="nt:unstructured" text="Make Login Hollow" name="./hollowLogin" sling:resourceType="granite/ui/components/coral/foundation/form/checkbox" value="true" />
+                                                    <bgColor jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/textfield" fieldLabel="Banner Background Color" name="./bgColor"/>
+                                                    <subMenuBgColor jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/textfield" fieldLabel="mobile Sub-menu Background Color" name="./subMenuBgColor"/>
+                                                    <subMenuBroderColor jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/textfield" fieldLabel="mobile Sub-menu Border Color" name="./subMenuBroderColor"/>
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </Design>
+
+                                </items>
+                            </tabs>
+                        </items>
+                    </column>
+                </items>
+            </columnProperties>
+        </items>
+    </content>
+</jcr:root>

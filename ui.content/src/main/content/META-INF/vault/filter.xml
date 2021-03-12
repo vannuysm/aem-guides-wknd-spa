@@ -4,4 +4,6 @@
     <filter root="/content/wknd-spa-react" mode="merge"/>
     <filter root="/content/dam/wknd-spa-react" mode="merge"/>
     <filter root="/content/experience-fragments/wknd-spa-react" mode="merge"/>
+
+    <filter root="/conf/base-app" mode="merge"/>
 </workspaceFilter>

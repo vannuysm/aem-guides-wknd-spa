@@ -1,0 +1,96 @@
+<sly data-sly-use.model="com.wyndham.baseapp.core.models.PointCalculator"></sly>
+<sly data-sly-use.form="com.wyndham.baseapp.core.models.FormBuilder"></sly>
+
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptytext="Point Calculator" data-sly-unwrap></div>
+
+<div id="${properties.id}" data-sly-use.dynamicContent="com.wyndham.baseapp.core.models.DynamicContent"
+	class="pointsCalc lead ${form.hasDynamicContent ? 'updateComponentData': ''} ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}"
+	style="background-color: ${properties.bgColor @context='unsafe'}"
+	data-search-type="${form.hasDynamicContent ? properties.primarySource :''}"
+	data-component-type="${form.hasDynamicContent ? 'string-update':''}"
+	data-custom-data="${form.hasDynamicContent ? dynamicContent.customData :''}" >
+	<form action class="form-${properties.id}" id="form-${properties.id}" name="form-${properties.id}" data-abide no-validate>
+		<fieldset>
+			<div class="grid-x">
+				<div class="cell" style="padding-bottom: 0;">
+					<div class="caption-1 bold" >
+						${properties.calculatorCaption}
+					</div>
+				</div>
+			</div>
+			<div class="grid-x" data-sly-test="${properties.calculatorTitle}">
+				<div class="cell">
+					<div class="title-1">
+						${properties.calculatorTitle}
+					</div>
+				</div>
+			</div>
+			<div class="grid-x" data-sly-test="${properties.calculatorSubtitle}">
+				<div class="cell">
+					<div class="subtitle-2">
+						${properties.calculatorSubtitle}
+					</div >
+				</div>	
+			</div>
+			<div class="grid-x" data-sly-test="${properties.calculatorBody}">
+				<div class="cell">
+					<div class="body-1 padding-bottom-0">
+						${properties.calculatorBody @ context='html'}
+					</div>
+				</div>
+			</div>
+			<div class="grid-x">
+				<div class="cell small-12 ">
+					<label for="calculator" class="form-field__label">
+						<!--JS -->
+						<input type="number" class="form-field__input savingscalculator required" data-pricePerPoint="${properties.costPer}" data-range-list="${model.priceRangeArr}"
+							aria-describedby="calculatorHelpText" name="calculator" id="calculator " data-calculator-type="${properties.calculatorType}"
+							pattern="pointTotal" required />
+							<span style="z-index:5;">${properties.contentPlaceholder}*</span>
+						<div class="form-error body-3 calculatorError" style="margin-top: 0; margin-bottom: 0;">
+							${properties.contentError}
+						</div>
+						<div class="body-3" id="calculatorHelpText">
+								${properties.contentHelper}
+							</div>
+					</label>
+				</div>
+			</div>
+				<div class="grid-x hideWithCalculatorPrice" style="display:none" >
+					<div class="cell small-12 padding-top-0">
+						<div class="subtitle-2 calculatorPrice text-primary">
+						</div>
+					</div>
+				</div>
+				<div class="grid-x hideWithCalculatorPrice" style="display:none"  data-sly-test="${properties.contentCaption}">
+					<div class="cell small-12 padding-top-0 padding-bottom-0">
+						<div class="caption-1 bold" >
+							${properties.contentCaption}
+						</div>
+					</div>
+				</div>
+				<div class="grid-x hideWithCalculatorPrice" style="display:none" data-sly-test="${properties.contentTitle}">
+					<div class="cell small-12 padding-top-0">
+						<div class="title-1">
+							${properties.contentTitle}
+						</div>
+					</div>
+				</div>
+				<div class="grid-x hideWithCalculatorPrice" style="display:none" data-sly-test="${properties.contentSubtitle}">
+						<div class="cell small-12 padding-top-0">
+							<div class="title-1">
+								${properties.contentSubtitle}
+							</div>
+						</div>
+					</div>
+				<div class="grid-x hideWithCalculatorPrice" style="display:none" data-sly-test="${properties.contentBody}">
+					<div class="cell small-12 padding-top-0">
+						<div class="body-2">
+							${properties.contentBody @ context='html'}
+						</div>
+					</div>
+				</div>
+		</fieldset>
+	</form>
+</div>

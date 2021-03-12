@@ -1,0 +1,29 @@
+<sly data-sly-use.baseModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<sly data-sly-test.models="${baseModel.contentFragmentSourceModels}"></sly>
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+  data-emptytext="Accordion Slice"></div>
+
+<div id="${properties.id}" class='scrollMargin'>
+  <div
+    class='controllerDiv ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile}'
+    style="background-color:${properties.bgColor @context='unsafe'}">
+    <div>
+      <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+        <div class="accordionExpand text-underline text-right padding-right-2" style="cursor: pointer">Expand All</div>
+        <sly data-sly-list="${baseModel.contentFragmentSourceModels}" data-sly-unwrap>
+
+          <li class="accordion-item "  data-accordion-item>
+            <!-- Accordion tab title -->
+            <a href="#" class="accordion-title gaChecker" data-eventName="accordion" data-eventCategory="accordion" data-eventAction="click" data-eventLabel="${item.contentModelCF.title @context='unsafe'}" data-eventValue=""> ${item.contentModelCF.title @context='unsafe'}</a>
+
+            <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+            <div class="accordion-content" data-tab-content>
+              <div data-sly-resource="${ 'menu{0}' @ format=itemList.count, resourceType='foundation/components/parsys'}"
+                data-sly-unwrap></div>
+            </div>
+          </li> 
+        </sly>
+      </ul>
+    </div>
+  </div>
+</div>

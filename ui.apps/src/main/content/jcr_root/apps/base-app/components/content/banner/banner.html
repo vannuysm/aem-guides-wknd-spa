@@ -1,0 +1,67 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder cq-marker-start"
+	data-emptytext="General Banner"></div>
+<sly data-sly-use.bannerModel="com.wyndham.baseapp.core.models.BaseModel"></sly>
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<sly data-sly-test.modelsAreDefined="${bannerModel.contentFragmentSourceModels}"></sly>
+
+<!-- <sly data-sly-test="${form.hasDynamicContent == true}" >
+	<div class="replaceFields" data-source='${properties.primarySource}' style="display:none;">
+		<sly data-sly-use.model="com.wyndham.baseapp.core.models.DynamicContent"
+			data-sly-list="${model.dynamicContent}">
+				<div class="repKey">${item.key}, ${item.value}</div>
+		</sly>
+	</div>
+</sly> -->
+
+<div id="${properties.id}" gtm_component="banner" gtm_component_type="banner" data-sly-use.model="com.wyndham.baseapp.core.models.DynamicContent"
+	class='scrollMargin controllerDiv ${properties.LoggedOut} ${properties.LoggedIn} ${properties.hideLarge} ${properties.hideMedium} ${properties.hideSmall} ${properties.marginBottomDesk} ${properties.marginTopDesk} ${properties.paddingBottomDesk} ${properties.paddingTopDesk} ${properties.marginBottomtablet} ${properties.marginToptablet} ${properties.paddingBottomtablet} ${properties.paddingToptablet} ${properties.marginBottommobile} ${properties.marginTopmobile} ${properties.paddingBottommobile} ${properties.paddingTopmobile} ${properties.hasDynamicContent ? "updateComponentData": ""}'
+	data-search-type="${properties.hasDynamicContent ? properties.primarySource :''}"
+	data-component-type="${properties.hasDynamicContent ? 'string-update':''}"
+	data-custom-data="${properties.hasDynamicContent ? model.customData :''}"
+	style="background-color:${properties.bgColor @context='unsafe'}">
+	<sly data-sly-test="${properties.carouselOn == 'true'}" data-sly-unwrap>
+		<sly data-sly-use.jsCarousel='${"carouselBuilder.js" @ num = bannerModel.contentFragmentSourceModels.size}'></sly>
+		${jsCarousel.pre @context='unsafe'}
+	</sly>
+	<sly data-sly-list.model="${bannerModel.contentFragmentSourceModels}" data-sly-use.bannerTemplate="banner-template.html">
+		<sly data-sly-test="${properties.typeBanner == 'card'}">
+			<sly data-sly-call="${bannerTemplate.card @ model=model, carousel=jsCarousel}"></sly>
+		</sly>
+		<div class='${properties.hideLoggedIn ? "hideLoggedIn" : ""} ${properties.hideLoggedOut ? "hideLoggedOut" : ""}'>
+			<sly data-sly-test="${properties.typeBanner == 'block'}">
+				<sly data-sly-call="${bannerTemplate.block @ model=model, carousel=jsCarousel}"></sly>
+			</sly>
+
+		
+		</div>
+		<sly data-sly-test="${properties.typeBanner == 'hero'}">
+			<sly data-sly-call="${bannerTemplate.hero @ model=model, carousel=jsCarousel}"></sly>
+		</sly>
+		<sly data-sly-test="${properties.typeBanner == 'video'}">
+			<sly data-sly-call="${bannerTemplate.video @ model=model, carousel=jsCarousel}"></sly>
+		</sly>
+		<sly data-sly-test="${properties.typeBanner == 'title'}">
+			<sly data-sly-call="${bannerTemplate.title @ model=model, carousel=jsCarousel}"></sly>
+		</sly>
+		<sly data-sly-test="${properties.typeBanner == 'quote'}">
+			<sly data-sly-call="${bannerTemplate.quote @ model=model, carousel=jsCarousel}"></sly>
+		</sly>
+		<sly data-sly-test="${properties.typeBanner == 'article'}">
+			<sly data-sly-call="${bannerTemplate.article @ model=model, carousel=jsCarousel}"></sly>
+		</sly>
+		<sly data-sly-test="${properties.typeBanner == 'image-quote-banner'}">
+			<sly data-sly-call="${bannerTemplate.imageQuoteBanner @ model=model, carousel=jsCarousel}"></sly>
+		</sly>
+	</sly>
+	${jsCarousel.post @context='unsafe'}
+</div>
+
+<div>
+	<script type="text/javascript">
+	
+		
+	</script>
+</div>
+
+<sly data-sly-call="${template.placeholder @ isEmpty=!modelsAreDefined}"></sly>
+
